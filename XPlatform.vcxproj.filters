@@ -41,6 +41,18 @@
     <ClInclude Include="Vector3f.h">
       <Filter>XPlatform\Platform\Common</Filter>
     </ClInclude>
+    <ClInclude Include="Vector2f.h">
+      <Filter>XPlatform\Platform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>XPlatform\Platform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>XPlatform\Platform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>XPlatform\Platform\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="XPlatform">

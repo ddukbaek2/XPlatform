@@ -137,10 +137,14 @@
     <ClCompile Include="ApplicationListener.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="SharedClass.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="String.h" />
+    <ClInclude Include="Vector2f.h" />
     <ClInclude Include="Vector3f.h" />
+    <ClInclude Include="Vertex.h" />
     <ClInclude Include="Win32GL.h" />
     <ClInclude Include="Win32Application.h" />
     <ClInclude Include="ApplicationListener.h" />

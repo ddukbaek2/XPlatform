@@ -6,5 +6,7 @@ namespace XPlatform
 	class Sprite
 	{
 	public:
+		Sprite();
+		virtual ~Sprite();
 	};
 }
