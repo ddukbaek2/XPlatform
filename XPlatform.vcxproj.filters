@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="ApplicationListener.cpp" />
+    <ClCompile Include="AndroidMain.cpp">
+      <Filter>XPlatform\Platform\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="iOSMain.cpp">
+      <Filter>XPlatform\Platform\iOS</Filter>
+    </ClCompile>
+    <ClCompile Include="Win32Main.cpp">
+      <Filter>XPlatform\Platform\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="Win32Application.cpp">
+      <Filter>XPlatform\Platform\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="Win32GL.cpp">
+      <Filter>XPlatform\Platform\Win32</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ApplicationListener.h" />
+    <ClInclude Include="Win32Application.h">
+      <Filter>XPlatform\Platform\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32GL.h">
+      <Filter>XPlatform\Platform\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="XPlatform.h">
+      <Filter>XPlatform</Filter>
+    </ClInclude>
+    <ClInclude Include="SharedClass.h">
+      <Filter>XPlatform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="String.h">
+      <Filter>XPlatform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>XPlatform\Rendering</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="XPlatform">
+      <UniqueIdentifier>{ac17a008-a5f4-4eae-84b8-7dc39ec291fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\Common">
+      <UniqueIdentifier>{7317b75b-3917-4c66-91bc-492904550ab3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\Platform">
+      <UniqueIdentifier>{b1fc989a-2a87-42c2-b60e-05492c36da90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\Platform\Win32">
+      <UniqueIdentifier>{2066db47-5669-4253-b1b8-2adb25027707}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\Platform\Android">
+      <UniqueIdentifier>{5fd21078-5672-43d4-b7b5-13e8f2c09213}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\Platform\iOS">
+      <UniqueIdentifier>{5abf3427-9157-44dd-a418-a2cbc3e3f948}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\Rendering">
+      <UniqueIdentifier>{74965c58-aa08-45ce-ab13-0b344a8c94a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\Platform\Common">
+      <UniqueIdentifier>{3f22c2b9-1a1e-40ea-97e5-98a1c4051ac3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

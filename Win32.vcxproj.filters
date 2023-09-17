@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="WinMain.cpp">
+      <Filter>XPlatform\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="Win32GL.cpp">
+      <Filter>XPlatform\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="Win32Application.cpp">
+      <Filter>XPlatform\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="iOSMain.cpp">
+      <Filter>XPlatform\iOS</Filter>
+    </ClCompile>
+    <ClCompile Include="AndroidMain.cpp">
+      <Filter>XPlatform\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="ApplicationListener.cpp">
+      <Filter>XPlatform</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Win32Application.h">
+      <Filter>XPlatform\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32GL.h">
+      <Filter>XPlatform\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="SharedClass.h">
+      <Filter>XPlatform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="XPlatform.h">
+      <Filter>XPlatform</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplicationListener.h">
+      <Filter>XPlatform</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>XPlatform</Filter>
+    </ClInclude>
+    <ClInclude Include="String.h">
+      <Filter>XPlatform\Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="XPlatform">
+      <UniqueIdentifier>{0ae93891-4588-4f1b-a994-75a43af9697f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\Win32">
+      <UniqueIdentifier>{920c9e10-8b77-41de-a31e-ae227beb7cf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\Android">
+      <UniqueIdentifier>{e78407d3-2c47-40f5-b46c-b631e5f90996}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\iOS">
+      <UniqueIdentifier>{539440c1-c4ec-46a2-ba39-44678bea9fd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\Common">
+      <UniqueIdentifier>{326b9e80-bb4a-4311-b31b-9fd8a5b9ec8e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
