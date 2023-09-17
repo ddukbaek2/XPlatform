@@ -4,15 +4,20 @@
 
 namespace XPlatform
 {
-	union Vector3f
+	union Vector2f
 	{
 		struct
 		{
 			float X;
 			float Y;
-			float Z;
 		};
 
-		float Value[3];
+		struct
+		{
+			float U;
+			float V;
+		};
+
+		float Value[2];
 	};
 }

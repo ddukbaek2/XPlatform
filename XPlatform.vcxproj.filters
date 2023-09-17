@@ -38,6 +38,9 @@
     <ClInclude Include="Sprite.h">
       <Filter>XPlatform\Rendering</Filter>
     </ClInclude>
+    <ClInclude Include="Vector3f.h">
+      <Filter>XPlatform\Platform\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="XPlatform">

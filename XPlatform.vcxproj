@@ -140,6 +140,7 @@
     <ClInclude Include="SharedClass.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="String.h" />
+    <ClInclude Include="Vector3f.h" />
     <ClInclude Include="Win32GL.h" />
     <ClInclude Include="Win32Application.h" />
     <ClInclude Include="ApplicationListener.h" />
