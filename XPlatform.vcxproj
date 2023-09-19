@@ -131,6 +131,8 @@
   <ItemGroup>
     <ClCompile Include="AndroidMain.cpp" />
     <ClCompile Include="iOSMain.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="Win32GL.cpp" />
     <ClCompile Include="Win32Application.cpp" />
     <ClCompile Include="Win32Main.cpp" />
@@ -139,6 +141,7 @@
   <ItemGroup>
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="SharedClass.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="String.h" />

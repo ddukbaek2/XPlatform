@@ -17,6 +17,12 @@
     <ClCompile Include="Win32GL.cpp">
       <Filter>XPlatform\Platform\Win32</Filter>
     </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>XPlatform\Platform\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>XPlatform\Platform\Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ApplicationListener.h" />
@@ -51,6 +57,9 @@
       <Filter>XPlatform\Platform\Common</Filter>
     </ClInclude>
     <ClInclude Include="Node.h">
+      <Filter>XPlatform\Platform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
       <Filter>XPlatform\Platform\Common</Filter>
     </ClInclude>
   </ItemGroup>
