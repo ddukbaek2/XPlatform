@@ -10,6 +10,15 @@ namespace XPlatform
 
 	Object::~Object()
 	{
+		OnDestroy();
+	}
+
+	void Object::OnCreate()
+	{
+	}
+
+	void Object::OnDestroy()
+	{
 	}
 
 	void Object::Destroy(Object* object)

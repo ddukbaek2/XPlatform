@@ -14,6 +14,7 @@
 
 #define SAFE_DELETE(name) if (name != nullptr) { delete name; name = nullptr; }
 #define SAFE_DELETE_ARRAY(name) if (name != nullptr) { delete[] name; name = nullptr; }
+#define TEXT(text) L##text
 
 
 namespace XPlatform
