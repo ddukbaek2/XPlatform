@@ -1,8 +1,11 @@
 #pragma once
 
+#include "Type.h"
+	
 
 namespace XPlatform
 {
+
 	class Object
 	{
 	private:
@@ -17,6 +20,8 @@ namespace XPlatform
 		virtual void OnDestroy();
 
 	public:
+		//Type GetType();
+		Object Clone();
 		static void Destroy(Object* object);
 		static void DestroyImmediate(Object* object);
 	};

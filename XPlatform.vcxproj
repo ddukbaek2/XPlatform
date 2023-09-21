@@ -133,6 +133,8 @@
     <ClCompile Include="iOSMain.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="String.cpp" />
+    <ClCompile Include="Type.cpp" />
     <ClCompile Include="Win32GL.cpp" />
     <ClCompile Include="Win32Application.cpp" />
     <ClCompile Include="Win32Main.cpp" />
@@ -145,6 +147,7 @@
     <ClInclude Include="SharedClass.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="String.h" />
+    <ClInclude Include="Type.h" />
     <ClInclude Include="Vector2f.h" />
     <ClInclude Include="Vector3f.h" />
     <ClInclude Include="Vertex.h" />

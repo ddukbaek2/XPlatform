@@ -98,7 +98,6 @@ namespace XPlatform
 
 	Node* Node::FindChild(const wchar_t* nodeName)
 	{
-		split
 		for (auto it = m_Children.begin(); it != m_Children.end(); ++it)
 		{
 			auto childNode = *it;

@@ -23,6 +23,12 @@
     <ClCompile Include="Object.cpp">
       <Filter>XPlatform\Platform\Common</Filter>
     </ClCompile>
+    <ClCompile Include="String.cpp">
+      <Filter>XPlatform\Platform\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Type.cpp">
+      <Filter>XPlatform\Platform\Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ApplicationListener.h" />
@@ -34,12 +40,6 @@
     </ClInclude>
     <ClInclude Include="XPlatform.h">
       <Filter>XPlatform</Filter>
-    </ClInclude>
-    <ClInclude Include="SharedClass.h">
-      <Filter>XPlatform\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="String.h">
-      <Filter>XPlatform\Common</Filter>
     </ClInclude>
     <ClInclude Include="Sprite.h">
       <Filter>XPlatform\Rendering</Filter>
@@ -62,13 +62,19 @@
     <ClInclude Include="Object.h">
       <Filter>XPlatform\Platform\Common</Filter>
     </ClInclude>
+    <ClInclude Include="Type.h">
+      <Filter>XPlatform\Platform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="String.h">
+      <Filter>XPlatform\Platform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="SharedClass.h">
+      <Filter>XPlatform\Platform\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="XPlatform">
       <UniqueIdentifier>{ac17a008-a5f4-4eae-84b8-7dc39ec291fb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="XPlatform\Common">
-      <UniqueIdentifier>{7317b75b-3917-4c66-91bc-492904550ab3}</UniqueIdentifier>
     </Filter>
     <Filter Include="XPlatform\Platform">
       <UniqueIdentifier>{b1fc989a-2a87-42c2-b60e-05492c36da90}</UniqueIdentifier>

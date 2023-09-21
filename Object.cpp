@@ -4,6 +4,12 @@
 
 namespace XPlatform
 {
+	template <typename T> T* Clone(const T* original)
+	{
+		static_assert(std::is_base_of<Object, T>::value, "T must be a subclass of Object");
+		return dynamic_cast<T*>(original->Clone());
+	}
+
 	Object::Object()
 	{
 		m_ReferenceCount = 1;
@@ -20,6 +26,11 @@ namespace XPlatform
 
 	void Object::OnDestroy()
 	{
+	}
+
+	Object Object::Clone()
+	{
+		return Object();
 	}
 
 	void Object::Destroy(Object* object)
