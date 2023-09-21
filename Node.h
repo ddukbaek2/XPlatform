@@ -28,8 +28,8 @@ namespace XPlatform
 		void SetSiblingIndex(unsigned int siblingIndex);
 		void SetFirstSibling();
 		void SetLastSibling();
-		void Contains(Node* childNode, bool checkHeirarchy = false);
-		void FindChild(const wchar_t* nodeName);
+		bool Contains(Node* childNode, bool checkHierarchy = false);
+		Node* FindChild(const wchar_t* nodeName);
 		void AddChild(Node* childNode);
 		void RemoveChild(Node* childNode);
 		void RemoveChildren();
@@ -39,6 +39,5 @@ namespace XPlatform
 		unsigned int GetChildCount();
 		const Node* GetParent();
 		const Node* GetChild(unsigned int childIndex);
-		//std::vector<Node*> GetChildren();
 	};
 }

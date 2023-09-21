@@ -1,5 +1,6 @@
 #include "Node.h"
 #include <sstream>
+#include <cwchar>
 
 
 namespace XPlatform
@@ -74,19 +75,37 @@ namespace XPlatform
 	{
 	}
 
-	bool Node::Contains(Node* childNode, bool checkHeirarchy)
+	bool Node::Contains(Node* childNode, bool checkHierarchy)
 	{
-		childNode
-		if ()
+		if (childNode == nullptr)
+			return false;
+
+		for (auto it = m_Children.begin(); it != m_Children.end(); ++it)
+		{
+			auto currentNode = *it;
+			if (currentNode == childNode)
+				return true;
+
+			if (checkHierarchy)
+			{
+				if (currentNode->Contains(childNode, true))
+					return true;
+			}
+		}
+
+		return false;
 	}
 
-	void Node::FindChild(const wchar_t* nodeName)
+	Node* Node::FindChild(const wchar_t* nodeName)
 	{
+		split
 		for (auto it = m_Children.begin(); it != m_Children.end(); ++it)
 		{
 			auto childNode = *it;
 			//childNode->m_Name.compare()
 		}
+
+		return nullptr;
 	}
 
 	void Node::AddChild(Node* childNode)
@@ -169,9 +188,4 @@ namespace XPlatform
 
 		return m_Children[childIndex];
 	}
-
-	//std::vector<Node*> Node::GetChildren()
-	//{
-	//	return m_Children;
-	//}
 }

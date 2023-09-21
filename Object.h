@@ -6,6 +6,8 @@ namespace XPlatform
 	class Object
 	{
 	private:
+		unsigned int m_ReferenceCount;
+
 	public:
 		Object();
 		virtual ~Object();

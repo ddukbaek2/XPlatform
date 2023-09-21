@@ -6,6 +6,7 @@ namespace XPlatform
 {
 	Object::Object()
 	{
+		m_ReferenceCount = 1;
 	}
 
 	Object::~Object()
