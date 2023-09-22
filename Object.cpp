@@ -4,10 +4,12 @@
 
 namespace XPlatform
 {
+	std::map<std::string, std::function<Object* (void)>> g_ObjectFactory;
+
+
 	template <typename T> T* Clone(const T* original)
 	{
-		static_assert(std::is_base_of<Object, T>::value, "T must be a subclass of Object");
-		return dynamic_cast<T*>(original->Clone());
+		return new T();
 	}
 
 	Object::Object()
@@ -28,9 +30,9 @@ namespace XPlatform
 	{
 	}
 
-	Object Object::Clone()
+	Object* Object::Clone()
 	{
-		return Object();
+		return nullptr;
 	}
 
 	void Object::Destroy(Object* object)

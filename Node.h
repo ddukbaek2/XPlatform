@@ -1,6 +1,7 @@
 #pragma once
 #include "XPlatform.h"
 #include "Object.h"
+#include "String.h"
 
 
 namespace XPlatform
@@ -25,6 +26,8 @@ namespace XPlatform
 
 	public:
 		void SetName(const wchar_t* nodeName);
+		void SetName(const std::wstring& nodeName);
+
 		void SetSiblingIndex(unsigned int siblingIndex);
 		void SetFirstSibling();
 		void SetLastSibling();

@@ -19,7 +19,7 @@ namespace XPlatform
 
 	void Node::SetFullName()
 	{
-		std::wstringstream ss;
+		std::wstringstream stringStream;
 		std::vector<Node*> nodes;
 
 		auto currentNode = this;
@@ -35,16 +35,16 @@ namespace XPlatform
 
 			if (it == nodes.rbegin())
 			{
-				ss << L"" << node->m_Name;
+				stringStream << L"" << node->m_Name.c_str();
 			}
 			else
 			{
-				ss << L"/" << node->m_Name;
+				stringStream << L"/" << node->m_Name.c_str();
 			}
 		}
 
-		m_FullName.clear();
-		m_FullName = ss.str();
+		auto fullname = stringStream.str();
+		m_FullName.assign(fullname.c_str());
 	}
 
 	void Node::OnDestroy()
@@ -52,11 +52,15 @@ namespace XPlatform
 		RemoveChildren();
 	}
 
-
 	void Node::SetName(const wchar_t* nodeName)
 	{
-		m_Name = nodeName;
+		m_Name.assign(nodeName);
 		SetFullName();
+	}
+
+	void Node::SetName(const std::wstring& nodeName)
+	{
+		m_Name.assign(nodeName);
 	}
 
 	void Node::SetSiblingIndex(unsigned int siblingIndex)

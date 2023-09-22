@@ -18,16 +18,19 @@
       <Filter>XPlatform\Platform\Win32</Filter>
     </ClCompile>
     <ClCompile Include="Node.cpp">
-      <Filter>XPlatform\Platform\Common</Filter>
+      <Filter>XPlatform\Common</Filter>
     </ClCompile>
     <ClCompile Include="Object.cpp">
-      <Filter>XPlatform\Platform\Common</Filter>
+      <Filter>XPlatform\Common</Filter>
     </ClCompile>
-    <ClCompile Include="String.cpp">
-      <Filter>XPlatform\Platform\Common</Filter>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>XPlatform\Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="Type.cpp">
-      <Filter>XPlatform\Platform\Common</Filter>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>XPlatform\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>XPlatform\Common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -45,31 +48,28 @@
       <Filter>XPlatform\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="Vector3f.h">
-      <Filter>XPlatform\Platform\Common</Filter>
+      <Filter>XPlatform\Common</Filter>
     </ClInclude>
     <ClInclude Include="Vector2f.h">
-      <Filter>XPlatform\Platform\Common</Filter>
+      <Filter>XPlatform\Common</Filter>
     </ClInclude>
     <ClInclude Include="Vertex.h">
-      <Filter>XPlatform\Platform\Common</Filter>
+      <Filter>XPlatform\Common</Filter>
     </ClInclude>
     <ClInclude Include="Mesh.h">
-      <Filter>XPlatform\Platform\Common</Filter>
+      <Filter>XPlatform\Common</Filter>
     </ClInclude>
     <ClInclude Include="Node.h">
-      <Filter>XPlatform\Platform\Common</Filter>
+      <Filter>XPlatform\Common</Filter>
     </ClInclude>
     <ClInclude Include="Object.h">
-      <Filter>XPlatform\Platform\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Type.h">
-      <Filter>XPlatform\Platform\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="String.h">
-      <Filter>XPlatform\Platform\Common</Filter>
+      <Filter>XPlatform\Common</Filter>
     </ClInclude>
     <ClInclude Include="SharedClass.h">
-      <Filter>XPlatform\Platform\Common</Filter>
+      <Filter>XPlatform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>XPlatform\Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -91,7 +91,7 @@
     <Filter Include="XPlatform\Rendering">
       <UniqueIdentifier>{74965c58-aa08-45ce-ab13-0b344a8c94a2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="XPlatform\Platform\Common">
+    <Filter Include="XPlatform\Common">
       <UniqueIdentifier>{3f22c2b9-1a1e-40ea-97e5-98a1c4051ac3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
