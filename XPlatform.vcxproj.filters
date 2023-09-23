@@ -17,20 +17,23 @@
     <ClCompile Include="Win32GL.cpp">
       <Filter>XPlatform\Platform\Win32</Filter>
     </ClCompile>
-    <ClCompile Include="Node.cpp">
-      <Filter>XPlatform\Common</Filter>
-    </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>XPlatform\Common</Filter>
     </ClCompile>
     <ClCompile Include="Sprite.cpp">
       <Filter>XPlatform\Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="Matrix.cpp">
-      <Filter>XPlatform\Common</Filter>
+    <ClCompile Include="Camera.cpp">
+      <Filter>XPlatform\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>XPlatform\Node</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.cpp">
-      <Filter>XPlatform\Common</Filter>
+      <Filter>XPlatform\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix16.cpp">
+      <Filter>XPlatform\DataType</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -47,29 +50,50 @@
     <ClInclude Include="Sprite.h">
       <Filter>XPlatform\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="Vector3f.h">
-      <Filter>XPlatform\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2f.h">
-      <Filter>XPlatform\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Vertex.h">
-      <Filter>XPlatform\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>XPlatform\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Node.h">
-      <Filter>XPlatform\Common</Filter>
-    </ClInclude>
     <ClInclude Include="Object.h">
       <Filter>XPlatform\Common</Filter>
     </ClInclude>
     <ClInclude Include="SharedClass.h">
       <Filter>XPlatform\Common</Filter>
     </ClInclude>
-    <ClInclude Include="Matrix.h">
-      <Filter>XPlatform\Common</Filter>
+    <ClInclude Include="Renderer.h">
+      <Filter>XPlatform\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>XPlatform\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>XPlatform\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>XPlatform\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Quad.h">
+      <Filter>XPlatform\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>XPlatform\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3.h">
+      <Filter>XPlatform\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>XPlatform\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix16.h">
+      <Filter>XPlatform\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>XPlatform\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>XPlatform\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>XPlatform\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>XPlatform\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +117,18 @@
     </Filter>
     <Filter Include="XPlatform\Common">
       <UniqueIdentifier>{3f22c2b9-1a1e-40ea-97e5-98a1c4051ac3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\Node">
+      <UniqueIdentifier>{35eda9c7-371a-4152-b825-afeae0bbcfd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\DataType">
+      <UniqueIdentifier>{4a91fb21-ac90-4bc9-a2a1-6aa94b202260}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\Component">
+      <UniqueIdentifier>{10f9f58e-f356-42de-ab1e-fc76f02b44ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\Scene">
+      <UniqueIdentifier>{36be2e52-fd68-4dd8-b14f-e7616a8eb54c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -9,7 +9,7 @@ namespace XPlatform
 {
 	void Win32GL::Clear(AttribMask attribMask)
 	{
-		glClear((unsigned int)attribMask);
+		glClear((uint32_t)attribMask);
 	}
 
 	void Win32GL::SetClearColor(float r, float g, float b, float a)
@@ -24,7 +24,7 @@ namespace XPlatform
 
 	void Win32GL::SetMatrixMode(MatrixMode matrixMode)
 	{
-		glMatrixMode((unsigned int)matrixMode);
+		glMatrixMode((uint32_t)matrixMode);
 	}
 
 	void Win32GL::Translatef(float x, float y, float z)
@@ -52,7 +52,7 @@ namespace XPlatform
 	}
 	void Win32GL::Begin(BeginMode beginMode)
 	{
-		glBegin((unsigned int)beginMode);
+		glBegin((uint32_t)beginMode);
 	}
 	void Win32GL::Color4f(float r, float g, float b, float a)
 	{
@@ -91,19 +91,19 @@ namespace XPlatform
 
 	void Win32GL::GenTextures()
 	{
-		unsigned int textures = 0;
+		uint32_t textures = 0;
 		glGenTextures(1, &textures);
 	}
 
 	void Win32GL::DeleteTexture()
 	{
-		unsigned int textures = 0;
+		uint32_t textures = 0;
 		glDeleteTextures(1, &textures);
 	}
 
-	void Win32GL::BindTexture(unsigned int texture)
+	void Win32GL::BindTexture(uint32_t texture)
 	{
-		glBindTexture((unsigned int)GL_TEXTURE_2D, texture);
+		glBindTexture((uint32_t)GL_TEXTURE_2D, texture);
 	}
 
 	void Win32GL::TexParameteri()

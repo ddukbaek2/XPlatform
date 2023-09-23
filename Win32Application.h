@@ -26,7 +26,7 @@ namespace XPlatform
 		Win32Application();
 		virtual ~Win32Application();
 
-		bool Run(IApplicationListener* applicationListener, int width, int height, bool useFullscreen);
+		bool Run(std::shared_ptr<IApplicationListener> applicationListener, int width, int height, bool useFullscreen);
 		void Quit();
 	};
 
@@ -34,7 +34,7 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 어플리케이션 실행.
 	/////////////////////////////////////////////////////////////////////////////
-	void StartApplication(IApplicationListener* applicationListener, int width, int height, bool useFullscreen);
+	void StartApplication(std::shared_ptr<IApplicationListener> applicationListener, int width, int height, bool useFullscreen);
 
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 어플리케이션 종료.

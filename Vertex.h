@@ -1,14 +1,14 @@
 #pragma once
 #include "XPlatform.h"
-#include "Vector2f.h"
-#include "Vector3f.h"
+#include "Vector2.h"
+#include "Vector3.h"
 
 
 namespace XPlatform
 {
 	struct Vertex
 	{
-		Vector3f Position;
-		Vector2f UV;
+		Vector3 Position;
+		Vector2 TextureCoord;
 	};
 }

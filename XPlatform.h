@@ -1,15 +1,16 @@
 #pragma once
 
-#include <memory> // std::shared_ptr, std::weak_ptr
-#include <string> // std::wstring
-#include <map> // std::map
-#include <vector> // std::vector
+#include <memory> // std::shared_ptr, std::weak_ptr.
+#include <string> // std::wstring.
+#include <map> // std::map.
+#include <vector> // std::vector.
 #include <queue>
 #include <stack>
 #include <set>
 #include <algorithm>
 #include <functional>
 #include <chrono>
+#include <cstdint> // int8_t, int16_t, int32_t, int64_t, uint8_t, uint16_t, uint32_t, uint64_t.
 
 
 #define SAFE_DELETE(name) if (name != nullptr) { delete name; name = nullptr; }
@@ -1101,7 +1102,7 @@ namespace XPlatform
 		virtual void Enable() = 0;
 		virtual void GenTextures() = 0;
 		virtual void DeleteTexture() = 0;
-		virtual void BindTexture(unsigned int texture) = 0;
+		virtual void BindTexture(uint32_t texture) = 0;
 		virtual void TexParameteri() = 0;
 		virtual void TexImage2D() = 0;
 	};
@@ -1114,13 +1115,13 @@ namespace XPlatform
 	class IApplication
 	{
 	private:
-		IApplicationListener* m_ApplicationListener;
+		std::shared_ptr<IApplicationListener> m_ApplicationListener;
 
 	public:
 		IApplication();
 		virtual ~IApplication();
-		void SetApplicationListener(IApplicationListener* applicationListener);
-		IApplicationListener* GetApplicationListener();
+		void SetApplicationListener(std::shared_ptr<IApplicationListener> applicationListener);
+		std::shared_ptr<IApplicationListener> GetApplicationListener();
 	};
 
 

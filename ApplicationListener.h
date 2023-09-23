@@ -1,6 +1,8 @@
 ﻿#pragma once
 
 #include "XPlatform.h"
+#include "Node.h"
+
 
 /*
 * 공통 기능.
@@ -18,19 +20,16 @@ namespace XPlatform
 {
 	class ApplicationListener : public IApplicationListener
 	{
-	private:
-
-	public:
-		ApplicationListener();
-		virtual ~ApplicationListener();
+	protected:
+		Node* m_Root;
 
 	protected:
-		virtual void OnCreate() override;
-		virtual void OnDestroy() override;
-		virtual void OnUpdate(float deltaTime) override;
-		virtual void OnRender(IGL* gl) override;
-		virtual void OnPause() override;
-		virtual void OnResume() override;
+		void OnCreate() override;
+		void OnDestroy() override;
+		void OnUpdate(float deltaTime) override;
+		void OnRender(IGL* gl) override;
+		void OnPause() override;
+		void OnResume() override;
 
 		//virtual void OnKeyPress(int keyCode) override;
 	};

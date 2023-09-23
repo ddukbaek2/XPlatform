@@ -13,6 +13,7 @@ namespace XPlatform
 		std::wstring m_FullName;
 		Node* m_Parent;
 		std::vector<Node*> m_Children;
+		bool m_IsActive;
 
 	public:
 		Node();
@@ -22,13 +23,19 @@ namespace XPlatform
 		void SetFullName();
 
 	protected:
-		virtual void OnDestroy() override;
+		void OnCreate() override;
+		void OnDestroy() override;
+
+	public:
+		void SetActiveSelf(bool active);
+		bool IsActiveSelf();
+		bool IsActiveInHierarchy();
 
 	public:
 		void SetName(const wchar_t* nodeName);
 		void SetName(const std::wstring& nodeName);
 
-		void SetSiblingIndex(unsigned int siblingIndex);
+		void SetSiblingIndex(uint32_t siblingIndex);
 		void SetFirstSibling();
 		void SetLastSibling();
 		bool Contains(Node* childNode, bool checkHierarchy = false);
@@ -41,6 +48,8 @@ namespace XPlatform
 		const wchar_t* GetFullName();
 		unsigned int GetChildCount();
 		const Node* GetParent();
-		const Node* GetChild(unsigned int childIndex);
+		const Node* GetChild(uint32_t childIndex);
 	};
+
+	RegisterObject(Node);
 }

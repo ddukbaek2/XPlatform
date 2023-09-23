@@ -40,7 +40,7 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 애플리케이션 리스너 설정.
 	/////////////////////////////////////////////////////////////////////////////
-	void IApplication::SetApplicationListener(IApplicationListener* applicationListener)
+	void IApplication::SetApplicationListener(std::shared_ptr<IApplicationListener> applicationListener)
 	{
 		m_ApplicationListener = applicationListener;
 		g_ApplicationListenerOnCreateEvent = std::bind(&IApplicationListener::OnCreate, m_ApplicationListener);
@@ -54,7 +54,7 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 애플리케이션 리스너 반환.
 	/////////////////////////////////////////////////////////////////////////////
-	IApplicationListener* IApplication::GetApplicationListener()
+	std::shared_ptr<IApplicationListener> IApplication::GetApplicationListener()
 	{
 		return m_ApplicationListener;
 	}
@@ -81,7 +81,7 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 어플리케이션 실행.
 	/////////////////////////////////////////////////////////////////////////////
-	bool Win32Application::Run(IApplicationListener* applicationListener, int width, int height, bool useFullscreen)
+	bool Win32Application::Run(std::shared_ptr<IApplicationListener> applicationListener, int width, int height, bool useFullscreen)
 	{		
 		SetApplicationListener(applicationListener);
 
@@ -236,8 +236,8 @@ namespace XPlatform
 
 		case WM_SIZE:
 			{
-				unsigned short width = LOWORD(lParam); // minwindef.h
-				unsigned short height = HIWORD(lParam); // minwindef.h
+				uint16_t width = LOWORD(lParam); // minwindef.h
+				uint16_t height = HIWORD(lParam); // minwindef.h
 				if (s_Instance != nullptr)
 				{
 					//if (Instance->m_Application != nullptr)
@@ -320,7 +320,7 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 어플리케이션 실행.
 	/////////////////////////////////////////////////////////////////////////////
-	void StartApplication(IApplicationListener* applicationListener, int width, int height, bool useFullscreen)
+	void StartApplication(std::shared_ptr<IApplicationListener> applicationListener, int width, int height, bool useFullscreen)
 	{
 		if (Win32Application::s_Instance == nullptr)
 			Win32Application::s_Instance = new Win32Application();

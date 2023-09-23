@@ -11,6 +11,7 @@ namespace XPlatform
 		m_Name.clear();
 		m_FullName.clear();
 		m_Children.clear();
+		m_IsActive = true;
 	}
 
 	Node::~Node()
@@ -47,9 +48,40 @@ namespace XPlatform
 		m_FullName.assign(fullname.c_str());
 	}
 
+	void Node::OnCreate()
+	{
+	}
+
 	void Node::OnDestroy()
 	{
 		RemoveChildren();
+	}
+
+	void Node::SetActiveSelf(bool isActive)
+	{
+		m_IsActive = isActive;
+	}
+
+	bool Node::IsActiveSelf()
+	{
+		return m_IsActive;
+	}
+
+	bool Node::IsActiveInHierarchy()
+	{
+		if (!IsActiveSelf())
+			return false;
+
+		auto parent = m_Parent;
+		while (parent != nullptr)
+		{
+			if (!parent->IsActiveSelf())
+				return false;
+
+			parent = parent->m_Parent;
+		}
+
+		return true;
 	}
 
 	void Node::SetName(const wchar_t* nodeName)
@@ -63,7 +95,7 @@ namespace XPlatform
 		m_Name.assign(nodeName);
 	}
 
-	void Node::SetSiblingIndex(unsigned int siblingIndex)
+	void Node::SetSiblingIndex(uint32_t siblingIndex)
 	{
 		if (m_Parent == nullptr)
 			return;
@@ -184,7 +216,7 @@ namespace XPlatform
 		return m_Parent;
 	}
 
-	const Node* Node::GetChild(unsigned int childIndex)
+	const Node* Node::GetChild(uint32_t childIndex)
 	{
 		if (childIndex < m_Children.size())
 			return nullptr;

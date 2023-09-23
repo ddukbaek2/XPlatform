@@ -1,10 +1,14 @@
 #include "Sprite.h"
 
-
-XPlatform::Sprite::Sprite()
+namespace XPlatform
 {
-}
+	Sprite::Sprite()
+	{
 
-XPlatform::Sprite::~Sprite()
-{
+	}
+
+	Sprite::~Sprite()
+	{
+
+	}
 }

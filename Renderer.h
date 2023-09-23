@@ -4,8 +4,10 @@
 
 namespace XPlatform
 {
-	class Renderer : Object
+	class Renderer : public Object
 	{
 	public:
 	};
+
+	RegisterObject(Renderer);
 }

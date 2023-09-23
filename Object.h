@@ -3,22 +3,40 @@
 #include <map>
 #include <string>
 #include <functional>
+#include <cstdint>
 
 
-#define REGISTEROBJECT(CLASS) g_ObjectFactory[#CLASS] = []() -> Object* { return new CLASS(); }
-#define CREATEINSTANCE(CLASS) g_ObjectFactory[#CLASS]()
+/////////////////////////////////////////////////////////////////////////////
+// @ 내부 인스턴스 생성기에 오브젝트를 상속받은 객체들 추가.
+/////////////////////////////////////////////////////////////////////////////
+#define RegisterObject(CLASS) \
+    namespace { \
+        struct __##CLASS##Register__ { \
+            __##CLASS##Register__() { \
+				SetObjectCreator(L#CLASS, []() -> Object* { return new CLASS(); });\
+            } \
+        }; \
+    } \
+    static __##CLASS##Register__ g_##CLASS##RegisterInstance;
+
+
+/////////////////////////////////////////////////////////////////////////////
+// @ 오브젝트를 상속받은 객체들 생성.
+/////////////////////////////////////////////////////////////////////////////
+#define CreateInstance(CLASS) (CLASS*)Object::Instantiate(L#CLASS)
 
 
 namespace XPlatform
 {
 	/////////////////////////////////////////////////////////////////////////////
-	// @ 오브젝트 : new 로 생성되는 모든 라이브러리 객체들의 기본 클래스.
+	// @ 오브젝트 : CreateInstance 로 생성되는 모든 라이브러리 객체들의 기본 클래스.
 	/////////////////////////////////////////////////////////////////////////////
 	class Object
 	{
 	private:
-		unsigned int m_ReferenceCount;
-
+		uint64_t m_ReferenceCount;
+		uint64_t m_InstanceID;
+		
 	public:
 		Object();
 		virtual ~Object();
@@ -28,10 +46,15 @@ namespace XPlatform
 		virtual void OnDestroy();
 
 	public:
-		Object* Clone();
+		uint64_t GetReferenceCount();
+		uint64_t GetInstanceID();
+
+	public:
+		static Object* Instantiate(const std::wstring& className);
 		static void Destroy(Object* object);
 		static void DestroyImmediate(Object* object);
 	};
 
-	extern std::map<std::string, std::function<Object*(void)>> g_ObjectFactory;
+	typedef std::function<Object* (void)> ObjectCreateLambda;
+	void SetObjectCreator(std::wstring className, ObjectCreateLambda lambda);
 }

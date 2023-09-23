@@ -130,8 +130,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AndroidMain.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="iOSMain.cpp" />
-    <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="Matrix16.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Object.cpp" />
@@ -142,14 +143,21 @@
     <ClCompile Include="ApplicationListener.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Matrix.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="Color.h" />
+    <ClInclude Include="Component.h" />
+    <ClInclude Include="Matrix16.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="Quad.h" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SharedClass.h" />
     <ClInclude Include="Sprite.h" />
-    <ClInclude Include="Vector2f.h" />
-    <ClInclude Include="Vector3f.h" />
+    <ClInclude Include="Vector2.h" />
+    <ClInclude Include="Vector3.h" />
     <ClInclude Include="Vertex.h" />
     <ClInclude Include="Win32GL.h" />
     <ClInclude Include="Win32Application.h" />

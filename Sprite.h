@@ -1,4 +1,5 @@
 #pragma once
+
 #include "XPlatform.h"
 #include "Object.h"
 
@@ -10,4 +11,6 @@ namespace XPlatform
 		Sprite();
 		virtual ~Sprite();
 	};
+
+	RegisterObject(Sprite);
 }

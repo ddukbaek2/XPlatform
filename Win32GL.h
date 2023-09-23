@@ -31,7 +31,7 @@ namespace XPlatform
 		void Enable();
 		void GenTextures();
 		void DeleteTexture();
-		void BindTexture(unsigned int texture);
+		void BindTexture(uint32_t texture);
 		void TexParameteri();
 		void TexImage2D();
 	};

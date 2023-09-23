@@ -6,6 +6,8 @@ protected:
 	SharedClass() {}
 
 public:
+	virtual ~SharedClass() {}
+
 	static T* GetSharedInstance()
 	{
 		static T instance;

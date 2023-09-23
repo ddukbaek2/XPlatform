@@ -8,7 +8,8 @@ namespace XPlatform
 	{
 	private:
 		std::vector<Vertex> m_Vertices;
-		std::vector<unsigned short> m_Indices;
+		std::vector<uint32_t> m_Indices;
+		std::vector<Vector2> m_TextureCoords;
 
 	public:
 		Mesh();
