@@ -12,7 +12,7 @@ namespace XPlatform
 	protected:
 		std::wstring m_Name;
 		bool m_IsVisible;
-		Node* m_Root;
+		std::shared_ptr<Node> m_RootNode;
 
 	public:
 		void SetVisible(bool visible);

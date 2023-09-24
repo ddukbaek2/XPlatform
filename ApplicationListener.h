@@ -21,7 +21,7 @@ namespace XPlatform
 	class ApplicationListener : public IApplicationListener
 	{
 	protected:
-		Node* m_Root;
+		std::shared_ptr<Node> m_Root;
 
 	protected:
 		void OnCreate() override;

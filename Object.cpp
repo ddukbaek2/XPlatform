@@ -1,20 +1,20 @@
-#include "XPlatform.h"
+Ôªø#include "XPlatform.h"
 #include "Object.h"
 
 
 namespace XPlatform
 {
-	/////////////////////////////////////////////////////////////////////////////
-	// @ ø¿∫Í¡ß∆Æ ∞¸∏Æπˆ∆€ π›»Ø.
-	/////////////////////////////////////////////////////////////////////////////
-	auto& GetSharedAllObjects()
-	{
-		static std::vector<Object*> sharedAllObjects;
-		return sharedAllObjects;
-	}
+	///////////////////////////////////////////////////////////////////////////////
+	//// @ Ïò§Î∏åÏ†ùÌä∏ Í¥ÄÎ¶¨Î≤ÑÌçº Î∞òÌôò.
+	///////////////////////////////////////////////////////////////////////////////
+	//auto& GetSharedAllObjects()
+	//{
+	//	static std::vector<Object*> sharedAllObjects;
+	//	return sharedAllObjects;
+	//}
 
 	/////////////////////////////////////////////////////////////////////////////
-	// @ ø¿∫Í¡ß∆Æ ª˝º∫±‚ π›»Ø.
+	// @ Ïò§Î∏åÏ†ùÌä∏ ÏÉùÏÑ±Í∏∞ Î∞òÌôò.
 	/////////////////////////////////////////////////////////////////////////////
 	auto& GetSharedObjectCreator()
 	{
@@ -23,7 +23,7 @@ namespace XPlatform
 	}
 
 	/////////////////////////////////////////////////////////////////////////////
-	// @ ø¿∫Í¡ß∆Æ∏¶ ªÛº”πﬁ¿∫ ∞¥√ºµÈ ª˝º∫ ∂˜¥Ÿ«‘ºˆ º¬∆√.
+	// @ Ïò§Î∏åÏ†ùÌä∏Î•º ÏÉÅÏÜçÎ∞õÏùÄ Í∞ùÏ≤¥Îì§ ÏÉùÏÑ± ÎûåÎã§Ìï®Ïàò ÏÖãÌåÖ.
 	/////////////////////////////////////////////////////////////////////////////
 	void SetObjectCreator(std::wstring className, ObjectCreateLambda lambda)
 	{
@@ -36,36 +36,36 @@ namespace XPlatform
 		sharedObjectCreator[className] = lambda;
 	}
 
-	void CheckAllReferences()
-	{
-		auto& sharedAllObjects = GetSharedAllObjects();
-		auto it = sharedAllObjects.begin();
-		while (it != sharedAllObjects.end())
-		{	
-			auto sharedObject = *it;
-			if (sharedObject == nullptr)
-			{
-				it = sharedAllObjects.erase(it);
-			}
-			else if (sharedObject->GetReferenceCount() <= 0)
-			{
-				//sharedObject->OnDestroy();
-				SAFE_DELETE(sharedObject);
-				it = sharedAllObjects.erase(it);
-			}
+	//void CheckAllReferences()
+	//{
+	//	auto& sharedAllObjects = GetSharedAllObjects();
+	//	auto it = sharedAllObjects.begin();
+	//	while (it != sharedAllObjects.end())
+	//	{	
+	//		auto sharedObject = *it;
+	//		if (sharedObject == nullptr)
+	//		{
+	//			it = sharedAllObjects.erase(it);
+	//		}
+	//		else if (sharedObject->GetReferenceCount() <= 0)
+	//		{
+	//			//sharedObject->OnDestroy();
+	//			SAFE_DELETE(sharedObject);
+	//			it = sharedAllObjects.erase(it);
+	//		}
 
-			++it;
-		}
-	}
+	//		++it;
+	//	}
+	//}
 
 	Object::Object()
 	{
-		m_ReferenceCount = 0;
 		m_InstanceID = 0;
 	}
 
 	Object::~Object()
 	{
+		// Î†àÌçºÎü∞Ïä§Ïπ¥Ïö¥Ìä∏Í∞Ä 0Ïù¥ÎêòÏñ¥ ÏÇ≠Ï†úÏ≤òÎ¶¨ ÎêòÎ©¥ OnDestroy() Ìò∏Ï∂ú.
 		OnDestroy();
 	}
 
@@ -77,10 +77,10 @@ namespace XPlatform
 	{
 	}
 
-	uint64_t Object::GetReferenceCount()
-	{
-		return m_ReferenceCount;
-	}
+	//uint64_t Object::GetReferenceCount()
+	//{
+	//	return m_ReferenceCount;
+	//}
 
 	uint64_t Object::GetInstanceID()
 	{
@@ -90,36 +90,32 @@ namespace XPlatform
 	Object* Object::Instantiate(const std::wstring& className)
 	{
 		auto& sharedObjectCreator = GetSharedObjectCreator();
-		auto& sharedAllObjects = GetSharedAllObjects();
-
 		auto object = sharedObjectCreator[className]();
-		sharedAllObjects.push_back(object);
-		++object->m_ReferenceCount;
+
+		//auto& sharedAllObjects = GetSharedAllObjects();
+		//sharedAllObjects.push_back(object);
+		//++object->m_ReferenceCount;
 		object->OnCreate();
 		return object;
 	}
 
-	void Object::Destroy(Object* object)
-	{
-		if (object == nullptr)
-			return;
+	//void Object::Destroy(Object* object)
+	//{
+	//	if (object == nullptr)
+	//		return;
 
-		--object->m_ReferenceCount;
-		//SAFE_DELETE(object);
-	}
+	//	//--object->m_ReferenceCount;
+	//	//SAFE_DELETE(object);
+	//}
 
-	void Object::DestroyImmediate(Object* object)
-	{
-		if (object == nullptr)
-			return;
+	//void Object::DestroyImmediate(Object* object)
+	//{
+	//	if (object == nullptr)
+	//		return;
 
-		auto& sharedAllObjects = GetSharedAllObjects();
-		sharedAllObjects.erase(std::remove(sharedAllObjects.begin(), sharedAllObjects.end(), object), sharedAllObjects.end());
-
-		auto obj = std::make_shared<Object>();
-		obj->OnDestroy();
-
-		object->OnDestroy();
-		SAFE_DELETE(object);
-	}
+	//	//auto& sharedAllObjects = GetSharedAllObjects();
+	//	//sharedAllObjects.erase(std::remove(sharedAllObjects.begin(), sharedAllObjects.end(), object), sharedAllObjects.end());
+	//	object->OnDestroy();
+	//	SAFE_DELETE(object);
+	//}
 }

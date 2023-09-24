@@ -35,6 +35,12 @@
     <ClCompile Include="Matrix16.cpp">
       <Filter>XPlatform\DataType</Filter>
     </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>XPlatform\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>XPlatform\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ApplicationListener.h" />
