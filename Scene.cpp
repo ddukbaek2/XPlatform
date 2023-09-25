@@ -11,7 +11,7 @@ namespace XPlatform
 
 	void Scene::OnDestroy()
 	{
-		Object::Destroy(m_RootNode);
+		m_RootNode.reset();
 	}
 
 	void Scene::SetVisible(bool visible)

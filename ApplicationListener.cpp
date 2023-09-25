@@ -1,6 +1,5 @@
-#include "XPlatform.h"
 #include "ApplicationListener.h"
-#include "Node.h"
+#include "Object.h"
 #include "SceneManager.h"
 
 
@@ -11,7 +10,7 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	void ApplicationListener::OnCreate()
 	{
-		m_Root = CreateInstance(Node);
+		//m_RootNode = CreateInstance(Node);
 		//CreateInstance(Component);
 	}
 
@@ -20,8 +19,8 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	void ApplicationListener::OnDestroy()
 	{
-		m_Root.reset();
-		Object::Destroy(m_Root);
+		//m_RootNode.reset();
+		//Object::Destroy(m_RootNode);
 	}
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -48,12 +47,12 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 출력됨.
 	/////////////////////////////////////////////////////////////////////////////
-	void ApplicationListener::OnRender(IGL* gl)
+	void ApplicationListener::OnRender(std::shared_ptr<XGL> gl)
 	{
 		// 사각형 출력.
-		gl->Clear(IGL::AttribMask::GL_COLOR_BUFFER_BIT);
+		gl->Clear(XGL::AttribMask::GL_COLOR_BUFFER_BIT);
 		gl->LoadIdentity();
-		gl->Begin(IGL::BeginMode::GL_QUADS);
+		gl->Begin(XGL::BeginMode::GL_QUADS);
 		gl->Vertex3f(-0.5f, -0.5f, 0.0f); // 좌하.
 		gl->Color4f(1.0f, 0.0f, 0.0f, 1.0f);
 		gl->Vertex3f(0.5f, -0.5f, 0.0f); // 우하.

@@ -5,6 +5,7 @@
 #include <gl/GL.h>
 #pragma comment(lib, "opengl32.lib")
 
+
 namespace XPlatform
 {
 	void Win32GL::Clear(AttribMask attribMask)
@@ -50,7 +51,7 @@ namespace XPlatform
 	{
 		glLoadIdentity();
 	}
-	void Win32GL::Begin(BeginMode beginMode)
+	void Win32GL::Begin(XGL::BeginMode beginMode)
 	{
 		glBegin((uint32_t)beginMode);
 	}
@@ -79,9 +80,9 @@ namespace XPlatform
 		glFlush();
 	}
 
-	void Win32GL::SetViewport(int X, int Y, int Width, int Height)
+	void Win32GL::SetViewport(int32_t x, int32_t y, uint32_t width, uint32_t height)
 	{
-		glViewport(X, Y, Width, Height);
+		glViewport(x, y, width, height);
 	}
 
 	void Win32GL::Enable()

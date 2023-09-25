@@ -1,6 +1,6 @@
 #pragma once
 
-#include "XPlatform.h"
+#include "XApplication.h"
 #include <windows.h>
 
 
@@ -9,7 +9,7 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 윈도우 어플리케이션.
 	/////////////////////////////////////////////////////////////////////////////
-	class Win32Application : public IApplication
+	class Win32Application : public XApplication
 	{
 	public:
 		static Win32Application* s_Instance;
@@ -20,13 +20,13 @@ namespace XPlatform
 		HICON m_Icon;
 
 	private:
-		static __int64 __stdcall Procedure(HWND windowHandle, UINT message, WPARAM wParam, LPARAM lParam);
+		static long __stdcall Procedure(HWND windowHandle, UINT message, WPARAM wParam, LPARAM lParam);
 
 	public:
 		Win32Application();
 		virtual ~Win32Application();
 
-		bool Run(std::shared_ptr<IApplicationListener> applicationListener, int width, int height, bool useFullscreen);
+		bool Run(std::shared_ptr<XApplicationEventHandler> applicationEventHandler, int width, int height, bool useFullscreen);
 		void Quit();
 	};
 
@@ -34,7 +34,7 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 어플리케이션 실행.
 	/////////////////////////////////////////////////////////////////////////////
-	void StartApplication(std::shared_ptr<IApplicationListener> applicationListener, int width, int height, bool useFullscreen);
+	void StartApplication(std::shared_ptr<XApplicationEventHandler> applicationEventHandler, int width, int height, bool useFullscreen);
 
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 어플리케이션 종료.

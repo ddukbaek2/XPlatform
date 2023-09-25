@@ -1,6 +1,7 @@
 #include "XPlatform.h"
 #include "Win32Application.h"
 #include "ApplicationListener.h"
+#include <windows.h>
 
 
 /////////////////////////////////////////////////////////////////////////////

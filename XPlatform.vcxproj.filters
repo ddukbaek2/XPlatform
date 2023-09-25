@@ -41,6 +41,9 @@
     <ClCompile Include="Scene.cpp">
       <Filter>XPlatform\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="XApplication.cpp">
+      <Filter>XPlatform</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ApplicationListener.h" />
@@ -101,6 +104,12 @@
     <ClInclude Include="SceneManager.h">
       <Filter>XPlatform\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="XApplication.h">
+      <Filter>XPlatform</Filter>
+    </ClInclude>
+    <ClInclude Include="XGL.h">
+      <Filter>XPlatform</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="XPlatform">
@@ -135,6 +144,12 @@
     </Filter>
     <Filter Include="XPlatform\Scene">
       <UniqueIdentifier>{36be2e52-fd68-4dd8-b14f-e7616a8eb54c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\Platform\MacOSX">
+      <UniqueIdentifier>{163110fc-f5d2-483a-9cfa-d62ac2876337}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\Platform\Linux">
+      <UniqueIdentifier>{92967e03-0c63-49ee-9262-2796d57c1a38}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

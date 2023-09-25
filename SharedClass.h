@@ -1,19 +1,26 @@
 #pragma once
 
-template<typename T> class SharedClass
+
+namespace XPlatform
 {
-protected:
-	SharedClass() {}
-
-public:
-	virtual ~SharedClass() {}
-
-	static T* GetSharedInstance()
+	/////////////////////////////////////////////////////////////////////////////
+	// @ 공유 클래스.
+	/////////////////////////////////////////////////////////////////////////////
+	template<typename T> class SharedClass
 	{
-		static T instance;
-		return &instance;
-	}
+	protected:
+		SharedClass() {}
 
-	SharedClass(SharedClass const&) = delete;
-	void operator=(SharedClass const&) = delete;
-};
+	public:
+		virtual ~SharedClass() {}
+
+		static T* GetSharedInstance()
+		{
+			static T instance;
+			return &instance;
+		}
+
+		SharedClass(const SharedClass&) = delete;
+		void operator = (const SharedClass&) = delete;
+	};
+}

@@ -1,8 +1,8 @@
 ﻿#pragma once
 
-#include "XPlatform.h"
+#include "XApplication.h"
+#include "XGL.h"
 #include "Node.h"
-
 
 /*
 * 공통 기능.
@@ -18,16 +18,16 @@
 */
 namespace XPlatform
 {
-	class ApplicationListener : public IApplicationListener
+	class ApplicationListener : public XApplicationEventHandler
 	{
 	protected:
-		std::shared_ptr<Node> m_Root;
+		std::shared_ptr<Node> m_RootNode;
 
 	protected:
 		void OnCreate() override;
 		void OnDestroy() override;
 		void OnUpdate(float deltaTime) override;
-		void OnRender(IGL* gl) override;
+		void OnRender(std::shared_ptr<XGL> gl) override;
 		void OnPause() override;
 		void OnResume() override;
 

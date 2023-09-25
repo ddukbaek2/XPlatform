@@ -144,6 +144,7 @@
     <ClCompile Include="Win32Application.cpp" />
     <ClCompile Include="Win32Main.cpp" />
     <ClCompile Include="ApplicationListener.cpp" />
+    <ClCompile Include="XApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -165,6 +166,8 @@
     <ClInclude Include="Win32GL.h" />
     <ClInclude Include="Win32Application.h" />
     <ClInclude Include="ApplicationListener.h" />
+    <ClInclude Include="XApplication.h" />
+    <ClInclude Include="XGL.h" />
     <ClInclude Include="XPlatform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

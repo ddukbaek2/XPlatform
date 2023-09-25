@@ -1,63 +1,14 @@
-#include "XPlatform.h"
 #include "Win32Application.h"
 #include "Win32GL.h"
-#include "SharedClass.h"
+#include <windows.h>
 
 
 namespace XPlatform
 {
 	/////////////////////////////////////////////////////////////////////////////
-	// @ 전역 변수.
+	// @ 전역변수 선언.
 	/////////////////////////////////////////////////////////////////////////////
-	//std::chrono::system_clock::time_point g_StartTime;
-	float g_DeltaTime = 0.0f;
-	Win32Application* Win32Application::s_Instance = nullptr;
-	bool g_IsRunning = false;
-	std::function<void(void)> g_ApplicationListenerOnCreateEvent;
-	std::function<void(void)> g_ApplicationListenerOnDestroyEvent;
-	std::function<void(void)> g_ApplicationListenerOnPauseEvent;
-	std::function<void(void)> g_ApplicationListenerOnResumeEvent;
-	std::function<void(float)> g_ApplicationListenerOnUpdateEvent;
-	std::function<void(IGL*)> g_ApplicationListenerOnRenderEvent;
-
-
-	/////////////////////////////////////////////////////////////////////////////
-	// @ 생성자.
-	/////////////////////////////////////////////////////////////////////////////
-	IApplication::IApplication()
-	{
-		m_ApplicationListener = nullptr;
-	}
-
-	/////////////////////////////////////////////////////////////////////////////
-	// @ 소멸자.
-	/////////////////////////////////////////////////////////////////////////////
-	IApplication::~IApplication()
-	{
-	}
-
-
-	/////////////////////////////////////////////////////////////////////////////
-	// @ 애플리케이션 리스너 설정.
-	/////////////////////////////////////////////////////////////////////////////
-	void IApplication::SetApplicationListener(std::shared_ptr<IApplicationListener> applicationListener)
-	{
-		m_ApplicationListener = applicationListener;
-		g_ApplicationListenerOnCreateEvent = std::bind(&IApplicationListener::OnCreate, m_ApplicationListener);
-		g_ApplicationListenerOnDestroyEvent = std::bind(&IApplicationListener::OnDestroy, m_ApplicationListener);
-		g_ApplicationListenerOnUpdateEvent = std::bind(&IApplicationListener::OnUpdate, m_ApplicationListener, std::placeholders::_1);
-		g_ApplicationListenerOnRenderEvent = std::bind(&IApplicationListener::OnRender, m_ApplicationListener, std::placeholders::_1);
-		g_ApplicationListenerOnPauseEvent = std::bind(&IApplicationListener::OnPause, m_ApplicationListener);
-		g_ApplicationListenerOnResumeEvent = std::bind(&IApplicationListener::OnResume, m_ApplicationListener);
-	}
-
-	/////////////////////////////////////////////////////////////////////////////
-	// @ 애플리케이션 리스너 반환.
-	/////////////////////////////////////////////////////////////////////////////
-	std::shared_ptr<IApplicationListener> IApplication::GetApplicationListener()
-	{
-		return m_ApplicationListener;
-	}
+	Win32Application* Win32Application::s_Instance;
 
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -77,13 +28,13 @@ namespace XPlatform
 	{
 	}
 
-
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 어플리케이션 실행.
 	/////////////////////////////////////////////////////////////////////////////
-	bool Win32Application::Run(std::shared_ptr<IApplicationListener> applicationListener, int width, int height, bool useFullscreen)
-	{		
-		SetApplicationListener(applicationListener);
+	bool Win32Application::Run(std::shared_ptr<XApplicationEventHandler> applicationEventHandler, int width, int height, bool useFullscreen)
+	{
+		m_IsPlaying = true;
+		SetApplicationListener(applicationEventHandler);
 
 		HINSTANCE instance = GetModuleHandleW(NULL); // libloaderapi.h
 		m_Icon = LoadIconW(NULL, IDI_APPLICATION); // winuser.h
@@ -92,8 +43,8 @@ namespace XPlatform
 		WNDCLASSEXW windowClassEx;
 		memset(&windowClassEx, 0, sizeof(WNDCLASSEX));
 		windowClassEx.cbSize = sizeof(WNDCLASSEX);
-		typedef LRESULT(CALLBACK* WNDPROC)(HWND, UINT, WPARAM, LPARAM);
-		windowClassEx.lpfnWndProc = &Win32Application::Procedure;
+		//typedef LRESULT(CALLBACK* WNDPROC)(HWND, UINT, WPARAM, LPARAM);
+		windowClassEx.lpfnWndProc = (WNDPROC)&Win32Application::Procedure;
 		windowClassEx.hInstance = instance;
 		windowClassEx.hIcon = m_Icon;
 		windowClassEx.hCursor = m_Cursor;
@@ -143,7 +94,10 @@ namespace XPlatform
 		HGLRC renderingContext = wglCreateContext(deviceContext); // wingdi.h
 		wglMakeCurrent(deviceContext, renderingContext); // wingdi.h
 
-		Win32GL::GetSharedInstance()->SetClearColor(0.72f, 0.72f, 0.72f, 1.0f);
+		// GL 생성.
+		auto gl = std::make_shared<Win32GL>();
+		SetGL(gl);
+		gl->SetClearColor(0.72f, 0.72f, 0.72f, 1.0f);
 
 		//ShowWindow(m_WindowHandle, /*SW_SHOW*/SW_SHOWMAXIMIZED); // winuser.h
 		ShowWindow(m_WindowHandle, SW_SHOW); // winuser.h
@@ -154,7 +108,6 @@ namespace XPlatform
 		memset(&msg, 0, sizeof(MSG));
 		msg.message = WM_NULL;
 
-		auto prevTime = std::chrono::system_clock::now();
 		while (msg.message != WM_QUIT)
 		{
 			if (PeekMessageW(&msg, NULL, 0, 0, PM_REMOVE))
@@ -164,19 +117,7 @@ namespace XPlatform
 			}
 			else
 			{
-				auto currentTime = std::chrono::system_clock::now();
-				std::chrono::duration<float> deltaTime = currentTime - prevTime;
-				g_DeltaTime = deltaTime.count();
-
-				g_ApplicationListenerOnUpdateEvent(g_DeltaTime);
-				g_ApplicationListenerOnRenderEvent(Win32GL::GetSharedInstance());
-
-				//m_Application->OnBeginUpdate();
-				//m_Application->OnUpdate(g_DeltaTime);
-				//m_Application->OnDraw(m_GL);
-				//m_Application->OnEndUpdate();
-
-				prevTime = currentTime;
+				XApplication::OnMainLoop();
 				Sleep(1);
 			}
 		}
@@ -206,13 +147,13 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 어플리케이션 프로시저.
 	/////////////////////////////////////////////////////////////////////////////
-	__int64 __stdcall Win32Application::Procedure(HWND windowHandle, UINT message, WPARAM wParam, LPARAM lParam)
+	long __stdcall Win32Application::Procedure(HWND windowHandle, UINT message, WPARAM wParam, LPARAM lParam)
 	{
 		switch (message)
 		{
 		case WM_CREATE:
 			{
-				g_ApplicationListenerOnCreateEvent();
+				s_Instance->m_CreateEvent();
 				//SetCursor(Instance->m_Cursor);
 				//SendMessage(windowHandle, WM_SETICON, ICON_BIG, (LPARAM)Instance->m_Icon);
 				//SendMessage(windowHandle, WM_SETICON, ICON_SMALL, (LPARAM)Instance->m_Icon);
@@ -221,7 +162,7 @@ namespace XPlatform
 
 		case WM_SETFOCUS:
 			{
-				g_ApplicationListenerOnResumeEvent();
+			s_Instance->m_ResumeEvent();
 				//SetCursor(Instance->m_Cursor);
 				//SendMessage(windowHandle, WM_SETICON, ICON_BIG, (LPARAM)Instance->m_Icon);
 				//SendMessage(windowHandle, WM_SETICON, ICON_SMALL, (LPARAM)Instance->m_Icon);
@@ -230,7 +171,7 @@ namespace XPlatform
 
 		case WM_KILLFOCUS:
 			{
-				g_ApplicationListenerOnPauseEvent();
+			s_Instance->m_PauseEvent();
 				break;
 			}
 
@@ -245,7 +186,7 @@ namespace XPlatform
 					//	Instance->m_Application->OnResize(width, height);
 					//}
 
-					Win32GL::GetSharedInstance()->SetViewport(0, 0, width, height);
+					s_Instance->GetGL()->SetViewport(0, 0, width, height);
 				}
 				break;
 			}
@@ -306,7 +247,7 @@ namespace XPlatform
 			{
 				//if (Instance != nullptr && Instance->m_Application != nullptr)
 				//	Instance->m_Application->OnDestroy();
-				g_ApplicationListenerOnDestroyEvent();
+				s_Instance->m_DestroyEvent();
 
 				PostQuitMessage(0); // ==> WM_QUIT // winuser.h
 				return 0;
@@ -320,16 +261,15 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 어플리케이션 실행.
 	/////////////////////////////////////////////////////////////////////////////
-	void StartApplication(std::shared_ptr<IApplicationListener> applicationListener, int width, int height, bool useFullscreen)
+	void StartApplication(std::shared_ptr<XApplicationEventHandler> applicationEventHandler, int width, int height, bool useFullscreen)
 	{
 		if (Win32Application::s_Instance == nullptr)
 			Win32Application::s_Instance = new Win32Application();
 
-		if (g_IsRunning)
+		if (Win32Application::s_Instance->IsPlaying())
 			return;
 
-		g_IsRunning = true;
-		auto isSuccessed = Win32Application::s_Instance->Run(applicationListener, width, height, useFullscreen);
+		auto isSuccessed = Win32Application::s_Instance->Run(applicationEventHandler, width, height, useFullscreen);
 		delete Win32Application::s_Instance;
 	}
 
@@ -343,13 +283,5 @@ namespace XPlatform
 		{
 			Win32Application::s_Instance->Quit();
 		}
-	}
-
-	/////////////////////////////////////////////////////////////////////////////
-	// @ 어플리케이션 실행중인지 여부.
-	/////////////////////////////////////////////////////////////////////////////
-	bool IsRunningApplication()
-	{
-		return g_IsRunning;
 	}
 }
