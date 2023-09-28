@@ -3,13 +3,13 @@
 
 namespace XPlatform
 {
-	void Scene::OnCreate()
+	Scene::Scene()
 	{
 		m_IsVisible = true;
-		m_RootNode = CreateInstance(Node);
+		m_RootNode = std::make_shared<Node>();
 	}
 
-	void Scene::OnDestroy()
+	Scene::~Scene()
 	{
 		m_RootNode.reset();
 	}

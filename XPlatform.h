@@ -11,12 +11,14 @@
 #include <functional>
 #include <chrono>
 #include <cstdint> // int8_t, int16_t, int32_t, int64_t, uint8_t, uint16_t, uint32_t, uint64_t.
+#include <sstream>
+#include <cstdarg> // va_start, va_end, va_arg.
 
 
 #define SAFE_DELETE(name) if (name != nullptr) { delete name; name = nullptr; }
 #define SAFE_DELETE_ARRAY(name) if (name != nullptr) { delete[] name; name = nullptr; }
-#define TEXT(text) L##text
-
+//#define TEXT(text) L##text
+#define UTF8(TEXT) u8##TEXT
 
 namespace XPlatform
 {

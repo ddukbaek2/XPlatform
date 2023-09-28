@@ -17,9 +17,6 @@
     <ClCompile Include="Win32GL.cpp">
       <Filter>XPlatform\Platform\Win32</Filter>
     </ClCompile>
-    <ClCompile Include="Object.cpp">
-      <Filter>XPlatform\Common</Filter>
-    </ClCompile>
     <ClCompile Include="Sprite.cpp">
       <Filter>XPlatform\Rendering</Filter>
     </ClCompile>
@@ -44,6 +41,18 @@
     <ClCompile Include="XApplication.cpp">
       <Filter>XPlatform</Filter>
     </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>XPlatform\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="External\loadpng\lodepng.cpp">
+      <Filter>XPlatform\ExternalLibraries\lodepng</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>XPlatform\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="String.cpp">
+      <Filter>XPlatform\Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ApplicationListener.h" />
@@ -58,9 +67,6 @@
     </ClInclude>
     <ClInclude Include="Sprite.h">
       <Filter>XPlatform\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>XPlatform\Common</Filter>
     </ClInclude>
     <ClInclude Include="SharedClass.h">
       <Filter>XPlatform\Common</Filter>
@@ -110,6 +116,18 @@
     <ClInclude Include="XGL.h">
       <Filter>XPlatform</Filter>
     </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>XPlatform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="External\loadpng\lodepng.h">
+      <Filter>XPlatform\ExternalLibraries\lodepng</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>XPlatform\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="String.h">
+      <Filter>XPlatform\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="XPlatform">
@@ -150,6 +168,12 @@
     </Filter>
     <Filter Include="XPlatform\Platform\Linux">
       <UniqueIdentifier>{92967e03-0c63-49ee-9262-2796d57c1a38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\ExternalLibraries">
+      <UniqueIdentifier>{a135dddd-b66d-4592-9712-cdbffad47e61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\ExternalLibraries\lodepng">
+      <UniqueIdentifier>{eaa56c69-d822-45fb-85ed-a1972448336e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -7,7 +7,6 @@ namespace XPlatform
 	class Renderer : public Object
 	{
 	public:
-	};
 
-	RegisterObject(Renderer);
+	};
 }

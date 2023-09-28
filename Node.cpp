@@ -16,6 +16,7 @@ namespace XPlatform
 
 	Node::~Node()
 	{
+		RemoveChildren();
 	}
 
 	void Node::SetFullName()
@@ -46,15 +47,6 @@ namespace XPlatform
 
 		auto fullname = stringStream.str();
 		m_FullName.assign(fullname.c_str());
-	}
-
-	void Node::OnCreate()
-	{
-	}
-
-	void Node::OnDestroy()
-	{
-		RemoveChildren();
 	}
 
 	void Node::SetActiveSelf(bool isActive)

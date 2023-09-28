@@ -9,13 +9,11 @@ namespace XPlatform
 	protected:
 	public:
 	protected:
-		void OnCreate() override;
-		void OnDestroy() override;
+		Component() { }
+		virtual ~Component() { }
 
 		virtual void OnEnable() = 0;
 		virtual void OnDisable() = 0;
 		virtual void OnUpdate(float deltaTime) = 0;
 	};
-
-	RegisterObject(Component);
 }

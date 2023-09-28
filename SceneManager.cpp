@@ -3,12 +3,12 @@
 
 namespace XPlatform
 {
-	void SceneManager::Add(Scene* scene) 
+	void SceneManager::Add(std::shared_ptr<Scene> scene)
 	{
 		m_Scenes.push_back(scene);
 	}
 
-	void SceneManager::Remove(Scene* scene)
+	void SceneManager::Remove(std::shared_ptr<Scene> scene)
 	{
 		if (scene == nullptr)
 			return;

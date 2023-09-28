@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClCompile Include="AndroidMain.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="External\loadpng\lodepng.cpp" />
     <ClCompile Include="iOSMain.cpp" />
     <ClCompile Include="Matrix16.cpp" />
     <ClCompile Include="Mesh.cpp" />
@@ -140,6 +141,8 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="String.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Win32GL.cpp" />
     <ClCompile Include="Win32Application.cpp" />
     <ClCompile Include="Win32Main.cpp" />
@@ -150,6 +153,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="External\loadpng\lodepng.h" />
     <ClInclude Include="Matrix16.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Node.h" />
@@ -160,6 +164,8 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SharedClass.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="String.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="Vertex.h" />

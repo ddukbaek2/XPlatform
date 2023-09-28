@@ -11,6 +11,4 @@ namespace XPlatform
 		Sprite();
 		virtual ~Sprite();
 	};
-
-	RegisterObject(Sprite);
 }

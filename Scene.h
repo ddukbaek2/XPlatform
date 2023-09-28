@@ -15,13 +15,10 @@ namespace XPlatform
 		std::shared_ptr<Node> m_RootNode;
 
 	public:
+		Scene();
+		virtual ~Scene();
+
 		void SetVisible(bool visible);
 		bool IsVisible();
-
-	protected:
-		void OnCreate() override;
-		void OnDestroy() override;
 	};
-
-	RegisterObject(Scene);
 }

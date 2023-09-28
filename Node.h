@@ -6,6 +6,9 @@
 
 namespace XPlatform
 {
+	/////////////////////////////////////////////////////////////////////////////
+	// @ ³ëµå.
+	/////////////////////////////////////////////////////////////////////////////
 	class Node : public Object
 	{
 	private:
@@ -21,10 +24,6 @@ namespace XPlatform
 
 	private:
 		void SetFullName();
-
-	protected:
-		void OnCreate() override;
-		void OnDestroy() override;
 
 	public:
 		void SetActiveSelf(bool active);
@@ -50,6 +49,4 @@ namespace XPlatform
 		const Node* GetParent();
 		const Node* GetChild(uint32_t childIndex);
 	};
-
-	RegisterObject(Node);
 }
