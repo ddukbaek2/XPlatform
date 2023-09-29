@@ -16,14 +16,20 @@ namespace XPlatform
 	{
 	}
 
-	void Texture::Load(std::wstring& filename)
+	void Texture::Load(XString& filename)
 	{
-		lodepng::load_file(m_Pixels, filename.c_str());
+		lodepng::load_file(m_Pixels, filename.GetConstString());
 
-		lodepng_load_file(m_Pixels, )
+		//lodepng_load_file(m_Pixels, )
 	}
 
 	void Texture::Unload()
 	{
+		m_Width = m_Height = 0;
+	}
+
+	bool Texture::IsLoaded()
+	{
+		return m_Width > 0 && m_Height > 0;
 	}
 }

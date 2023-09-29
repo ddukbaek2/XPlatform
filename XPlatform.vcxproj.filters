@@ -50,7 +50,10 @@
     <ClCompile Include="Texture.cpp">
       <Filter>XPlatform\Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="String.cpp">
+    <ClCompile Include="XString.cpp">
+      <Filter>XPlatform\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomIdentifier.cpp">
       <Filter>XPlatform\Common</Filter>
     </ClCompile>
   </ItemGroup>
@@ -125,7 +128,10 @@
     <ClInclude Include="Texture.h">
       <Filter>XPlatform\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="String.h">
+    <ClInclude Include="XString.h">
+      <Filter>XPlatform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomIdentifier.h">
       <Filter>XPlatform\Common</Filter>
     </ClInclude>
   </ItemGroup>

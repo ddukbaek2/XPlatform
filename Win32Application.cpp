@@ -1,4 +1,4 @@
-#include "Win32Application.h"
+ï»¿#include "Win32Application.h"
 #include "Win32GL.h"
 #include <windows.h>
 
@@ -6,13 +6,13 @@
 namespace XPlatform
 {
 	/////////////////////////////////////////////////////////////////////////////
-	// @ Àü¿ªº¯¼ö ¼±¾ğ.
+	// @ ì „ì—­ë³€ìˆ˜ ì„ ì–¸.
 	/////////////////////////////////////////////////////////////////////////////
 	Win32Application* Win32Application::s_Instance;
 
 
 	/////////////////////////////////////////////////////////////////////////////
-	// @ »ı¼ºÀÚ.
+	// @ ìƒì„±ì.
 	/////////////////////////////////////////////////////////////////////////////
 	Win32Application::Win32Application()
 	{
@@ -22,14 +22,14 @@ namespace XPlatform
 	}
 
 	/////////////////////////////////////////////////////////////////////////////
-	// @ ¼Ò¸êÀÚ.
+	// @ ì†Œë©¸ì.
 	/////////////////////////////////////////////////////////////////////////////
 	Win32Application::~Win32Application()
 	{
 	}
 
 	/////////////////////////////////////////////////////////////////////////////
-	// @ ¾îÇÃ¸®ÄÉÀÌ¼Ç ½ÇÇà.
+	// @ ì–´í”Œë¦¬ì¼€ì´ì…˜ ì‹¤í–‰.
 	/////////////////////////////////////////////////////////////////////////////
 	bool Win32Application::Run(std::shared_ptr<XApplicationEventHandler> applicationEventHandler, int width, int height, bool useFullscreen)
 	{
@@ -67,7 +67,7 @@ namespace XPlatform
 			return false;
 		}
 
-		// ·»´õ·¯ ÃÊ±âÈ­.
+		// ë Œë”ëŸ¬ ì´ˆê¸°í™”.
 		HDC deviceContext = GetDC(m_WindowHandle); // winuser.h
 		PIXELFORMATDESCRIPTOR pixelFormatDescriptor;
 		memset(&pixelFormatDescriptor, 0, sizeof(PIXELFORMATDESCRIPTOR)); // vcruntime_string.h
@@ -94,7 +94,7 @@ namespace XPlatform
 		HGLRC renderingContext = wglCreateContext(deviceContext); // wingdi.h
 		wglMakeCurrent(deviceContext, renderingContext); // wingdi.h
 
-		// GL »ı¼º.
+		// GL ìƒì„±.
 		auto gl = std::make_shared<Win32GL>();
 		SetGL(gl);
 		gl->SetClearColor(0.72f, 0.72f, 0.72f, 1.0f);
@@ -103,7 +103,7 @@ namespace XPlatform
 		ShowWindow(m_WindowHandle, SW_SHOW); // winuser.h
 		UpdateWindow(m_WindowHandle); // winuser.h
 
-		// ¸Ş½ÃÁö ·çÇÁ.
+		// ë©”ì‹œì§€ ë£¨í”„.
 		MSG msg;
 		memset(&msg, 0, sizeof(MSG));
 		msg.message = WM_NULL;
@@ -132,7 +132,7 @@ namespace XPlatform
 	}
 
 	/////////////////////////////////////////////////////////////////////////////
-	// @ ¾îÇÃ¸®ÄÉÀÌ¼Ç Á¾·á.
+	// @ ì–´í”Œë¦¬ì¼€ì´ì…˜ ì¢…ë£Œ.
 	/////////////////////////////////////////////////////////////////////////////
 	void Win32Application::Quit()
 	{
@@ -145,7 +145,7 @@ namespace XPlatform
 	}
 
 	/////////////////////////////////////////////////////////////////////////////
-	// @ ¾îÇÃ¸®ÄÉÀÌ¼Ç ÇÁ·Î½ÃÀú.
+	// @ ì–´í”Œë¦¬ì¼€ì´ì…˜ í”„ë¡œì‹œì €.
 	/////////////////////////////////////////////////////////////////////////////
 	long __stdcall Win32Application::Procedure(HWND windowHandle, UINT message, WPARAM wParam, LPARAM lParam)
 	{
@@ -259,7 +259,7 @@ namespace XPlatform
 
 
 	/////////////////////////////////////////////////////////////////////////////
-	// @ ¾îÇÃ¸®ÄÉÀÌ¼Ç ½ÇÇà.
+	// @ ì–´í”Œë¦¬ì¼€ì´ì…˜ ì‹¤í–‰.
 	/////////////////////////////////////////////////////////////////////////////
 	void StartApplication(std::shared_ptr<XApplicationEventHandler> applicationEventHandler, int width, int height, bool useFullscreen)
 	{
@@ -275,7 +275,7 @@ namespace XPlatform
 
 
 	/////////////////////////////////////////////////////////////////////////////
-	// @ ¾îÇÃ¸®ÄÉÀÌ¼Ç Á¾·á.
+	// @ ì–´í”Œë¦¬ì¼€ì´ì…˜ ì¢…ë£Œ.
 	/////////////////////////////////////////////////////////////////////////////
 	void QuitApplication()
 	{

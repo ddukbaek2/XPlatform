@@ -1,14 +1,14 @@
-#pragma once
+ï»¿#pragma once
 #include "XPlatform.h"
 #include "SharedClass.h"
-#include "String.h"
+#include "XString.h"
 #include "Scene.h"
 
 
 namespace XPlatform
 {
 	/////////////////////////////////////////////////////////////////////////////
-	// @ ¾À¸Å´ÏÀú.
+	// @ ì”¬ë§¤ë‹ˆì €.
 	/////////////////////////////////////////////////////////////////////////////
 	class SceneManager : public SharedClass<SceneManager>
 	{

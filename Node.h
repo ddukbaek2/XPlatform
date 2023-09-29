@@ -1,19 +1,19 @@
-#pragma once
+ï»¿#pragma once
 #include "XPlatform.h"
 #include "Object.h"
-#include "String.h"
+#include "XString.h"
 
 
 namespace XPlatform
 {
 	/////////////////////////////////////////////////////////////////////////////
-	// @ ³ëµå.
+	// @ ë…¸ë“œ.
 	/////////////////////////////////////////////////////////////////////////////
 	class Node : public Object
 	{
 	private:
-		std::wstring m_Name;
-		std::wstring m_FullName;
+		XString m_Name;
+		XString m_FullName;
 		Node* m_Parent;
 		std::vector<Node*> m_Children;
 		bool m_IsActive;
@@ -31,20 +31,19 @@ namespace XPlatform
 		bool IsActiveInHierarchy();
 
 	public:
-		void SetName(const wchar_t* nodeName);
-		void SetName(const std::wstring& nodeName);
+		void SetName(const XString& nodeName);
 
 		void SetSiblingIndex(uint32_t siblingIndex);
 		void SetFirstSibling();
 		void SetLastSibling();
 		bool Contains(Node* childNode, bool checkHierarchy = false);
-		Node* FindChild(const wchar_t* nodeName);
+		Node* FindChild(XString& nodeName);
 		void AddChild(Node* childNode);
 		void RemoveChild(Node* childNode);
 		void RemoveChildren();
 		bool IsRootNode();
-		const wchar_t* GetName();
-		const wchar_t* GetFullName();
+		XString& GetName();
+		XString& GetFullName();
 		unsigned int GetChildCount();
 		const Node* GetParent();
 		const Node* GetChild(uint32_t childIndex);

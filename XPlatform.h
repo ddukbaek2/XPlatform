@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <memory> // std::shared_ptr, std::weak_ptr.
 #include <string> // std::wstring.
@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <functional>
 #include <chrono>
+#include <random>
 #include <cstdint> // int8_t, int16_t, int32_t, int64_t, uint8_t, uint16_t, uint32_t, uint64_t.
 #include <sstream>
 #include <cstdarg> // va_start, va_end, va_arg.
@@ -23,7 +24,7 @@
 namespace XPlatform
 {
 	/////////////////////////////////////////////////////////////////////////////
-	// @ Àü¹æ¼±¾ğ.
+	// @ ì „ë°©ì„ ì–¸.
 	/////////////////////////////////////////////////////////////////////////////
 	class XApplication;
 	class XApplicationEventHandler;
@@ -31,7 +32,7 @@ namespace XPlatform
 
 
 	/////////////////////////////////////////////////////////////////////////////
-	// @ Å¸ÀÔÀçÁ¤ÀÇ.
+	// @ íƒ€ì…ì¬ì •ì˜.
 	/////////////////////////////////////////////////////////////////////////////
 	typedef std::function<void(void)> VoidFunction;
 	typedef std::function<void(float)> FloatFunction;

@@ -1,20 +1,20 @@
-#include "XPlatform.h"
+ï»¿#include "XPlatform.h"
 #include "Win32Application.h"
 #include "ApplicationListener.h"
 #include <windows.h>
 
 
 /////////////////////////////////////////////////////////////////////////////
-// @ ÁøÀÔÁ¡.
+// @ ì§„ì…ì .
 /////////////////////////////////////////////////////////////////////////////
 //int32_t __stdcall wWinMain(HINSTANCE, HINSTANCE, wchar_t*, int32_t)
 int32_t main()
 {
-	// ÄÜ¼Ö °¨Ãß±â.
+	// ì½˜ì†” ê°ì¶”ê¸°.
 	auto consoleWindowHandle = GetConsoleWindow(); // consoleapi3.h
 	ShowWindow(consoleWindowHandle, SW_HIDE); // WinUser.h
 
-	// ¾îÇÃ¸®ÄÉÀÌ¼Ç ½ÇÇà.
+	// ì–´í”Œë¦¬ì¼€ì´ì…˜ ì‹¤í–‰.
 	XPlatform::StartApplication(std::make_shared<XPlatform::ApplicationListener>(), 1280, 640, false);
 	ExitProcess(0); // processthreadsapi.h
 	return 0;

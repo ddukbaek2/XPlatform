@@ -1,4 +1,4 @@
-#include <cmath>
+ï»¿#include <cmath>
 
 #include "Matrix16.h"
 
@@ -58,7 +58,7 @@ namespace XPlatform
 
 	Matrix16 GetMatrixInverse(Matrix16& matrix)
 	{
-		// °í¹ÎÁß...
+		// ê³ ë¯¼ì¤‘...
 		return matrix;
 	}
 

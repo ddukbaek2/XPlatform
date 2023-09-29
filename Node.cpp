@@ -8,8 +8,8 @@ namespace XPlatform
 	Node::Node()
 	{
 		m_Parent = nullptr;
-		m_Name.clear();
-		m_FullName.clear();
+		m_Name.Clear();
+		m_FullName.Clear();
 		m_Children.clear();
 		m_IsActive = true;
 	}
@@ -21,7 +21,7 @@ namespace XPlatform
 
 	void Node::SetFullName()
 	{
-		std::wstringstream stringStream;
+		std::stringstream stringStream;
 		std::vector<Node*> nodes;
 
 		auto currentNode = this;
@@ -37,16 +37,16 @@ namespace XPlatform
 
 			if (it == nodes.rbegin())
 			{
-				stringStream << L"" << node->m_Name.c_str();
+				stringStream << UTF8("") << node->m_Name.GetConstCharArray();
 			}
 			else
 			{
-				stringStream << L"/" << node->m_Name.c_str();
+				stringStream << UTF8("/") << node->m_Name.GetConstCharArray();
 			}
 		}
 
 		auto fullname = stringStream.str();
-		m_FullName.assign(fullname.c_str());
+		m_FullName.Set(fullname.c_str());
 	}
 
 	void Node::SetActiveSelf(bool isActive)
@@ -76,15 +76,10 @@ namespace XPlatform
 		return true;
 	}
 
-	void Node::SetName(const wchar_t* nodeName)
+	void Node::SetName(const XString& nodeName)
 	{
-		m_Name.assign(nodeName);
+		m_Name.Set(nodeName);
 		SetFullName();
-	}
-
-	void Node::SetName(const std::wstring& nodeName)
-	{
-		m_Name.assign(nodeName);
 	}
 
 	void Node::SetSiblingIndex(uint32_t siblingIndex)
@@ -124,12 +119,13 @@ namespace XPlatform
 		return false;
 	}
 
-	Node* Node::FindChild(const wchar_t* nodeName)
+	Node* Node::FindChild(XString& nodeName)
 	{
 		for (auto it = m_Children.begin(); it != m_Children.end(); ++it)
 		{
 			auto childNode = *it;
-			//childNode->m_Name.compare()
+			if (childNode->m_Name.Equals(nodeName))
+				return childNode;
 		}
 
 		return nullptr;
@@ -188,14 +184,14 @@ namespace XPlatform
 		return m_Parent == nullptr;
 	}
 
-	const wchar_t* Node::GetName()
+	XString& Node::GetName()
 	{
-		return m_Name.c_str();
+		return m_Name;
 	}
 
-	const wchar_t* Node::GetFullName()
+	XString& Node::GetFullName()
 	{
-		return m_FullName.c_str();
+		return m_FullName;
 	}
 
 	unsigned int Node::GetChildCount()

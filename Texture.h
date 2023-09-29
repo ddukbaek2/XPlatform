@@ -2,6 +2,7 @@
 
 #include "XPlatform.h"
 #include "Object.h"
+#include "XString.h"
 
 
 namespace XPlatform
@@ -17,7 +18,9 @@ namespace XPlatform
 		Texture();
 		virtual ~Texture();
 
-		void Load(std::wstring& filename);
+		void Load(XString& filename);
 		void Unload();
+
+		bool IsLoaded();
 	};
 }
