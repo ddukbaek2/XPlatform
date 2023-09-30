@@ -1,4 +1,4 @@
-#include <jni.h>
+﻿#include <jni.h>
 
 #include "AndroidOut.h"
 #include "Renderer.h"

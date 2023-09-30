@@ -1,4 +1,4 @@
-//#include <jni.h>
+ï»¿//#include <jni.h>
 //
 //#include "AndroidOut.h"
 //#include "Renderer.h"
@@ -45,7 +45,7 @@ extern "C"
 
 
     /////////////////////////////////////////////////////////////////////////////
-    // @ ¾Èµå·ÎÀÌµå ¸ŞÀÎ ÇÔ¼ö.
+    // @ ì•ˆë“œë¡œì´ë“œ ë©”ì¸ í•¨ìˆ˜.
     /////////////////////////////////////////////////////////////////////////////
     //void android_main(struct android_app* pApp) {
     //    // Can be removed, useful to ensure your code is running

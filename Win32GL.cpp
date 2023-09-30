@@ -1,4 +1,4 @@
-#include "XPlatform.h"
+﻿#include "XPlatform.h"
 #include "Win32GL.h"
 
 #include <windows.h>

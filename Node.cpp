@@ -1,4 +1,4 @@
-#include "Node.h"
+﻿#include "Node.h"
 #include <sstream>
 #include <cwchar>
 
@@ -76,7 +76,7 @@ namespace XPlatform
 		return true;
 	}
 
-	void Node::SetName(const XString& nodeName)
+	void Node::SetName(const String& nodeName)
 	{
 		m_Name.Set(nodeName);
 		SetFullName();
@@ -119,7 +119,7 @@ namespace XPlatform
 		return false;
 	}
 
-	Node* Node::FindChild(XString& nodeName)
+	Node* Node::FindChild(String& nodeName)
 	{
 		for (auto it = m_Children.begin(); it != m_Children.end(); ++it)
 		{
@@ -184,12 +184,12 @@ namespace XPlatform
 		return m_Parent == nullptr;
 	}
 
-	XString& Node::GetName()
+	String& Node::GetName()
 	{
 		return m_Name;
 	}
 
-	XString& Node::GetFullName()
+	String& Node::GetFullName()
 	{
 		return m_FullName;
 	}

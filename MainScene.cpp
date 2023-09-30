@@ -70,3 +70,8 @@ void MainScene::OnCreate()
 {
 
 }
+
+void MainScene::OnDestroy()
+{
+
+}

@@ -50,11 +50,17 @@
     <ClCompile Include="Texture.cpp">
       <Filter>XPlatform\Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="XString.cpp">
+    <ClCompile Include="String.cpp">
       <Filter>XPlatform\Common</Filter>
     </ClCompile>
     <ClCompile Include="RandomIdentifier.cpp">
       <Filter>XPlatform\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="BatchSprite.cpp">
+      <Filter>XPlatform\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>XPlatform\Rendering</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,11 +134,17 @@
     <ClInclude Include="Texture.h">
       <Filter>XPlatform\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="XString.h">
+    <ClInclude Include="String.h">
       <Filter>XPlatform\Common</Filter>
     </ClInclude>
     <ClInclude Include="RandomIdentifier.h">
       <Filter>XPlatform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="BatchSprite.h">
+      <Filter>XPlatform\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>XPlatform\Rendering</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

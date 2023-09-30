@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "XPlatform.h"
 #include "Object.h"
-#include "XString.h"
+#include "String.h"
 
 
 namespace XPlatform
@@ -12,8 +12,8 @@ namespace XPlatform
 	class Node : public Object
 	{
 	private:
-		XString m_Name;
-		XString m_FullName;
+		String m_Name;
+		String m_FullName;
 		Node* m_Parent;
 		std::vector<Node*> m_Children;
 		bool m_IsActive;
@@ -31,19 +31,19 @@ namespace XPlatform
 		bool IsActiveInHierarchy();
 
 	public:
-		void SetName(const XString& nodeName);
+		void SetName(const String& nodeName);
 
 		void SetSiblingIndex(uint32_t siblingIndex);
 		void SetFirstSibling();
 		void SetLastSibling();
 		bool Contains(Node* childNode, bool checkHierarchy = false);
-		Node* FindChild(XString& nodeName);
+		Node* FindChild(String& nodeName);
 		void AddChild(Node* childNode);
 		void RemoveChild(Node* childNode);
 		void RemoveChildren();
 		bool IsRootNode();
-		XString& GetName();
-		XString& GetFullName();
+		String& GetName();
+		String& GetFullName();
 		unsigned int GetChildCount();
 		const Node* GetParent();
 		const Node* GetChild(uint32_t childIndex);

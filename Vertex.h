@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "XPlatform.h"
 #include "Vector2.h"
 #include "Vector3.h"

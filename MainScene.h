@@ -42,4 +42,5 @@ class MainScene : public XPlatform::Scene
 {
 public:
 	void OnCreate() override;
+	void OnDestroy() override;
 };

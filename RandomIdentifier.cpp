@@ -1,14 +1,14 @@
-#include "RandomIdentifier.h"
+ï»¿#include "RandomIdentifier.h"
 
 
 namespace XPlatform
 {
 	RandomIdentifier::RandomIdentifier() : SharedClass()
 	{
-		// ·£´ı ¸ñ·Ï ÃÊ±âÈ­.
+		// ëœë¤ ëª©ë¡ ì´ˆê¸°í™”.
 		m_RandomNumbers.clear();
 
-		// 64ºñÆ® ·£´ı ¿£Áø ÃÊ±âÈ­.
+		// 64ë¹„íŠ¸ ëœë¤ ì—”ì§„ ì´ˆê¸°í™”.
 		m_RandomEngine = std::mt19937_64(std::random_device{}());
 		m_Distribution = std::uniform_int_distribution<uint64_t>(0, UINT64_MAX);
 	}

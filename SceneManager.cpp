@@ -1,4 +1,4 @@
-#include "SceneManager.h"
+﻿#include "SceneManager.h"
 
 
 namespace XPlatform
@@ -20,7 +20,34 @@ namespace XPlatform
 		m_Scenes.erase(it);
 	}
 
-	void SceneManager::RemoveAt(uint32_t index) {}
-	Scene* SceneManager::GetScene(const wchar_t* sceneName) { return nullptr; }
-	Scene* SceneManager::GetSceneAt(uint32_t index) { return nullptr; }
+	void SceneManager::RemoveAt(uint32_t index)
+	{
+		if (index >= m_Scenes.size())
+			return;
+
+		auto it = m_Scenes.begin() + index;
+		m_Scenes.erase(it);
+	}
+
+	std::shared_ptr<Scene> SceneManager::GetScene(const wchar_t* sceneName)
+	{
+		if (sceneName == nullptr)
+			return nullptr; // std::shared_ptr<Scene>(nullptr);
+
+		for (auto it = m_Scenes.begin(); it != m_Scenes.end(); ++it)
+		{
+			auto scene = (*it).get();
+			//scene.getName();
+		}
+
+		return nullptr; // std::shared_ptr<Scene>(nullptr);
+	}
+
+	std::shared_ptr<Scene> SceneManager::GetSceneAt(uint32_t index)
+	{
+		if (index >= m_Scenes.size())
+			return nullptr; // std::shared_ptr<Scene>(nullptr);
+
+		return m_Scenes.at(index);
+	}
 }

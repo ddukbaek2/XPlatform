@@ -26,37 +26,42 @@ namespace XPlatform
 		static uint8_t SizeOf(char ch);
 	};
 
+
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 가변길이 문자열 클래스 (UTF8).
 	/////////////////////////////////////////////////////////////////////////////
-	class XString
+	class String
 	{
 	private:
 		std::string m_Data;
 
 	public:
-		XString();
-		XString(const char* utf8String);
-		XString(const XString& utf8String);
-		XString(const std::vector<XChar>& utf8String);
-		XString(const std::string& utf8String);
-		virtual ~XString();
+		String();
+		String(const char* utf8String);
+		String(const String& utf8String);
+		String(const std::vector<XChar>& utf8String);
+		String(const std::string& utf8String);
+		virtual ~String();
 
 		XChar operator[](int32_t index);
+		bool operator()(const String& left, const String& right) const;
+		bool operator<(const String& other) const;
 
 		void Clear();
 
 		void Set(const char* utf8String);
 		void Set(XChar& utf8Char);
-		void Set(const XString& utf8String);
+		void Set(const String& utf8String);
 		void Set(const std::string& utf8String);
 
 		void Append(const char* utf8String);
 		void Append(XChar& utf8Char);
-		void Append(const XString& utf8String);
+		void Append(const String& utf8String);
 		void Append(const std::string& utf8String);
 	
-		std::vector<XString> Split();
+		std::vector<String> Split();
+
+		bool Compare(const String& utf8String) const;
 
 		//XString Remove(int32_t index, uint32_t count);
 		//XString SubString(int32_t index, uint32_t count);
@@ -67,12 +72,12 @@ namespace XPlatform
 		const std::string& GetConstString();
 		std::vector<XChar> ToXCharArray();
 
-		bool Equals(const XString& utf8String);
+		bool Equals(const String& utf8String);
 
 	public:
-		static bool IsNullOrEmpty(XString* utf8String);
-		static XString Empty();
-		static XString Format(const char* utf8String, ...);
+		static bool IsNullOrEmpty(String* utf8String);
+		static String Empty();
+		static String Format(const char* utf8String, ...);
 		//static XString Replace();
 	};
 }

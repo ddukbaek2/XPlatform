@@ -1,4 +1,4 @@
-#include "XGL.h"
+﻿#include "XGL.h"
 #include "Texture.h"
 #include "External/loadpng/lodepng.h"
 
@@ -16,7 +16,7 @@ namespace XPlatform
 	{
 	}
 
-	void Texture::Load(XString& filename)
+	void Texture::Load(String& filename)
 	{
 		lodepng::load_file(m_Pixels, filename.GetConstString());
 

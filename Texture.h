@@ -1,8 +1,8 @@
-#pragma once
+﻿#pragma once
 
 #include "XPlatform.h"
 #include "Object.h"
-#include "XString.h"
+#include "String.h"
 
 
 namespace XPlatform
@@ -18,7 +18,7 @@ namespace XPlatform
 		Texture();
 		virtual ~Texture();
 
-		void Load(XString& filename);
+		void Load(String& filename);
 		void Unload();
 
 		bool IsLoaded();

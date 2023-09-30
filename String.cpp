@@ -1,4 +1,4 @@
-#include "XString.h"
+﻿#include "String.h"
 
 
 namespace XPlatform
@@ -16,7 +16,7 @@ namespace XPlatform
 		}
 		else
 		{
-			auto size = sizeof(utf8Chars) / sizeof(char);
+			auto size = strlen(utf8Chars); // string.h
 			m_Chars = new char[size + 1];
 			for (auto i = 0; i < size; ++i)
 			{
@@ -72,22 +72,22 @@ namespace XPlatform
 		return 0;  // Invalid initial byte
 	}
 
-	XString::XString()
+	String::String()
 	{
 		m_Data.clear();
 	}
 
-	XString::XString(const char* utf8String)
+	String::String(const char* utf8String)
 	{
 		Set(utf8String);
 	}
 
-	XString::XString(const XString& utf8String)
+	String::String(const String& utf8String)
 	{
 		Set(utf8String.m_Data);
 	}
 
-	XString::XString(const std::vector<XChar>& utf8String)
+	String::String(const std::vector<XChar>& utf8String)
 	{
 		for (auto i = 0; i < utf8String.size(); ++i)
 		{
@@ -96,31 +96,41 @@ namespace XPlatform
 		}
 	}
 
-	XString::XString(const std::string& utf8String)
+	String::String(const std::string& utf8String)
 	{
 		Set(utf8String);
 	}
 
-	XString::~XString()
+	String::~String()
 	{
 	}
 
-	XChar XString::operator[](int32_t index)
+	XChar String::operator[](int32_t index)
 	{
 		return GetAt(index);
 	}
 
-	void XString::Clear()
+	bool String::operator () (const String& left, const String& right) const
+	{
+		return left.Compare(right);
+	}
+
+	bool String::operator<(const String& other) const
+	{
+		return m_Data < other.m_Data;
+	}
+
+	void String::Clear()
 	{
 		m_Data.clear();
 	}
 
-	void XString::Set(const char* utf8String)
+	void String::Set(const char* utf8String)
 	{
 		m_Data.assign(utf8String);
 	}
 
-	void XString::Set(XChar& utf8Char)
+	void String::Set(XChar& utf8Char)
 	{
 		auto charArray = utf8Char.GetCharArray();
 		if (charArray == nullptr)
@@ -129,22 +139,22 @@ namespace XPlatform
 		m_Data.assign(charArray);
 	}
 
-	void XString::Set(const XString& utf8String)
+	void String::Set(const String& utf8String)
 	{
 		m_Data.assign(utf8String.m_Data);
 	}
 
-	void XString::Set(const std::string& utf8String)
+	void String::Set(const std::string& utf8String)
 	{
 		m_Data.assign(utf8String);
 	}
 
-	void XString::Append(const char* utf8String)
+	void String::Append(const char* utf8String)
 	{
 		m_Data.append(utf8String);
 	}
 
-	void XString::Append(XChar& utf8Char)
+	void String::Append(XChar& utf8Char)
 	{
 		auto charArray = utf8Char.GetCharArray();
 		if (charArray == nullptr)
@@ -153,22 +163,27 @@ namespace XPlatform
 		m_Data.append(charArray);
 	}
 
-	void XString::Append(const XString& utf8String)
+	void String::Append(const String& utf8String)
 	{
 		m_Data.append(utf8String.m_Data);
 	}
 
-	void XString::Append(const std::string& utf8String)
+	void String::Append(const std::string& utf8String)
 	{
 		m_Data.append(utf8String);
 	}
 
-	std::vector<XString> XString::Split()
+	std::vector<String> String::Split()
 	{
-		return std::vector<XString>();
+		return std::vector<String>();
 	}
 
-	uint32_t XString::GetCount()
+	bool String::Compare(const String& utf8String) const
+	{
+		return m_Data.compare(utf8String.m_Data) == 0;
+	}
+
+	uint32_t String::GetCount()
 	{
 		size_t count = 0;
 		for (size_t i = 0; i < m_Data.length(); ++i) {
@@ -180,7 +195,7 @@ namespace XPlatform
 		return count;
 	}
 
-	XChar XString::GetAt(int32_t index)
+	XChar String::GetAt(int32_t index)
 	{
 		uint32_t i = 0;
 		uint32_t charIndex = 0;
@@ -199,17 +214,17 @@ namespace XPlatform
 		return XChar(nullptr);  // Out of range
 	}
 
-	const char* XString::GetConstCharArray()
+	const char* String::GetConstCharArray()
 	{
 		return m_Data.c_str();
 	}
 
-	const std::string& XString::GetConstString()
+	const std::string& String::GetConstString()
 	{
 		return m_Data;
 	}
 
-	std::vector<XChar> XString::ToXCharArray()
+	std::vector<XChar> String::ToXCharArray()
 	{
 		std::vector<XChar> xcharArray;
 		for (auto i = 0; i < GetCount(); ++i)
@@ -221,12 +236,12 @@ namespace XPlatform
 		return std::vector<XChar>();
 	}
 
-	bool XString::Equals(const XString& utf8String)
+	bool String::Equals(const String& utf8String)
 	{
 		return m_Data == utf8String.m_Data;
 	}
 
-	bool XString::IsNullOrEmpty(XString* utf8String)
+	bool String::IsNullOrEmpty(String* utf8String)
 	{
 		if (utf8String == nullptr)
 			return true;
@@ -237,12 +252,12 @@ namespace XPlatform
 		return false;
 	}
 
-	XString XString::Empty()
+	String String::Empty()
 	{
-		return XString(UTF8(""));
+		return String(UTF8(""));
 	}
 
-	XString XString::Format(const char* utf8String, ...)
+	String String::Format(const char* utf8String, ...)
 	{
 		va_list args;
 		va_start(args, utf8String);
@@ -282,6 +297,6 @@ namespace XPlatform
 
 		va_end(args);
 
-		return XString(oss.str());
+		return String(oss.str());
 	}
 }

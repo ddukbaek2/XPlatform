@@ -1,4 +1,4 @@
-#include <android/imagedecoder.h>
+﻿#include <android/imagedecoder.h>
 #include "TextureAsset.h"
 #include "AndroidOut.h"
 #include "Utility.h"

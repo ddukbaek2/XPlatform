@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "XPlatform.h"
 
 
@@ -8,13 +8,13 @@ namespace XPlatform
 	{
 		struct
 		{
-			uint8_t R;
-			uint8_t G;
-			uint8_t B;
-			uint8_t A;
+			float R;
+			float G;
+			float B;
+			float A;
 		};
 
-		uint8_t Array[4];
+		float Array[4];
 
 		Color()
 		{
@@ -22,6 +22,14 @@ namespace XPlatform
 		}
 
 		Color(float r, float g, float b, float a)
+		{
+			R = r;
+			G = g;
+			B = b;
+			A = a;
+		}
+
+		Color(uint8_t r, uint8_t g, uint8_t b, uint8_t a)
 		{
 			R = r / 255.0f;
 			G = g / 255.0f;
