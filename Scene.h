@@ -14,6 +14,14 @@ namespace XPlatform
 		bool m_IsVisible;
 		std::shared_ptr<Node> m_RootNode;
 
+	protected:
+		virtual void OnCreate() = 0;
+		virtual void OnDestroy() = 0;
+		virtual void OnPause() = 0;
+		virtual void OnResume() = 0;
+		virtual void OnTick(float deltaTime) = 0;
+		virtual void OnRender() = 0;
+
 	public:
 		Scene();
 		virtual ~Scene();

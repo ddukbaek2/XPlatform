@@ -103,7 +103,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;XPLATFORM_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
@@ -146,7 +146,7 @@
     <ClCompile Include="Win32GL.cpp" />
     <ClCompile Include="Win32Application.cpp" />
     <ClCompile Include="Win32Main.cpp" />
-    <ClCompile Include="ApplicationListener.cpp" />
+    <ClCompile Include="MainScene.cpp" />
     <ClCompile Include="XApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -173,7 +173,7 @@
     <ClInclude Include="Vertex.h" />
     <ClInclude Include="Win32GL.h" />
     <ClInclude Include="Win32Application.h" />
-    <ClInclude Include="ApplicationListener.h" />
+    <ClInclude Include="MainScene.h" />
     <ClInclude Include="XApplication.h" />
     <ClInclude Include="XGL.h" />
     <ClInclude Include="XPlatform.h" />

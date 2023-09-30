@@ -1,8 +1,11 @@
 ﻿#pragma once
 
+//#define XPLATFORM_WINDOWS
+
 #include "XApplication.h"
 #include "XGL.h"
 #include "Node.h"
+#include "Scene.h"
 
 /*
 * 공통 기능.
@@ -18,7 +21,7 @@
 */
 namespace XPlatform
 {
-	class ApplicationListener : public XApplicationEventHandler
+	class ApplicationEventHandler : public XApplicationEventHandler
 	{
 	protected:
 		std::shared_ptr<Node> m_RootNode;
@@ -34,3 +37,9 @@ namespace XPlatform
 		//virtual void OnKeyPress(int keyCode) override;
 	};
 }
+
+class MainScene : public XPlatform::Scene
+{
+public:
+	void OnCreate() override;
+};
