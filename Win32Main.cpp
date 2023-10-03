@@ -1,8 +1,7 @@
-﻿#include "MainScene.h"
-#include "XPlatform.h"
-#include "Win32Application.h"
-
-#include <windows.h>
+﻿#include "XPlatform.h"
+#include "InitializeScene.h"
+//#include "Win32Application.h"
+#include <windows.h> // GetConsoleWindow(), ShowWindow(), ExitProcess().
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -16,7 +15,7 @@ int32_t main()
 	ShowWindow(consoleWindowHandle, SW_HIDE); // WinUser.h
 
 	// 어플리케이션 실행.
-	XPlatform::StartApplication(std::make_shared<XPlatform::ApplicationEventHandler>(), 1280, 640, false);
+	XPlatform::StartApplication(std::make_shared<InitializeScene>(), 1280, 640, false);
 	ExitProcess(0); // processthreadsapi.h
 	return 0;
 }

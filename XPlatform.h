@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include <memory> // std::shared_ptr, std::weak_ptr.
-#include <string> // std::wstring.
+#include <string> // std::string.
 #include <map> // std::map.
 #include <vector> // std::vector.
 #include <queue>
@@ -14,27 +14,35 @@
 #include <cstdint> // int8_t, int16_t, int32_t, int64_t, uint8_t, uint16_t, uint32_t, uint64_t.
 #include <sstream>
 #include <cstdarg> // va_start, va_end, va_arg.
-
+#include <thread>
+#include <iomanip> // std::setw, std::setfill
 
 #define SAFE_DELETE(name) if (name != nullptr) { delete name; name = nullptr; }
 #define SAFE_DELETE_ARRAY(name) if (name != nullptr) { delete[] name; name = nullptr; }
 //#define TEXT(text) L##text
 #define UTF8(TEXT) u8##TEXT
+#define _RAWTEXT(TEXT) R##TEXT // "R("void Function(){ }")";
+#define interface struct
+
 
 namespace XPlatform
 {
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 전방선언.
 	/////////////////////////////////////////////////////////////////////////////
-	class XApplication;
-	class XApplicationEventHandler;
-	class XGL;
+	class Object;
+	class String;
+	class Application;
+	//class ApplicationEventHandler;
+	class IGL;
+	class SceneManager;
 
 
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 타입재정의.
 	/////////////////////////////////////////////////////////////////////////////
-	typedef std::function<void(void)> VoidFunction;
-	typedef std::function<void(float)> FloatFunction;
-	typedef std::function<void(std::shared_ptr<XGL>)> XGLFunction;
+	typedef std::function<void(void)> VoidCallback;
+	typedef std::function<void(float)> FloatCallback;
+	typedef std::function<void(std::shared_ptr<IGL>)> IGLCallback;
+	typedef std::function<void(const String&)> StringCallback;
 }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="MainScene.cpp" />
+    <ClCompile Include="InitializeScene.cpp" />
     <ClCompile Include="AndroidMain.cpp">
       <Filter>XPlatform\Platform\Android</Filter>
     </ClCompile>
@@ -38,11 +38,8 @@
     <ClCompile Include="Scene.cpp">
       <Filter>XPlatform\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="XApplication.cpp">
-      <Filter>XPlatform</Filter>
-    </ClCompile>
     <ClCompile Include="Object.cpp">
-      <Filter>XPlatform\Common</Filter>
+      <Filter>XPlatform\Base</Filter>
     </ClCompile>
     <ClCompile Include="External\loadpng\lodepng.cpp">
       <Filter>XPlatform\ExternalLibraries\lodepng</Filter>
@@ -51,10 +48,10 @@
       <Filter>XPlatform\Rendering</Filter>
     </ClCompile>
     <ClCompile Include="String.cpp">
-      <Filter>XPlatform\Common</Filter>
+      <Filter>XPlatform\Base</Filter>
     </ClCompile>
     <ClCompile Include="RandomIdentifier.cpp">
-      <Filter>XPlatform\Common</Filter>
+      <Filter>XPlatform\Base</Filter>
     </ClCompile>
     <ClCompile Include="BatchSprite.cpp">
       <Filter>XPlatform\Rendering</Filter>
@@ -62,23 +59,32 @@
     <ClCompile Include="TextureManager.cpp">
       <Filter>XPlatform\Rendering</Filter>
     </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>XPlatform\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="WebRequest.cpp">
+      <Filter>XPlatform\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Win32Socket.cpp">
+      <Filter>XPlatform\Platform\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>XPlatform\Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MainScene.h" />
+    <ClInclude Include="InitializeScene.h" />
     <ClInclude Include="Win32Application.h">
       <Filter>XPlatform\Platform\Win32</Filter>
     </ClInclude>
     <ClInclude Include="Win32GL.h">
       <Filter>XPlatform\Platform\Win32</Filter>
     </ClInclude>
-    <ClInclude Include="XPlatform.h">
-      <Filter>XPlatform</Filter>
-    </ClInclude>
     <ClInclude Include="Sprite.h">
       <Filter>XPlatform\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="SharedClass.h">
-      <Filter>XPlatform\Common</Filter>
+      <Filter>XPlatform\Base</Filter>
     </ClInclude>
     <ClInclude Include="Renderer.h">
       <Filter>XPlatform\Rendering</Filter>
@@ -119,14 +125,8 @@
     <ClInclude Include="SceneManager.h">
       <Filter>XPlatform\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="XApplication.h">
-      <Filter>XPlatform</Filter>
-    </ClInclude>
-    <ClInclude Include="XGL.h">
-      <Filter>XPlatform</Filter>
-    </ClInclude>
     <ClInclude Include="Object.h">
-      <Filter>XPlatform\Common</Filter>
+      <Filter>XPlatform\Base</Filter>
     </ClInclude>
     <ClInclude Include="External\loadpng\lodepng.h">
       <Filter>XPlatform\ExternalLibraries\lodepng</Filter>
@@ -135,16 +135,34 @@
       <Filter>XPlatform\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="String.h">
-      <Filter>XPlatform\Common</Filter>
+      <Filter>XPlatform\Base</Filter>
     </ClInclude>
     <ClInclude Include="RandomIdentifier.h">
-      <Filter>XPlatform\Common</Filter>
+      <Filter>XPlatform\Base</Filter>
     </ClInclude>
     <ClInclude Include="BatchSprite.h">
       <Filter>XPlatform\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="TextureManager.h">
       <Filter>XPlatform\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="WebRequest.h">
+      <Filter>XPlatform\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32Socket.h">
+      <Filter>XPlatform\Platform\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="XPlatform.h">
+      <Filter>XPlatform</Filter>
+    </ClInclude>
+    <ClInclude Include="ISocket.h">
+      <Filter>XPlatform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>XPlatform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="IGL.h">
+      <Filter>XPlatform\Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -165,9 +183,6 @@
     </Filter>
     <Filter Include="XPlatform\Rendering">
       <UniqueIdentifier>{74965c58-aa08-45ce-ab13-0b344a8c94a2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="XPlatform\Common">
-      <UniqueIdentifier>{3f22c2b9-1a1e-40ea-97e5-98a1c4051ac3}</UniqueIdentifier>
     </Filter>
     <Filter Include="XPlatform\Node">
       <UniqueIdentifier>{35eda9c7-371a-4152-b825-afeae0bbcfd5}</UniqueIdentifier>
@@ -192,6 +207,15 @@
     </Filter>
     <Filter Include="XPlatform\ExternalLibraries\lodepng">
       <UniqueIdentifier>{eaa56c69-d822-45fb-85ed-a1972448336e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\Network">
+      <UniqueIdentifier>{8e5b9835-8292-4a2c-b2c1-55e0d0d59d26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\Base">
+      <UniqueIdentifier>{3f22c2b9-1a1e-40ea-97e5-98a1c4051ac3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\Common">
+      <UniqueIdentifier>{c7ceab36-2a57-495c-80e9-edd663a2c002}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

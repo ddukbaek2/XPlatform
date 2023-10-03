@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "XApplication.h"
+#include "Application.h"
 #include <windows.h>
 
 
@@ -9,7 +9,7 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 윈도우 어플리케이션.
 	/////////////////////////////////////////////////////////////////////////////
-	class Win32Application : public XApplication
+	class Win32Application : public Application
 	{
 	public:
 		static Win32Application* s_Instance;
@@ -26,7 +26,7 @@ namespace XPlatform
 		Win32Application();
 		virtual ~Win32Application();
 
-		bool Run(std::shared_ptr<XApplicationEventHandler> applicationEventHandler, int width, int height, bool useFullscreen);
+		bool Run(std::shared_ptr<Scene> scene, int width, int height, bool useFullscreen);
 		void Quit();
 	};
 }

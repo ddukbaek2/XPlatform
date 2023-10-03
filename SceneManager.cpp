@@ -3,6 +3,68 @@
 
 namespace XPlatform
 {
+	void SceneManager::OnCreate()
+	{
+	}
+
+	void SceneManager::OnDestroy()
+	{
+		m_Scenes.clear();
+	}
+
+	void SceneManager::OnPause()
+	{
+		for (auto scene : m_Scenes)
+		{
+			scene->OnPause();
+		}
+	}
+
+	void SceneManager::OnResume()
+	{
+		for (auto scene : m_Scenes)
+		{
+			scene->OnResume();
+		}
+	}
+
+	void SceneManager::OnUpdate(float deltaTime)
+	{
+		for (auto scene : m_Scenes)
+		{
+			scene->OnUpdate(deltaTime);
+		}
+	}
+
+	void SceneManager::OnRender(std::shared_ptr<IGL> gl)
+	{
+		for (auto scene : m_Scenes)
+		{
+			scene->OnRender(gl);
+		}
+	}
+
+	void SceneManager::Play(std::shared_ptr<Scene> scene, bool pauseAllOtherScenes)
+	{
+	}
+
+	void SceneManager::Stop(std::shared_ptr<Scene> scene)
+	{
+	}
+
+	void SceneManager::Pause(std::shared_ptr<Scene> scene)
+	{
+	}
+
+	void SceneManager::Resume(std::shared_ptr<Scene> scene)
+	{
+	}
+
+	bool SceneManager::IsPlaying(std::shared_ptr<Scene> scene)
+	{
+		return false;
+	}
+
 	void SceneManager::Add(std::shared_ptr<Scene> scene)
 	{
 		m_Scenes.push_back(scene);
@@ -29,9 +91,9 @@ namespace XPlatform
 		m_Scenes.erase(it);
 	}
 
-	std::shared_ptr<Scene> SceneManager::GetScene(const wchar_t* sceneName)
+	std::shared_ptr<Scene> SceneManager::GetScene(String& sceneName)
 	{
-		if (sceneName == nullptr)
+		if (String::IsNullOrEmpty(sceneName))
 			return nullptr; // std::shared_ptr<Scene>(nullptr);
 
 		for (auto it = m_Scenes.begin(); it != m_Scenes.end(); ++it)

@@ -5,7 +5,7 @@
 
 namespace XPlatform
 {
-	Node::Node()
+	void Node::OnCreate()
 	{
 		m_Parent = nullptr;
 		m_Name.Clear();
@@ -14,7 +14,7 @@ namespace XPlatform
 		m_IsActive = true;
 	}
 
-	Node::~Node()
+	void Node::OnDestroy()
 	{
 		RemoveChildren();
 	}

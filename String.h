@@ -63,21 +63,24 @@ namespace XPlatform
 
 		bool Compare(const String& utf8String) const;
 
-		//XString Remove(int32_t index, uint32_t count);
-		//XString SubString(int32_t index, uint32_t count);
-
-		uint32_t GetCount();
+		//String Remove(int32_t index, uint32_t count);
+		//String SubString(int32_t index, uint32_t count);
+		//String Replace(const String& originalUTF8String, const String& changedUTF8String);
+		uint32_t GetCount() const;
 		XChar GetAt(int32_t index);
 		const char* GetConstCharArray();
-		const std::string& GetConstString();
+		const std::string& GetConstString() const;
+		//const std::string& GetConstString();
 		std::vector<XChar> ToXCharArray();
 
 		bool Equals(const String& utf8String);
 
 	public:
-		static bool IsNullOrEmpty(String* utf8String);
+		static bool IsNullOrEmpty(const String& utf8String);
 		static String Empty();
 		static String Format(const char* utf8String, ...);
-		//static XString Replace();
+
+		// 백분율 인코딩.
+		static String PercentEncode(const String& utf8String);
 	};
 }

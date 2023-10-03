@@ -1,23 +1,23 @@
 ﻿#pragma once
 
-#include "XGL.h"
+#include "IGL.h"
 
 
 namespace XPlatform
 {
 	/////////////////////////////////////////////////////////////////////////////
-	// @ 윈도우 OpenGL.
+	// @ 윈도우 OpenGL (1.1).
 	/////////////////////////////////////////////////////////////////////////////
-	class Win32GL : public XGL
+	class Win32GL : public IGL
 	{
 	private:
 		//friend class SharedClass<Win32GL>;
 		
 	public:
-		Win32GL() {}
-		~Win32GL() {}
+		Win32GL();
+		virtual ~Win32GL();
 
-		void Clear(AttribMask attribMask) override;
+		void Clear(IGL::AttribMask attribMask) override;
 		void SetClearColor(float r, float g, float b, float a) override;
 		void PushMatrix() override;
 		void SetMatrixMode(MatrixMode matrixMode) override;

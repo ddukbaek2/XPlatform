@@ -31,10 +31,10 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 어플리케이션 실행.
 	/////////////////////////////////////////////////////////////////////////////
-	bool Win32Application::Run(std::shared_ptr<XApplicationEventHandler> applicationEventHandler, int width, int height, bool useFullscreen)
+	bool Win32Application::Run(std::shared_ptr<Scene> scene, int width, int height, bool useFullscreen)
 	{
 		m_IsPlaying = true;
-		SetApplicationListener(applicationEventHandler);
+		//SetApplicationListener(applicationEventHandler);
 
 		HINSTANCE instance = GetModuleHandleW(NULL); // libloaderapi.h
 		m_Icon = LoadIconW(NULL, IDI_APPLICATION); // winuser.h
@@ -117,7 +117,7 @@ namespace XPlatform
 			}
 			else
 			{
-				XApplication::OnMainLoop();
+				Application::OnMainLoop();
 				Sleep(1);
 			}
 		}
@@ -153,7 +153,8 @@ namespace XPlatform
 		{
 		case WM_CREATE:
 			{
-				s_Instance->m_CreateEvent();
+				//s_Instance->m_CreateEvent();
+				s_Instance->OnCreate();
 				//SetCursor(Instance->m_Cursor);
 				//SendMessage(windowHandle, WM_SETICON, ICON_BIG, (LPARAM)Instance->m_Icon);
 				//SendMessage(windowHandle, WM_SETICON, ICON_SMALL, (LPARAM)Instance->m_Icon);
@@ -162,7 +163,9 @@ namespace XPlatform
 
 		case WM_SETFOCUS:
 			{
-			s_Instance->m_ResumeEvent();
+				s_Instance->OnResume();
+
+				//s_Instance->m_ResumeEvent();
 				//SetCursor(Instance->m_Cursor);
 				//SendMessage(windowHandle, WM_SETICON, ICON_BIG, (LPARAM)Instance->m_Icon);
 				//SendMessage(windowHandle, WM_SETICON, ICON_SMALL, (LPARAM)Instance->m_Icon);
@@ -171,7 +174,8 @@ namespace XPlatform
 
 		case WM_KILLFOCUS:
 			{
-			s_Instance->m_PauseEvent();
+				//s_Instance->m_PauseEvent();
+				s_Instance->OnPause();
 				break;
 			}
 
@@ -247,8 +251,8 @@ namespace XPlatform
 			{
 				//if (Instance != nullptr && Instance->m_Application != nullptr)
 				//	Instance->m_Application->OnDestroy();
-				s_Instance->m_DestroyEvent();
-
+				//s_Instance->m_DestroyEvent();
+				s_Instance->OnDestroy();
 				PostQuitMessage(0); // ==> WM_QUIT // winuser.h
 				return 0;
 			}
@@ -262,7 +266,7 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 애플리케이션 실행.
 	/////////////////////////////////////////////////////////////////////////////
-	void StartApplication(std::shared_ptr<XApplicationEventHandler> applicationEventHandler, int width, int height, bool useFullscreen)
+	void StartApplication(std::shared_ptr<Scene> scene, int width, int height, bool useFullscreen)
 	{
 		if (Win32Application::s_Instance == nullptr)
 			Win32Application::s_Instance = new Win32Application();
@@ -270,7 +274,7 @@ namespace XPlatform
 		if (Win32Application::s_Instance->IsPlaying())
 			return;
 
-		auto isSuccessed = Win32Application::s_Instance->Run(applicationEventHandler, width, height, useFullscreen);
+		auto isSuccessed = Win32Application::s_Instance->Run(scene, width, height, useFullscreen);
 		delete Win32Application::s_Instance;
 	}
 
@@ -289,9 +293,9 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 애플리케이션 객체 반환.
 	/////////////////////////////////////////////////////////////////////////////
-	XApplication* GetApplication()
+	Application* GetApplication()
 	{
-		return static_cast<XApplication*>(Win32Application::s_Instance);
+		return static_cast<Application*>(Win32Application::s_Instance);
 	}
 #endif
 }

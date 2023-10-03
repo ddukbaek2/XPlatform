@@ -183,7 +183,7 @@ namespace XPlatform
 		return m_Data.compare(utf8String.m_Data) == 0;
 	}
 
-	uint32_t String::GetCount()
+	uint32_t String::GetCount() const
 	{
 		size_t count = 0;
 		for (size_t i = 0; i < m_Data.length(); ++i) {
@@ -219,10 +219,15 @@ namespace XPlatform
 		return m_Data.c_str();
 	}
 
-	const std::string& String::GetConstString()
+	const std::string& String::GetConstString() const
 	{
 		return m_Data;
 	}
+
+	//const std::string& String::GetConstString()
+	//{
+	//	return m_Data;
+	//}
 
 	std::vector<XChar> String::ToXCharArray()
 	{
@@ -241,12 +246,11 @@ namespace XPlatform
 		return m_Data == utf8String.m_Data;
 	}
 
-	bool String::IsNullOrEmpty(String* utf8String)
+	bool String::IsNullOrEmpty(const String& utf8String)
 	{
-		if (utf8String == nullptr)
+		if (utf8String.m_Data.empty())
 			return true;
-
-		if (utf8String->GetCount() == 0)
+		if (utf8String.GetCount() == 0)
 			return true;
 
 		return false;
@@ -296,6 +300,26 @@ namespace XPlatform
 		}
 
 		va_end(args);
+
+		return String(oss.str());
+	}
+
+	String String::PercentEncode(const String& utf8String)
+	{
+		std::ostringstream oss;
+		for (uint8_t ch : utf8String.GetConstString())
+		{
+			// ASCII 문자는 유지.
+			if (ch >= 0x20 && ch <= 0x7E)
+			{
+				oss << ch;
+			}
+			// ASCII 범위를 벗어나는 문자는 백분율 인코딩.
+			else
+			{
+				oss << '%' << std::uppercase << std::hex << std::setw(2) << std::setfill('0') << (int)ch;
+			}
+		}
 
 		return String(oss.str());
 	}

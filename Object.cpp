@@ -7,6 +7,7 @@ namespace XPlatform
 	Object::Object()
 	{
 		m_ObjectID = RandomIdentifier::GetSharedInstance()->CreateRandomNumber();
+		OnCreate();
 	}
 
 	Object::Object(uint64_t objectID)
@@ -16,7 +17,16 @@ namespace XPlatform
 
 	Object::~Object()
 	{
+		OnDestroy();
 		RandomIdentifier::GetSharedInstance()->DestroyRandomNumber(m_ObjectID);
+	}
+
+	void Object::OnCreate()
+	{
+	}
+
+	void Object::OnDestroy()
+	{
 	}
 
 	uint64_t Object::GetObjectID()

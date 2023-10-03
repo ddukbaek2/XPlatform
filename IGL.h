@@ -8,9 +8,8 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 플랫폼 공통 GL 인터페이스.
 	/////////////////////////////////////////////////////////////////////////////
-	class XGL
+	interface IGL
 	{
-	public:
 		enum class Boolean
 		{
 			GL_TRUE = 1,
@@ -1082,5 +1081,8 @@ namespace XPlatform
 		virtual void BindTexture(uint32_t texture) = 0;
 		virtual void TexParameteri() = 0;
 		virtual void TexImage2D() = 0;
+
+
+		//virtual void DrawArrays() = 0; // glDrawArrays()
 	};
 }

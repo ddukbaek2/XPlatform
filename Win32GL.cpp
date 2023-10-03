@@ -8,6 +8,14 @@
 
 namespace XPlatform
 {
+	Win32GL::Win32GL()
+	{
+	}
+
+	Win32GL::~Win32GL()
+	{
+	}
+
 	void Win32GL::Clear(AttribMask attribMask)
 	{
 		glClear((uint32_t)attribMask);
@@ -51,7 +59,7 @@ namespace XPlatform
 	{
 		glLoadIdentity();
 	}
-	void Win32GL::Begin(XGL::BeginMode beginMode)
+	void Win32GL::Begin(IGL::BeginMode beginMode)
 	{
 		glBegin((uint32_t)beginMode);
 	}

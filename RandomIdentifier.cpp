@@ -24,7 +24,7 @@ namespace XPlatform
 		{
 			randomNumber = m_Distribution(m_RandomEngine);
 		} 
-		while (std::find(m_RandomNumbers.begin(), m_RandomNumbers.end(), randomNumber) == m_RandomNumbers.end());
+		while (std::find(m_RandomNumbers.begin(), m_RandomNumbers.end(), randomNumber) != m_RandomNumbers.end());
 		
 		m_RandomNumbers.push_back(randomNumber);
 		return randomNumber;

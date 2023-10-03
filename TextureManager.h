@@ -10,15 +10,15 @@ namespace XPlatform
 	class TextureManager
 	{
 	private:
-		std::map<XString, Texture> m_Textures;
+		std::map<String, Texture> m_Textures;
 
 	public:
 		TextureManager();
 		virtual ~TextureManager();
 
-		void Add(const XString& key, const Texture& texture);
-		void Remove(const XString& key);
+		void Add(const String& key, const Texture& texture);
+		void Remove(const String& key);
 
-		Texture Get();
+		//Texture Get();
 	};
 }

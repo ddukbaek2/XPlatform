@@ -18,9 +18,9 @@ namespace XPlatform
 		std::vector<Node*> m_Children;
 		bool m_IsActive;
 
-	public:
-		Node();
-		virtual ~Node();
+	protected:
+		virtual void OnCreate() override;
+		virtual void OnDestroy() override;
 
 	private:
 		void SetFullName();

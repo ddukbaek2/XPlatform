@@ -10,7 +10,7 @@ namespace XPlatform
 	{
 	}
 
-	void TextureManager::Add(const XString& key, const Texture& texture)
+	void TextureManager::Add(const String& key, const Texture& texture)
 	{
 		auto it = m_Textures.find(key);
 		if (it != m_Textures.end())
@@ -19,7 +19,7 @@ namespace XPlatform
 		m_Textures.emplace(key, texture);
 	}
 
-	void TextureManager::Remove(const XString& key)
+	void TextureManager::Remove(const String& key)
 	{
 		auto it = m_Textures.find(key);
 		if (it == m_Textures.end())
