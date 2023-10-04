@@ -7,6 +7,8 @@
 #include "Node.h"
 #include "Scene.h"
 
+using namespace XPlatform;
+
 /*
 * 공통 기능.
 *	- 내부 뷰영역을 화면영역과 동일하게 가져갈 것인지 별도로 정할 것인지.
@@ -42,7 +44,7 @@
 /////////////////////////////////////////////////////////////////////////////
 // @ 진입씬.
 /////////////////////////////////////////////////////////////////////////////
-class InitializeScene : public XPlatform::Scene
+class InitializeScene : public Scene
 {
 private:
 	typedef XPlatform::Scene Base;
@@ -50,5 +52,5 @@ private:
 public:
 	void OnCreate() override;
 	void OnDestroy() override;
-	void OnRender(XPlatform::Ref<XPlatform::IGL> gl) override;
+	void OnRender(Ref<IGL> gl) override;
 };

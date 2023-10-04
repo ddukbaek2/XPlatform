@@ -86,15 +86,15 @@ void InitializeScene::OnDestroy()
 	Base::OnDestroy();
 }
 
-void InitializeScene::OnRender(XPlatform::Ref<XPlatform::IGL> gl)
+void InitializeScene::OnRender(Ref<IGL> gl)
 {
 		// 사각형 출력.
-		gl->Clear(XPlatform::IGL::AttribMask::GL_COLOR_BUFFER_BIT);
+		gl->Clear(IGL::AttribMask::GL_COLOR_BUFFER_BIT);
 		gl->LoadIdentity();
 
 		// glDrawArrays
 
-		gl->Begin(XPlatform::IGL::BeginMode::GL_QUADS);
+		gl->Begin(IGL::BeginMode::GL_QUADS);
 		gl->Vertex3f(-0.5f, -0.5f, 0.0f); // 좌하.
 		gl->Color4f(1.0f, 0.0f, 0.0f, 1.0f);
 		gl->Vertex3f(0.5f, -0.5f, 0.0f); // 우하.
