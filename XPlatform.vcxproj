@@ -173,9 +173,11 @@
     <ClInclude Include="SharedClass.h" />
     <ClInclude Include="ISocket.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="StringUtility.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="String.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="TransformNode.h" />
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="Vertex.h" />

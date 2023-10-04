@@ -18,7 +18,7 @@ namespace XPlatform
 		Texture();
 		virtual ~Texture();
 
-		void Play(String& filename);
+		void Load(String& filename);
 		void Unload();
 
 		bool IsLoaded();

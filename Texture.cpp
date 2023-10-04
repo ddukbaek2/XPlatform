@@ -16,7 +16,7 @@ namespace XPlatform
 	{
 	}
 
-	void Texture::Play(String& filename)
+	void Texture::Load(String& filename)
 	{
 		lodepng::load_file(m_Pixels, filename.GetConstString());
 

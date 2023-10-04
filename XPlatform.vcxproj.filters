@@ -164,6 +164,12 @@
     <ClInclude Include="IGL.h">
       <Filter>XPlatform\Common</Filter>
     </ClInclude>
+    <ClInclude Include="StringUtility.h">
+      <Filter>XPlatform\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformNode.h">
+      <Filter>XPlatform\Node</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="XPlatform">

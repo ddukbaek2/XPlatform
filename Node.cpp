@@ -22,9 +22,9 @@ namespace XPlatform
 	void Node::SetFullName()
 	{
 		std::stringstream stringStream;
-		std::vector<Node*> nodes;
+		std::vector<std::shared_ptr<Node>> nodes;
 
-		auto currentNode = this;
+		auto currentNode = GetShared<Node>();
 		while (currentNode != nullptr)
 		{
 			nodes.push_back(currentNode);
@@ -98,7 +98,7 @@ namespace XPlatform
 	{
 	}
 
-	bool Node::Contains(Node* childNode, bool checkHierarchy)
+	bool Node::Contains(std::shared_ptr<Node> childNode, bool checkHierarchy)
 	{
 		if (childNode == nullptr)
 			return false;
@@ -119,7 +119,7 @@ namespace XPlatform
 		return false;
 	}
 
-	Node* Node::FindChild(String& nodeName)
+	std::shared_ptr<Node> Node::FindChild(String& nodeName)
 	{
 		for (auto it = m_Children.begin(); it != m_Children.end(); ++it)
 		{
@@ -131,12 +131,12 @@ namespace XPlatform
 		return nullptr;
 	}
 
-	void Node::AddChild(Node* childNode)
+	void Node::AddChild(std::shared_ptr<Node> childNode)
 	{
 		if (childNode == nullptr)
 			return;
 
-		if (childNode->m_Parent == this)
+		if (childNode->m_Parent == GetShared<Node>())
 			return;
 
 		if (childNode->m_Parent != nullptr)
@@ -146,11 +146,11 @@ namespace XPlatform
 		}
 
 		m_Children.emplace_back(childNode);
-		childNode->m_Parent = this;
+		childNode->m_Parent = GetShared<Node>();
 		childNode->SetFullName();
 	}
 
-	void Node::RemoveChild(Node* childNode)
+	void Node::RemoveChild(std::shared_ptr<Node> childNode)
 	{
 		if (childNode == nullptr)
 			return;
@@ -161,7 +161,7 @@ namespace XPlatform
 
 		m_Children.erase(it);
 
-		if (childNode->m_Parent == this)
+		if (childNode->m_Parent == GetShared<Node>())
 			childNode->m_Parent = nullptr;
 
 		childNode->SetFullName();
@@ -174,7 +174,7 @@ namespace XPlatform
 			auto childNode = *it;
 			m_Children.erase(it);
 
-			if (childNode->m_Parent == this)
+			if (childNode->m_Parent == GetShared<Node>())
 				childNode->m_Parent = nullptr;
 		}
 	}
@@ -199,12 +199,12 @@ namespace XPlatform
 		return m_Children.size();
 	}
 
-	const Node* Node::GetParent()
+	std::shared_ptr<Node> Node::GetParent()
 	{
 		return m_Parent;
 	}
 
-	const Node* Node::GetChild(uint32_t childIndex)
+	std::shared_ptr<Node> Node::GetChild(uint32_t childIndex)
 	{
 		if (childIndex < m_Children.size())
 			return nullptr;
