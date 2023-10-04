@@ -36,7 +36,7 @@ namespace XPlatform
 		}
 	}
 
-	void SceneManager::OnRender(std::shared_ptr<IGL> gl)
+	void SceneManager::OnRender(Ref<IGL> gl)
 	{
 		for (auto scene : m_Scenes)
 		{
@@ -44,33 +44,33 @@ namespace XPlatform
 		}
 	}
 
-	void SceneManager::Play(std::shared_ptr<Scene> scene, bool pauseAllOtherScenes)
+	void SceneManager::Play(Ref<Scene> scene, bool pauseAllOtherScenes)
 	{
 	}
 
-	void SceneManager::Stop(std::shared_ptr<Scene> scene)
+	void SceneManager::Stop(Ref<Scene> scene)
 	{
 	}
 
-	void SceneManager::Pause(std::shared_ptr<Scene> scene)
+	void SceneManager::Pause(Ref<Scene> scene)
 	{
 	}
 
-	void SceneManager::Resume(std::shared_ptr<Scene> scene)
+	void SceneManager::Resume(Ref<Scene> scene)
 	{
 	}
 
-	bool SceneManager::IsPlaying(std::shared_ptr<Scene> scene)
+	bool SceneManager::IsPlaying(Ref<Scene> scene)
 	{
 		return false;
 	}
 
-	void SceneManager::Add(std::shared_ptr<Scene> scene)
+	void SceneManager::Add(Ref<Scene> scene)
 	{
 		m_Scenes.push_back(scene);
 	}
 
-	void SceneManager::Remove(std::shared_ptr<Scene> scene)
+	void SceneManager::Remove(Ref<Scene> scene)
 	{
 		if (scene == nullptr)
 			return;
@@ -91,10 +91,10 @@ namespace XPlatform
 		m_Scenes.erase(it);
 	}
 
-	std::shared_ptr<Scene> SceneManager::GetScene(String& sceneName)
+	Ref<Scene> SceneManager::GetScene(String& sceneName)
 	{
 		if (String::IsNullOrEmpty(sceneName))
-			return nullptr; // std::shared_ptr<Scene>(nullptr);
+			return nullptr; // Reference<Scene>(nullptr);
 
 		for (auto it = m_Scenes.begin(); it != m_Scenes.end(); ++it)
 		{
@@ -102,13 +102,13 @@ namespace XPlatform
 			//scene.getName();
 		}
 
-		return nullptr; // std::shared_ptr<Scene>(nullptr);
+		return nullptr; // Reference<Scene>(nullptr);
 	}
 
-	std::shared_ptr<Scene> SceneManager::GetSceneAt(uint32_t index)
+	Ref<Scene> SceneManager::GetSceneAt(uint32_t index)
 	{
 		if (index >= m_Scenes.size())
-			return nullptr; // std::shared_ptr<Scene>(nullptr);
+			return nullptr; // Reference<Scene>(nullptr);
 
 		return m_Scenes.at(index);
 	}

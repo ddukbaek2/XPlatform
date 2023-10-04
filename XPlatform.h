@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include <memory> // std::shared_ptr, std::weak_ptr.
+#include <memory> // Reference, std::weak_ptr.
 #include <string> // std::string.
 #include <map> // std::map.
 #include <vector> // std::vector.
@@ -23,6 +23,7 @@
 #define UTF8(TEXT) u8##TEXT
 #define _RAWTEXT(TEXT) R##TEXT // "R("void Function(){ }")";
 #define interface struct
+//#define REF(TYPE) Reference<TYPE>
 
 
 namespace XPlatform
@@ -41,8 +42,13 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 타입재정의.
 	/////////////////////////////////////////////////////////////////////////////
-	typedef std::function<void(void)> VoidCallback;
-	typedef std::function<void(float)> FloatCallback;
-	typedef std::function<void(std::shared_ptr<IGL>)> IGLCallback;
-	typedef std::function<void(const String&)> StringCallback;
+	//typedef std::function<void(void)> VoidCallback;
+	//typedef std::function<void(float)> FloatCallback;
+	//typedef std::function<void(Reference<IGL>)> IGLCallback;
+	//typedef std::function<void(const String&)> StringCallback;
+	template<typename T> using Ref = std::shared_ptr<T>;
+	using VoidCallback = std::function<void(void)>;
+	using FloatCallback = std::function<void(float)>;
+	using IGLCallback = std::function<void(Ref<IGL>)>;
+	using StringCallback = std::function<void(const String&)>;
 }

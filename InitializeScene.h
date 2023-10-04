@@ -24,13 +24,13 @@
 //	class ApplicationEventHandler : public ApplicationEventHandler
 //	{
 //	protected:
-//		std::shared_ptr<Node> m_RootNode;
+//		Reference<Node> m_RootNode;
 //
 //	protected:
 //		void OnCreate() override;
 //		void OnDestroy() override;
 //		void OnUpdate(float deltaTime) override;
-//		void OnRender(std::shared_ptr<IGL> gl) override;
+//		void OnRender(Reference<IGL> gl) override;
 //		void OnPause() override;
 //		void OnResume() override;
 //
@@ -50,5 +50,5 @@ private:
 public:
 	void OnCreate() override;
 	void OnDestroy() override;
-	void OnRender(std::shared_ptr<XPlatform::IGL> gl) override;
+	void OnRender(XPlatform::Ref<XPlatform::IGL> gl) override;
 };

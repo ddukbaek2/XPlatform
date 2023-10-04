@@ -17,7 +17,7 @@ namespace XPlatform
 	protected:
 		String m_Name;
 		bool m_IsVisible;
-		std::shared_ptr<Node> m_RootNode;
+		Ref<Node> m_RootNode;
 
 	protected:
 		virtual void OnCreate();
@@ -29,7 +29,7 @@ namespace XPlatform
 		virtual void OnPause();
 		virtual void OnResume();
 		virtual void OnUpdate(float deltaTime);
-		virtual void OnRender(std::shared_ptr<XPlatform::IGL> gl);
+		virtual void OnRender(Ref<XPlatform::IGL> gl);
 
 	public:
 		Scene();
@@ -38,6 +38,6 @@ namespace XPlatform
 		void SetVisible(bool visible);
 		bool IsVisible();
 
-		std::shared_ptr<Node> GetRootNode();
+		Ref<Node> GetRootNode();
 	};
 }

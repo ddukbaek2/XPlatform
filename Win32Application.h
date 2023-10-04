@@ -26,7 +26,7 @@ namespace XPlatform
 		Win32Application();
 		virtual ~Win32Application();
 
-		bool Run(std::shared_ptr<Scene> scene, int width, int height, bool useFullscreen);
+		bool Run(Ref<Scene> scene, int width, int height, bool useFullscreen);
 		void Quit();
 	};
 }

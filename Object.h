@@ -25,11 +25,10 @@ namespace XPlatform
 	public:
 		uint64_t GetObjectID();
 
-		template <typename T> typename std::enable_if<std::is_base_of<Object, T>::value, std::shared_ptr<T>>::type GetShared()
+		template <typename T> typename std::enable_if<std::is_base_of<Object, T>::value, Ref<T>>::type GetShared()
 		{
 			auto shared = this->shared_from_this();
 			return std::static_pointer_cast<T>(shared);
 		}
 	};
-
 }

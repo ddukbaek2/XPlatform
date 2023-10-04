@@ -16,7 +16,7 @@ namespace XPlatform
 		friend class Application;
 
 	private:
-		std::vector<std::shared_ptr<Scene>> m_Scenes;
+		std::vector<Ref<Scene>> m_Scenes;
 
 	protected:
 		virtual void OnCreate();
@@ -24,19 +24,19 @@ namespace XPlatform
 		virtual void OnPause();
 		virtual void OnResume();
 		virtual void OnUpdate(float deltaTime);
-		virtual void OnRender(std::shared_ptr<IGL> gl);
+		virtual void OnRender(Ref<IGL> gl);
 
 	public:
-		void Play(std::shared_ptr<Scene> scene, bool pauseAllOtherScenes = true);
-		void Stop(std::shared_ptr<Scene> scene);
-		void Pause(std::shared_ptr<Scene> scene);
-		void Resume(std::shared_ptr<Scene> scene);
-		bool IsPlaying(std::shared_ptr<Scene> scene);
+		void Play(Ref<Scene> scene, bool pauseAllOtherScenes = true);
+		void Stop(Ref<Scene> scene);
+		void Pause(Ref<Scene> scene);
+		void Resume(Ref<Scene> scene);
+		bool IsPlaying(Ref<Scene> scene);
 
-		void Add(std::shared_ptr<Scene> scene);
-		void Remove(std::shared_ptr<Scene> scene);
+		void Add(Ref<Scene> scene);
+		void Remove(Ref<Scene> scene);
 		void RemoveAt(uint32_t index);
-		std::shared_ptr<Scene> GetScene(String& sceneName);
-		std::shared_ptr<Scene> GetSceneAt(uint32_t index);
+		Ref<Scene> GetScene(String& sceneName);
+		Ref<Scene> GetSceneAt(uint32_t index);
 	};
 }

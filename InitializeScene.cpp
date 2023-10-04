@@ -54,7 +54,7 @@
 //	/////////////////////////////////////////////////////////////////////////////
 //	// @ 출력됨.
 //	/////////////////////////////////////////////////////////////////////////////
-//	void ApplicationEventHandler::OnRender(std::shared_ptr<IGL> gl)
+//	void ApplicationEventHandler::OnRender(Reference<IGL> gl)
 //	{
 //		// 사각형 출력.
 //		gl->Clear(IGL::AttribMask::GL_COLOR_BUFFER_BIT);
@@ -86,7 +86,7 @@ void InitializeScene::OnDestroy()
 	Base::OnDestroy();
 }
 
-void InitializeScene::OnRender(std::shared_ptr<XPlatform::IGL> gl)
+void InitializeScene::OnRender(XPlatform::Ref<XPlatform::IGL> gl)
 {
 		// 사각형 출력.
 		gl->Clear(XPlatform::IGL::AttribMask::GL_COLOR_BUFFER_BIT);

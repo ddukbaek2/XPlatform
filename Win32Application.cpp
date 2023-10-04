@@ -31,7 +31,7 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 어플리케이션 실행.
 	/////////////////////////////////////////////////////////////////////////////
-	bool Win32Application::Run(std::shared_ptr<Scene> scene, int width, int height, bool useFullscreen)
+	bool Win32Application::Run(Ref<Scene> scene, int width, int height, bool useFullscreen)
 	{
 		m_IsPlaying = true;
 		//SetApplicationListener(applicationEventHandler);
@@ -266,7 +266,7 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 애플리케이션 실행.
 	/////////////////////////////////////////////////////////////////////////////
-	void StartApplication(std::shared_ptr<Scene> scene, int width, int height, bool useFullscreen)
+	void StartApplication(Ref<Scene> scene, int width, int height, bool useFullscreen)
 	{
 		if (Win32Application::s_Instance == nullptr)
 			Win32Application::s_Instance = new Win32Application();

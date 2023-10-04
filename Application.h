@@ -13,7 +13,7 @@ namespace XPlatform
 	class Application
 	{
 	protected:
-		//std::shared_ptr<ApplicationEventHandler> m_ApplicationEventHandler;
+		//Reference<ApplicationEventHandler> m_ApplicationEventHandler;
 		//VoidCallback m_CreateEvent;
 		//VoidCallback m_DestroyEvent;
 		//VoidCallback m_PauseEvent;
@@ -23,8 +23,8 @@ namespace XPlatform
 		float m_DeltaTime;
 		bool m_IsPlaying;
 		std::chrono::system_clock::time_point m_PreviousTime;
-		std::shared_ptr<IGL> m_GL;
-		std::shared_ptr<SceneManager> m_SceneManager;
+		Ref<IGL> m_GL;
+		Ref<SceneManager> m_SceneManager;
 
 	public:
 		Application();
@@ -36,21 +36,21 @@ namespace XPlatform
 		virtual void OnPause();
 		virtual void OnResume();
 		virtual void OnUpdate(float deltaTime);
-		virtual void OnRender(std::shared_ptr<IGL> gl);
+		virtual void OnRender(Ref<IGL> gl);
 		virtual void OnMainLoop();
 
 	public:
-		//void SetApplicationListener(std::shared_ptr<ApplicationEventHandler> applicationEventHandler);
-		void SetGL(std::shared_ptr<IGL> gl);
-		//std::shared_ptr<ApplicationEventHandler> GetApplicationListener();
-		std::shared_ptr<IGL> GetGL();
+		//void SetApplicationListener(Reference<ApplicationEventHandler> applicationEventHandler);
+		void SetGL(Ref<IGL> gl);
+		//Reference<ApplicationEventHandler> GetApplicationListener();
+		Ref<IGL> GetGL();
 		bool IsPlaying();
 	};
 
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 어플리케이션 실행.
 	/////////////////////////////////////////////////////////////////////////////
-	void StartApplication(std::shared_ptr<Scene> scene, int width, int height, bool useFullscreen);
+	void StartApplication(Ref<Scene> scene, int width, int height, bool useFullscreen);
 
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 어플리케이션 종료.
@@ -74,7 +74,7 @@ namespace XPlatform
 	//	virtual void OnCreate() = 0;
 	//	virtual void OnDestroy() = 0;
 	//	virtual void OnUpdate(float deltaTime) = 0;
-	//	virtual void OnRender(std::shared_ptr<IGL> gl) = 0;
+	//	virtual void OnRender(Reference<IGL> gl) = 0;
 	//	virtual void OnPause() = 0;
 	//	virtual void OnResume() = 0;
 

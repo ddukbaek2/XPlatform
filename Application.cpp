@@ -54,7 +54,7 @@ namespace XPlatform
 		m_SceneManager->OnUpdate(deltaTime);
 	}
 
-	void Application::OnRender(std::shared_ptr<IGL> gl)
+	void Application::OnRender(Ref<IGL> gl)
 	{
 		m_SceneManager->OnRender(gl);
 	}
@@ -84,7 +84,7 @@ namespace XPlatform
 	///////////////////////////////////////////////////////////////////////////////
 	//// @ 애플리케이션 리스너 설정.
 	///////////////////////////////////////////////////////////////////////////////
-	//void Application::SetApplicationListener(std::shared_ptr<ApplicationEventHandler> applicationEventHandler)
+	//void Application::SetApplicationListener(Reference<ApplicationEventHandler> applicationEventHandler)
 	//{
 	//	m_ApplicationEventHandler = applicationEventHandler;
 	//	m_CreateEvent = std::bind(&Application::OnCreate, m_ApplicationEventHandler);
@@ -98,7 +98,7 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ OpenGL 셋팅.
 	/////////////////////////////////////////////////////////////////////////////
-	void Application::SetGL(std::shared_ptr<IGL> gl)
+	void Application::SetGL(Ref<IGL> gl)
 	{
 		m_GL = gl;
 	}
@@ -106,7 +106,7 @@ namespace XPlatform
 	///////////////////////////////////////////////////////////////////////////////
 	//// @ 애플리케이션 리스너 반환.
 	///////////////////////////////////////////////////////////////////////////////
-	//std::shared_ptr<ApplicationEventHandler> Application::GetApplicationListener()
+	//Reference<ApplicationEventHandler> Application::GetApplicationListener()
 	//{
 	//	return m_ApplicationEventHandler;
 	//}
@@ -114,7 +114,7 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ OpenGL 반환.
 	/////////////////////////////////////////////////////////////////////////////
-	std::shared_ptr<IGL> Application::GetGL()
+	Ref<IGL> Application::GetGL()
 	{
 		return m_GL;
 	}
