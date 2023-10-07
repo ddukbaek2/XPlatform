@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include <memory> // Reference, std::weak_ptr.
+#include <memory> // std::shared_ptr, std::weak_ptr, std::static_pointer_cast.
 #include <string> // std::string.
 #include <map> // std::map.
 #include <vector> // std::vector.
@@ -22,9 +22,8 @@
 //#define TEXT(text) L##text
 #define UTF8(TEXT) u8##TEXT
 #define _RAWTEXT(TEXT) R##TEXT // "R("void Function(){ }")";
-#define interface struct
-//#define REF(TYPE) Reference<TYPE>
-
+#define CreateRef std::make_shared
+#define CastRef std::static_pointer_cast
 
 namespace XPlatform
 {

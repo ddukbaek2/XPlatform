@@ -11,8 +11,11 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	class Win32Application : public Application
 	{
+	private:
+		typedef Application Base;
+
 	public:
-		static Win32Application* s_Instance;
+		static Ref<Win32Application> s_Instance;
 
 	private:
 		HWND m_WindowHandle; // 현재 윈도우 핸들.
@@ -20,13 +23,13 @@ namespace XPlatform
 		HICON m_Icon;
 
 	private:
-		static long __stdcall Procedure(HWND windowHandle, UINT message, WPARAM wParam, LPARAM lParam);
+		static long __stdcall Procedure(HWND windowHandle, uint32_t message, WPARAM wParam, LPARAM lParam);
 
 	public:
 		Win32Application();
 		virtual ~Win32Application();
 
-		bool Run(Ref<Scene> scene, int width, int height, bool useFullscreen);
+		bool Run(Ref<Scene> initializeOnLoadScene, int width, int height, bool useFullscreen);
 		void Quit();
 	};
 }

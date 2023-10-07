@@ -44,7 +44,7 @@ using namespace XPlatform;
 /////////////////////////////////////////////////////////////////////////////
 // @ 진입씬.
 /////////////////////////////////////////////////////////////////////////////
-class InitializeScene : public Scene
+class InitializeOnLoadScene : public Scene
 {
 private:
 	typedef XPlatform::Scene Base;
@@ -52,5 +52,8 @@ private:
 public:
 	void OnCreate() override;
 	void OnDestroy() override;
+	void OnPause() override;
+	void OnResume() override;
+	void OnUpdate(float deltaTime) override;
 	void OnRender(Ref<IGL> gl) override;
 };

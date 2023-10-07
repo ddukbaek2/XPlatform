@@ -6,7 +6,7 @@ namespace XPlatform
 	Scene::Scene()
 	{
 		m_IsVisible = true;
-		m_RootNode = std::make_shared<Node>();
+		m_RootNode = CreateRef<Node>();
 		OnCreate();
 	}
 
@@ -55,7 +55,7 @@ namespace XPlatform
 	{
 	}
 
-	void Scene::OnRender(std::shared_ptr<XPlatform::IGL> gl)
+	void Scene::OnRender(Ref<XPlatform::IGL> gl)
 	{
 	}
 

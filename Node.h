@@ -14,8 +14,8 @@ namespace XPlatform
 	private:
 		String m_Name;
 		String m_FullName;
-		std::shared_ptr<Node> m_Parent;
-		std::vector<std::shared_ptr<Node>> m_Children;
+		Ref<Node> m_Parent;
+		std::vector<Ref<Node>> m_Children;
 		bool m_IsActive;
 
 	protected:
@@ -36,16 +36,16 @@ namespace XPlatform
 		void SetSiblingIndex(uint32_t siblingIndex);
 		void SetFirstSibling();
 		void SetLastSibling();
-		bool Contains(std::shared_ptr<Node> childNode, bool checkHierarchy = false);
-		std::shared_ptr<Node> FindChild(String& nodeName);
-		void AddChild(std::shared_ptr<Node> childNode);
-		void RemoveChild(std::shared_ptr<Node> childNode);
+		bool Contains(Ref<Node> childNode, bool checkHierarchy = false);
+		Ref<Node> FindChild(String& nodeName);
+		void AddChild(Ref<Node> childNode);
+		void RemoveChild(Ref<Node> childNode);
 		void RemoveChildren();
 		bool IsRootNode();
 		String& GetName();
 		String& GetFullName();
 		unsigned int GetChildCount();
-		std::shared_ptr<Node> GetParent();
-		std::shared_ptr<Node> GetChild(uint32_t childIndex);
+		Ref<Node> GetParent();
+		Ref<Node> GetChild(uint32_t childIndex);
 	};
 }

@@ -8,7 +8,7 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 전역변수 선언.
 	/////////////////////////////////////////////////////////////////////////////
-	Win32Application* Win32Application::s_Instance;
+	Ref<Win32Application> Win32Application::s_Instance;
 
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -31,7 +31,7 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 어플리케이션 실행.
 	/////////////////////////////////////////////////////////////////////////////
-	bool Win32Application::Run(Ref<Scene> scene, int width, int height, bool useFullscreen)
+	bool Win32Application::Run(Ref<Scene> initializeOnLoadScene, int width, int height, bool useFullscreen)
 	{
 		m_IsPlaying = true;
 		//SetApplicationListener(applicationEventHandler);
@@ -95,8 +95,8 @@ namespace XPlatform
 		wglMakeCurrent(deviceContext, renderingContext); // wingdi.h
 
 		// GL 생성.
-		auto gl = std::make_shared<Win32GL>();
-		SetGL(gl);
+		auto gl = CreateRef<Win32GL>();
+		SetGL(CastRef<IGL>(gl));
 		gl->SetClearColor(0.72f, 0.72f, 0.72f, 1.0f);
 
 		//ShowWindow(m_WindowHandle, /*SW_SHOW*/SW_SHOWMAXIMIZED); // winuser.h
@@ -108,6 +108,8 @@ namespace XPlatform
 		memset(&msg, 0, sizeof(MSG));
 		msg.message = WM_NULL;
 
+		Base::OnStart(initializeOnLoadScene);
+
 		while (msg.message != WM_QUIT)
 		{
 			if (PeekMessageW(&msg, NULL, 0, 0, PM_REMOVE))
@@ -117,7 +119,7 @@ namespace XPlatform
 			}
 			else
 			{
-				Application::OnMainLoop();
+				Base::OnMainLoop();
 				Sleep(1);
 			}
 		}
@@ -147,7 +149,7 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 어플리케이션 프로시저.
 	/////////////////////////////////////////////////////////////////////////////
-	long __stdcall Win32Application::Procedure(HWND windowHandle, UINT message, WPARAM wParam, LPARAM lParam)
+	long __stdcall Win32Application::Procedure(HWND windowHandle, uint32_t message, WPARAM wParam, LPARAM lParam)
 	{
 		switch (message)
 		{
@@ -266,16 +268,17 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 애플리케이션 실행.
 	/////////////////////////////////////////////////////////////////////////////
-	void StartApplication(Ref<Scene> scene, int width, int height, bool useFullscreen)
+	int32_t StartApplication(Ref<Scene> initializeOnLoadScene, int width, int height, bool useFullscreen)
 	{
+		auto application = CreateRef<Win32Application>();
 		if (Win32Application::s_Instance == nullptr)
-			Win32Application::s_Instance = new Win32Application();
+			Win32Application::s_Instance = application;
 
-		if (Win32Application::s_Instance->IsPlaying())
-			return;
+		if (application->IsPlaying())
+			return -1; // already playing.
 
-		auto isSuccessed = Win32Application::s_Instance->Run(scene, width, height, useFullscreen);
-		delete Win32Application::s_Instance;
+		auto result = application->Run(initializeOnLoadScene, width, height, useFullscreen);
+		return result;
 	}
 
 
@@ -293,9 +296,9 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 애플리케이션 객체 반환.
 	/////////////////////////////////////////////////////////////////////////////
-	Application* GetApplication()
+	Ref<Application> GetApplication()
 	{
-		return static_cast<Application*>(Win32Application::s_Instance);
+		return CastRef<Application>(Win32Application::s_Instance);
 	}
 #endif
 }

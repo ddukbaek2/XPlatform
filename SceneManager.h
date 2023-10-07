@@ -36,6 +36,7 @@ namespace XPlatform
 		void Add(Ref<Scene> scene);
 		void Remove(Ref<Scene> scene);
 		void RemoveAt(uint32_t index);
+
 		Ref<Scene> GetScene(String& sceneName);
 		Ref<Scene> GetSceneAt(uint32_t index);
 	};

@@ -1,5 +1,5 @@
 ﻿#include "Application.h"
-#include "InitializeScene.h"
+
 
 namespace XPlatform
 {
@@ -23,17 +23,19 @@ namespace XPlatform
 	void Application::OnCreate()
 	{
 		m_PreviousTime = std::chrono::system_clock::now();
-		m_SceneManager = std::make_shared<SceneManager>();
-		//m_CreateEvent();
+		m_SceneManager = CreateRef<SceneManager>();
+		m_SceneManager->OnCreate();
+	}
 
-		// 기본씬은 항상 생성.
-		m_SceneManager->Add(std::make_shared<InitializeScene>());
-		auto scene = m_SceneManager->GetSceneAt(0);
-		m_SceneManager->Play(scene);
+	void Application::OnStart(Ref<Scene> initializeOnLoadScene)
+	{
+		m_SceneManager->Add(initializeOnLoadScene);
+		m_SceneManager->Play(initializeOnLoadScene);
 	}
 
 	void Application::OnDestroy()
 	{
+		m_SceneManager->OnDestroy();
 		//m_DestroyEvent();
 	}
 

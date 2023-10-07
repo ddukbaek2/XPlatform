@@ -4,7 +4,7 @@ namespace XPlatform
 {
 	BatchSprite::BatchSprite()
 	{
-		m_Texture = std::shared_ptr<Texture>(nullptr);
+		m_Texture = Ref<Texture>(nullptr);
 	}
 
 	BatchSprite::~BatchSprite()
@@ -12,13 +12,13 @@ namespace XPlatform
 		m_Texture.reset();
 	}
 
-	void BatchSprite::SetTexture(std::shared_ptr<Texture> texture)
+	void BatchSprite::SetTexture(Ref<Texture> texture)
 	{
 		// 로드된 텍스쳐임을 전제로함.
 		m_Texture = texture;
 	}
 
-	void BatchSprite::Render(std::shared_ptr<IGL> gl)
+	void BatchSprite::Render(Ref<IGL> gl)
 	{
 	}
 }

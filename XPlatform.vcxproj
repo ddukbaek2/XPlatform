@@ -150,7 +150,7 @@
     <ClCompile Include="Win32GL.cpp" />
     <ClCompile Include="Win32Application.cpp" />
     <ClCompile Include="Win32Main.cpp" />
-    <ClCompile Include="InitializeScene.cpp" />
+    <ClCompile Include="InitializeOnLoadScene.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Win32Socket.cpp" />
   </ItemGroup>
@@ -184,7 +184,7 @@
     <ClInclude Include="WebRequest.h" />
     <ClInclude Include="Win32GL.h" />
     <ClInclude Include="Win32Application.h" />
-    <ClInclude Include="InitializeScene.h" />
+    <ClInclude Include="InitializeOnLoadScene.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="IGL.h" />
     <ClInclude Include="Win32Socket.h" />

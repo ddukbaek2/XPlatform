@@ -22,7 +22,7 @@ namespace XPlatform
 	void Node::SetFullName()
 	{
 		std::stringstream stringStream;
-		std::vector<std::shared_ptr<Node>> nodes;
+		std::vector<Ref<Node>> nodes;
 
 		auto currentNode = GetRef<Node>();
 		while (currentNode != nullptr)
@@ -98,7 +98,7 @@ namespace XPlatform
 	{
 	}
 
-	bool Node::Contains(std::shared_ptr<Node> childNode, bool checkHierarchy)
+	bool Node::Contains(Ref<Node> childNode, bool checkHierarchy)
 	{
 		if (childNode == nullptr)
 			return false;
@@ -119,7 +119,7 @@ namespace XPlatform
 		return false;
 	}
 
-	std::shared_ptr<Node> Node::FindChild(String& nodeName)
+	Ref<Node> Node::FindChild(String& nodeName)
 	{
 		for (auto it = m_Children.begin(); it != m_Children.end(); ++it)
 		{
@@ -131,7 +131,7 @@ namespace XPlatform
 		return nullptr;
 	}
 
-	void Node::AddChild(std::shared_ptr<Node> childNode)
+	void Node::AddChild(Ref<Node> childNode)
 	{
 		if (childNode == nullptr)
 			return;
@@ -150,7 +150,7 @@ namespace XPlatform
 		childNode->SetFullName();
 	}
 
-	void Node::RemoveChild(std::shared_ptr<Node> childNode)
+	void Node::RemoveChild(Ref<Node> childNode)
 	{
 		if (childNode == nullptr)
 			return;
@@ -199,12 +199,12 @@ namespace XPlatform
 		return m_Children.size();
 	}
 
-	std::shared_ptr<Node> Node::GetParent()
+	Ref<Node> Node::GetParent()
 	{
 		return m_Parent;
 	}
 
-	std::shared_ptr<Node> Node::GetChild(uint32_t childIndex)
+	Ref<Node> Node::GetChild(uint32_t childIndex)
 	{
 		if (childIndex < m_Children.size())
 			return nullptr;
