@@ -1,6 +1,5 @@
 ﻿#include "InitializeOnLoadScene.h"
-#include "Object.h"
-#include "SceneManager.h"
+#include "Node.h"
 
 
 //namespace XPlatform

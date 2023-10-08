@@ -23,7 +23,7 @@
 #define UTF8(text) u8##text
 #define CreateRef std::make_shared
 #define CastRef std::static_pointer_cast
-#define template_where(P) template<typename T> inline typename std::enable_if<std::is_base_of<P, T>::value, Ref<T>>::type
+
 
 namespace XPlatform
 {

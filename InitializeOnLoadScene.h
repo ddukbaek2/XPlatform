@@ -4,10 +4,10 @@
 #define XPLATFORM_WINDOWS
 #endif
 
-#include "Application.h"
+#include "XPlatform.h"
 #include "IGL.h"
-#include "Node.h"
 #include "Scene.h"
+
 
 using namespace XPlatform;
 

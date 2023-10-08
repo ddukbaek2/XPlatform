@@ -1,6 +1,6 @@
 ﻿#include "XPlatform.h"
 #include "InitializeOnLoadScene.h"
-//#include "Win32Application.h"
+#include "Win32Application.h"
 #include <windows.h> // GetConsoleWindow(), ShowWindow(), ExitProcess().
 
 
