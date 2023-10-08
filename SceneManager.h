@@ -1,7 +1,7 @@
 ﻿#pragma once
+
 #include "XPlatform.h"
 #include "SharedClass.h"
-#include "String.h"
 #include "Scene.h"
 
 

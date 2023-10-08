@@ -11,12 +11,12 @@ namespace XPlatform
 	class Sprite : public Object
 	{
 	protected:
-		std::shared_ptr<Texture> m_Texture;
+		Ref<Texture> m_Texture;
 
 	public:
 		Sprite();
 		virtual ~Sprite();
-		void SetTexture(std::shared_ptr<Texture> texture);
-		void Render(std::shared_ptr<IGL> gl);
+		void SetTexture(Ref<Texture> texture);
+		void Render(Ref<IGL> gl);
 	};
 }

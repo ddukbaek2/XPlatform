@@ -1053,7 +1053,7 @@ namespace XPlatform
 			//	GL_DOUBLE,
 		};
 
-		enum class ClientAttribMask
+		enum class ClientAttribMask : uint32_t
 		{
 			GL_CLIENT_PIXEL_STORE_BIT = 0x00000001,
 			GL_CLIENT_VERTEX_ARRAY_BIT = 0x00000002,

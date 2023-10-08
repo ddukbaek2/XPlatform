@@ -17,35 +17,30 @@
 #include <thread>
 #include <iomanip> // std::setw, std::setfill
 
-#define SAFE_DELETE(name) if (name != nullptr) { delete name; name = nullptr; }
-#define SAFE_DELETE_ARRAY(name) if (name != nullptr) { delete[] name; name = nullptr; }
-//#define TEXT(text) L##text
-#define UTF8(TEXT) u8##TEXT
-#define _RAWTEXT(TEXT) R##TEXT // "R("void Function(){ }")";
+
+#define SafeDelete(name) if (name != nullptr) { delete name; name = nullptr; }
+#define SafeDeleteArray(name) if (name != nullptr) { delete[] name; name = nullptr; }
+#define UTF8(text) u8##text
 #define CreateRef std::make_shared
 #define CastRef std::static_pointer_cast
+#define template_where(P) template<typename T> inline typename std::enable_if<std::is_base_of<P, T>::value, Ref<T>>::type
 
 namespace XPlatform
 {
 	/////////////////////////////////////////////////////////////////////////////
-	// @ 전방선언.
+	// @ 전방 선언.
 	/////////////////////////////////////////////////////////////////////////////
 	class Object;
-	class String;
 	class Application;
-	//class ApplicationEventHandler;
 	class IGL;
 	class SceneManager;
 
 
 	/////////////////////////////////////////////////////////////////////////////
-	// @ 타입재정의.
+	// @ 타입 재정의.
 	/////////////////////////////////////////////////////////////////////////////
-	//typedef std::function<void(void)> VoidCallback;
-	//typedef std::function<void(float)> FloatCallback;
-	//typedef std::function<void(Reference<IGL>)> IGLCallback;
-	//typedef std::function<void(const String&)> StringCallback;
 	template<typename T> using Ref = std::shared_ptr<T>;
+	using String = std::string;
 	using VoidCallback = std::function<void(void)>;
 	using FloatCallback = std::function<void(float)>;
 	using IGLCallback = std::function<void(Ref<IGL>)>;

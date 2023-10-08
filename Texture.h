@@ -2,13 +2,15 @@
 
 #include "XPlatform.h"
 #include "Object.h"
-#include "String.h"
 
 
 namespace XPlatform
 {
 	class Texture : public Object
 	{
+	private:
+		typedef Object Base;
+
 	private:
 		std::vector<uint8_t> m_Pixels;
 		uint32_t m_Width;
@@ -18,7 +20,7 @@ namespace XPlatform
 		Texture();
 		virtual ~Texture();
 
-		void Load(String& filename);
+		void Load(const String& filename);
 		void Unload();
 
 		bool IsLoaded();

@@ -2,9 +2,14 @@
 
 namespace XPlatform
 {
-	class ILogger
+	class IRenderer
 	{
 	public:
-		virtual void Print() = 0;
+	};
+
+	class IGraphic
+	{
+	public:
+
 	};
 }

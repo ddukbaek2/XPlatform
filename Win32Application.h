@@ -23,7 +23,7 @@ namespace XPlatform
 		HICON m_Icon;
 
 	private:
-		static long __stdcall Procedure(HWND windowHandle, uint32_t message, WPARAM wParam, LPARAM lParam);
+		static uint64_t __stdcall Procedure(HWND windowHandle, uint32_t message, WPARAM wParam, LPARAM lParam);
 
 	public:
 		Win32Application();

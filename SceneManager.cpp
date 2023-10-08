@@ -93,22 +93,23 @@ namespace XPlatform
 
 	Ref<Scene> SceneManager::GetScene(String& sceneName)
 	{
-		if (String::IsNullOrEmpty(sceneName))
-			return nullptr; // Reference<Scene>(nullptr);
+		if (sceneName.empty())
+			return nullptr; // std::shared_ptr(nullptr);
 
 		for (auto it = m_Scenes.begin(); it != m_Scenes.end(); ++it)
 		{
-			auto scene = (*it).get();
-			//scene.getName();
+			auto scene = *it;
+			if (scene->m_Name == sceneName)
+				return scene;
 		}
 
-		return nullptr; // Reference<Scene>(nullptr);
+		return nullptr; // std::shared_ptr(nullptr);
 	}
 
 	Ref<Scene> SceneManager::GetSceneAt(uint32_t index)
 	{
 		if (index >= m_Scenes.size())
-			return nullptr; // Reference<Scene>(nullptr);
+			return nullptr; // std::shared_ptr(nullptr);
 
 		return m_Scenes.at(index);
 	}

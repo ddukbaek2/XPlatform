@@ -149,7 +149,7 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 어플리케이션 프로시저.
 	/////////////////////////////////////////////////////////////////////////////
-	long __stdcall Win32Application::Procedure(HWND windowHandle, uint32_t message, WPARAM wParam, LPARAM lParam)
+	uint64_t __stdcall Win32Application::Procedure(HWND windowHandle, uint32_t message, WPARAM wParam, LPARAM lParam)
 	{
 		switch (message)
 		{
@@ -268,7 +268,7 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	// @ 애플리케이션 실행.
 	/////////////////////////////////////////////////////////////////////////////
-	int32_t StartApplication(Ref<Scene> initializeOnLoadScene, int width, int height, bool useFullscreen)
+	int32_t StartApplication(Ref<Scene> initializeOnLoadScene, int32_t width, int32_t height, bool useFullscreen)
 	{
 		auto application = CreateRef<Win32Application>();
 		if (Win32Application::s_Instance == nullptr)

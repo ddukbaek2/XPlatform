@@ -1,14 +1,24 @@
-#pragma once
+﻿#pragma once
 
 #include "XPlatform.h"
 #include "Node.h"
+#include "Vector3.h"
 
 
 namespace XPlatform
 {
 	class TransformNode : public Node
 	{
-	public:
+	protected:
+		typedef Node Base;
 
+	protected:
+		Vector3 m_Position;
+		Vector3 m_Scale;
+		Vector3 m_EulerAngles;
+
+	public:
+		TransformNode();
+		virtual ~TransformNode();
 	};
 }

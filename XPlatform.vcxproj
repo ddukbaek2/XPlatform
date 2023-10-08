@@ -143,9 +143,10 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="StringUtility.cpp" />
     <ClCompile Include="TextureManager.cpp" />
-    <ClCompile Include="String.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TransformNode.cpp" />
     <ClCompile Include="WebRequest.cpp" />
     <ClCompile Include="Win32GL.cpp" />
     <ClCompile Include="Win32Application.cpp" />
@@ -160,6 +161,8 @@
     <ClInclude Include="Color.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="External\loadpng\lodepng.h" />
+    <ClInclude Include="IRenderer.h" />
+    <ClInclude Include="ILogger.h" />
     <ClInclude Include="Matrix16.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Node.h" />
@@ -175,7 +178,6 @@
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="StringUtility.h" />
     <ClInclude Include="TextureManager.h" />
-    <ClInclude Include="String.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TransformNode.h" />
     <ClInclude Include="Vector2.h" />

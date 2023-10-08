@@ -5,7 +5,7 @@ namespace XPlatform
 {
 	Sprite::Sprite()
 	{
-		m_Texture = std::shared_ptr<Texture>(nullptr);
+		m_Texture = Ref<Texture>(nullptr);
 	}
 
 	Sprite::~Sprite()
@@ -13,12 +13,12 @@ namespace XPlatform
 		m_Texture.reset();
 	}
 
-	void Sprite::SetTexture(std::shared_ptr<Texture> texture)
+	void Sprite::SetTexture(Ref<Texture> texture)
 	{
 		m_Texture = texture;
 	}
 
-	void Sprite::Render(std::shared_ptr<IGL> gl)
+	void Sprite::Render(Ref<IGL> gl)
 	{
 		//m_Texture->GetObjectID();
 	}

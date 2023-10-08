@@ -1,7 +1,6 @@
 ﻿#pragma once
 
 #include "XPlatform.h"
-#include "String.h"
 
 
 namespace XPlatform

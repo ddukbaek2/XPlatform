@@ -8,8 +8,8 @@ namespace XPlatform
 	void Node::OnCreate()
 	{
 		m_Parent = nullptr;
-		m_Name.Clear();
-		m_FullName.Clear();
+		m_Name.clear();
+		m_FullName.clear();
 		m_Children.clear();
 		m_IsActive = true;
 	}
@@ -37,16 +37,16 @@ namespace XPlatform
 
 			if (it == nodes.rbegin())
 			{
-				stringStream << UTF8("") << node->m_Name.GetConstCharArray();
+				stringStream << UTF8("") << node->m_Name;
 			}
 			else
 			{
-				stringStream << UTF8("/") << node->m_Name.GetConstCharArray();
+				stringStream << UTF8("/") << node->m_Name;
 			}
 		}
 
 		auto fullname = stringStream.str();
-		m_FullName.Set(fullname.c_str());
+		m_FullName.assign(fullname);
 	}
 
 	void Node::SetActiveSelf(bool isActive)
@@ -78,7 +78,7 @@ namespace XPlatform
 
 	void Node::SetName(const String& nodeName)
 	{
-		m_Name.Set(nodeName);
+		m_Name.assign(nodeName);
 		SetFullName();
 	}
 
@@ -119,12 +119,12 @@ namespace XPlatform
 		return false;
 	}
 
-	Ref<Node> Node::FindChild(String& nodeName)
+	Ref<Node> Node::FindChild(const String& nodeName)
 	{
 		for (auto it = m_Children.begin(); it != m_Children.end(); ++it)
 		{
 			auto childNode = *it;
-			if (childNode->m_Name.Equals(nodeName))
+			if (childNode->m_Name == nodeName)
 				return childNode;
 		}
 
@@ -184,17 +184,17 @@ namespace XPlatform
 		return m_Parent == nullptr;
 	}
 
-	String& Node::GetName()
+	const String& Node::GetName()
 	{
 		return m_Name;
 	}
 
-	String& Node::GetFullName()
+	const String& Node::GetFullName()
 	{
 		return m_FullName;
 	}
 
-	unsigned int Node::GetChildCount()
+	size_t Node::GetChildCount()
 	{
 		return m_Children.size();
 	}

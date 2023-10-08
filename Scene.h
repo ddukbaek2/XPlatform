@@ -1,12 +1,15 @@
 ﻿#pragma once
+
 #include "XPlatform.h"
 #include "Object.h"
-#include "String.h"
 #include "Node.h"
 
 
 namespace XPlatform
 {
+	/////////////////////////////////////////////////////////////////////////////
+	// @ 씬.
+	/////////////////////////////////////////////////////////////////////////////
 	class Scene : public Object
 	{
 	private:
@@ -21,11 +24,12 @@ namespace XPlatform
 
 	protected:
 		virtual void OnCreate();
+		virtual void OnDestroy();
+
 		virtual void OnLoadStarted();
 		virtual void OnLoadCompleted();
 		virtual void OnUnloadStarted();
 		virtual void OnUnloadCompleted();
-		virtual void OnDestroy();
 		virtual void OnPause();
 		virtual void OnResume();
 		virtual void OnUpdate(float deltaTime);
@@ -35,7 +39,10 @@ namespace XPlatform
 		Scene();
 		virtual ~Scene();
 
+		void SetPlaying(bool playing);
 		void SetVisible(bool visible);
+
+		bool IsPlaying();
 		bool IsVisible();
 
 		Ref<Node> GetRootNode();

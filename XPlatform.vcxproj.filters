@@ -47,9 +47,6 @@
     <ClCompile Include="Texture.cpp">
       <Filter>XPlatform\Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="String.cpp">
-      <Filter>XPlatform\Base</Filter>
-    </ClCompile>
     <ClCompile Include="RandomIdentifier.cpp">
       <Filter>XPlatform\Base</Filter>
     </ClCompile>
@@ -70,6 +67,12 @@
     </ClCompile>
     <ClCompile Include="Application.cpp">
       <Filter>XPlatform\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="StringUtility.cpp">
+      <Filter>XPlatform\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformNode.cpp">
+      <Filter>XPlatform\Node</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -134,9 +137,6 @@
     <ClInclude Include="Texture.h">
       <Filter>XPlatform\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="String.h">
-      <Filter>XPlatform\Base</Filter>
-    </ClInclude>
     <ClInclude Include="RandomIdentifier.h">
       <Filter>XPlatform\Base</Filter>
     </ClInclude>
@@ -169,6 +169,12 @@
     </ClInclude>
     <ClInclude Include="TransformNode.h">
       <Filter>XPlatform\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="ILogger.h">
+      <Filter>XPlatform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderer.h">
+      <Filter>XPlatform\Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

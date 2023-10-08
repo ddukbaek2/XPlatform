@@ -14,11 +14,12 @@ namespace XPlatform
 
 	Texture::~Texture()
 	{
+		Unload();
 	}
 
-	void Texture::Load(String& filename)
+	void Texture::Load(const String& filename)
 	{
-		lodepng::load_file(m_Pixels, filename.GetConstString());
+		lodepng::load_file(m_Pixels, filename);
 
 		//lodepng_load_file(m_Pixels, )
 	}
@@ -26,6 +27,8 @@ namespace XPlatform
 	void Texture::Unload()
 	{
 		m_Width = m_Height = 0;
+		m_Pixels.clear();
+		//GL::DELETETEXTURE(ID);
 	}
 
 	bool Texture::IsLoaded()

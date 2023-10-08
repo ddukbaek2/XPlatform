@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include "XPlatform.h"
 #include "Object.h"
-#include "String.h"
 
 
 namespace XPlatform
@@ -11,6 +10,9 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	class Node : public Object
 	{
+	protected:
+		typedef Object Base;
+
 	private:
 		String m_Name;
 		String m_FullName;
@@ -37,14 +39,14 @@ namespace XPlatform
 		void SetFirstSibling();
 		void SetLastSibling();
 		bool Contains(Ref<Node> childNode, bool checkHierarchy = false);
-		Ref<Node> FindChild(String& nodeName);
+		Ref<Node> FindChild(const String& nodeName);
 		void AddChild(Ref<Node> childNode);
 		void RemoveChild(Ref<Node> childNode);
 		void RemoveChildren();
 		bool IsRootNode();
-		String& GetName();
-		String& GetFullName();
-		unsigned int GetChildCount();
+		const String& GetName();
+		const String& GetFullName();
+		size_t GetChildCount();
 		Ref<Node> GetParent();
 		Ref<Node> GetChild(uint32_t childIndex);
 	};

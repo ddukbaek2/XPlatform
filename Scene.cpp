@@ -13,10 +13,6 @@ namespace XPlatform
 	Scene::~Scene()
 	{
 		OnDestroy();
-		auto rootNode = m_RootNode.get();
-		m_RootNode.reset();
-
-		//rootNode->destroy
 	}
 
 	void Scene::OnCreate()
