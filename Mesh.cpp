@@ -1,10 +1,14 @@
 ﻿#include "Mesh.h"
 
-
-XPlatform::Mesh::Mesh()
+namespace XPlatform
 {
-}
+	void Mesh::OnCreate()
+	{
+		Base::OnCreate();
+	}
 
-XPlatform::Mesh::~Mesh()
-{
+	void Mesh::OnDestroy()
+	{
+		Base::OnDestroy();
+	}
 }
