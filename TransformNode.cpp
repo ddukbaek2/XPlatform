@@ -3,11 +3,4 @@
 
 namespace XPlatform
 {
-	TransformNode::TransformNode()
-	{
-	}
-
-	TransformNode::~TransformNode()
-	{
-	}
 }

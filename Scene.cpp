@@ -3,20 +3,18 @@
 
 namespace XPlatform
 {
-	Scene::Scene()
-	{
-		m_IsVisible = true;
-		m_RootNode = CreateRef<Node>();
-		OnCreate();
-	}
-
-	Scene::~Scene()
-	{
-		OnDestroy();
-	}
-
 	void Scene::OnCreate()
 	{
+		Base::OnCreate();
+
+		m_IsPlaying = false;
+		m_IsVisible = true;
+		m_RootNode = CreateRef<Node>();
+	}
+
+	void Scene::OnDestroy()
+	{
+		Base::OnDestroy();
 	}
 
 	void Scene::OnLoadStarted()
@@ -32,10 +30,6 @@ namespace XPlatform
 	}
 
 	void Scene::OnUnloadCompleted()
-	{
-	}
-
-	void Scene::OnDestroy()
 	{
 	}
 

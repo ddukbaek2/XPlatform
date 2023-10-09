@@ -19,12 +19,13 @@ namespace XPlatform
 
 	protected:
 		String m_Name;
+		bool m_IsPlaying;
 		bool m_IsVisible;
 		Ref<Node> m_RootNode;
 
 	protected:
-		virtual void OnCreate();
-		virtual void OnDestroy();
+		virtual void OnCreate() override;
+		virtual void OnDestroy() override;
 
 		virtual void OnLoadStarted();
 		virtual void OnLoadCompleted();
@@ -36,9 +37,6 @@ namespace XPlatform
 		virtual void OnRender(Ref<XPlatform::IGL> gl);
 
 	public:
-		Scene();
-		virtual ~Scene();
-
 		void SetPlaying(bool playing);
 		void SetVisible(bool visible);
 

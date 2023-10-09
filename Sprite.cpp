@@ -3,14 +3,18 @@
 
 namespace XPlatform
 {
-	Sprite::Sprite()
+	void Sprite::OnCreate()
 	{
+		Base::OnCreate();
+
 		m_Texture = Ref<Texture>(nullptr);
 	}
 
-	Sprite::~Sprite()
+	void Sprite::OnDestroy()
 	{
 		m_Texture.reset();
+
+		Base::OnDestroy();
 	}
 
 	void Sprite::SetTexture(Ref<Texture> texture)

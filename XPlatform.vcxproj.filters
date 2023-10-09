@@ -38,9 +38,6 @@
     <ClCompile Include="Scene.cpp">
       <Filter>XPlatform\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Object.cpp">
-      <Filter>XPlatform\Base</Filter>
-    </ClCompile>
     <ClCompile Include="External\loadpng\lodepng.cpp">
       <Filter>XPlatform\ExternalLibraries\lodepng</Filter>
     </ClCompile>
@@ -65,14 +62,17 @@
     <ClCompile Include="Win32Socket.cpp">
       <Filter>XPlatform\Platform\Win32</Filter>
     </ClCompile>
-    <ClCompile Include="Application.cpp">
-      <Filter>XPlatform\Common</Filter>
-    </ClCompile>
     <ClCompile Include="StringUtility.cpp">
       <Filter>XPlatform\Base</Filter>
     </ClCompile>
     <ClCompile Include="TransformNode.cpp">
       <Filter>XPlatform\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>XPlatform\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>XPlatform\Platform</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,9 +128,6 @@
     <ClInclude Include="SceneManager.h">
       <Filter>XPlatform\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>XPlatform\Base</Filter>
-    </ClInclude>
     <ClInclude Include="External\loadpng\lodepng.h">
       <Filter>XPlatform\ExternalLibraries\lodepng</Filter>
     </ClInclude>
@@ -158,9 +155,6 @@
     <ClInclude Include="ISocket.h">
       <Filter>XPlatform\Common</Filter>
     </ClInclude>
-    <ClInclude Include="Application.h">
-      <Filter>XPlatform\Common</Filter>
-    </ClInclude>
     <ClInclude Include="IGL.h">
       <Filter>XPlatform\Common</Filter>
     </ClInclude>
@@ -175,6 +169,12 @@
     </ClInclude>
     <ClInclude Include="IRenderer.h">
       <Filter>XPlatform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>XPlatform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>XPlatform\Platform</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

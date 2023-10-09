@@ -10,12 +10,17 @@ namespace XPlatform
 {
 	class Sprite : public Object
 	{
+	private:
+		typedef Object Base;
+
 	protected:
 		Ref<Texture> m_Texture;
 
+	protected:
+		virtual void OnCreate() override;
+		virtual void OnDestroy() override;
+
 	public:
-		Sprite();
-		virtual ~Sprite();
 		void SetTexture(Ref<Texture> texture);
 		void Render(Ref<IGL> gl);
 	};

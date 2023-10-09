@@ -32,6 +32,7 @@ void InitializeOnLoadScene::OnDestroy()
 /////////////////////////////////////////////////////////////////////////////
 void InitializeOnLoadScene::OnPause()
 {
+	Base::OnPause();
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -39,6 +40,7 @@ void InitializeOnLoadScene::OnPause()
 /////////////////////////////////////////////////////////////////////////////
 void InitializeOnLoadScene::OnResume()
 {
+	Base::OnResume();
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -46,6 +48,7 @@ void InitializeOnLoadScene::OnResume()
 /////////////////////////////////////////////////////////////////////////////
 void InitializeOnLoadScene::OnUpdate(float deltaTime)
 {
+	Base::OnUpdate(deltaTime);
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -53,21 +56,23 @@ void InitializeOnLoadScene::OnUpdate(float deltaTime)
 /////////////////////////////////////////////////////////////////////////////
 void InitializeOnLoadScene::OnRender(Ref<IGL> gl)
 {
-		// 사각형 출력.
-		gl->Clear(IGL::AttribMask::GL_COLOR_BUFFER_BIT);
-		gl->LoadIdentity();
+	Base::OnRender(gl);
 
-		// glDrawArrays
+	// 사각형 출력.
+	gl->Clear(IGL::AttribMask::GL_COLOR_BUFFER_BIT);
+	gl->LoadIdentity();
 
-		gl->Begin(IGL::BeginMode::GL_QUADS);
-		gl->Vertex3f(-0.5f, -0.5f, 0.0f); // 좌하.
-		gl->Color4f(1.0f, 0.0f, 0.0f, 1.0f);
-		gl->Vertex3f(0.5f, -0.5f, 0.0f); // 우하.
-		gl->Color4f(1.0f, 0.0f, 1.0f, 1.0f);
-		gl->Vertex3f(0.5f, 0.5f, 0.0f); // 우상.
-		gl->Color4f(1.0f, 0.0f, 0.0f, 1.0f);
-		gl->Vertex3f(-0.5f, 0.5f, 0.0f); // 좌상.
-		gl->Color4f(1.0f, 1.0f, 0.0f, 1.0f);
-		gl->End();
-		gl->Flush();
+	// glDrawArrays
+
+	gl->Begin(IGL::BeginMode::GL_QUADS);
+	gl->Vertex3f(-0.5f, -0.5f, 0.0f); // 좌하.
+	gl->Color4f(1.0f, 0.0f, 0.0f, 1.0f);
+	gl->Vertex3f(0.5f, -0.5f, 0.0f); // 우하.
+	gl->Color4f(1.0f, 0.0f, 1.0f, 1.0f);
+	gl->Vertex3f(0.5f, 0.5f, 0.0f); // 우상.
+	gl->Color4f(1.0f, 0.0f, 0.0f, 1.0f);
+	gl->Vertex3f(-0.5f, 0.5f, 0.0f); // 좌상.
+	gl->Color4f(1.0f, 1.0f, 0.0f, 1.0f);
+	gl->End();
+	gl->Flush();
 }

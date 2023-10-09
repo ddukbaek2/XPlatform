@@ -18,7 +18,6 @@ namespace XPlatform
 		Vector3 m_EulerAngles;
 
 	public:
-		TransformNode();
-		virtual ~TransformNode();
+
 	};
 }
