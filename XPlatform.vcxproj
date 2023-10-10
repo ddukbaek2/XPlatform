@@ -161,8 +161,11 @@
     <ClInclude Include="Color.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="External\loadpng\lodepng.h" />
+    <ClInclude Include="IDrawable.h" />
+    <ClInclude Include="IGeometry.h" />
     <ClInclude Include="IRenderer.h" />
     <ClInclude Include="ILogger.h" />
+    <ClInclude Include="Material.h" />
     <ClInclude Include="Matrix16.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Node.h" />

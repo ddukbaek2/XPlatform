@@ -9,6 +9,9 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	class Renderer : public Object
 	{
+	private:
+		typedef Object Base;
+
 	public:
 
 	};

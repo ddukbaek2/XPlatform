@@ -8,9 +8,6 @@
 
 namespace XPlatform
 {
-
-
-
 	class Mesh : public Object, public IDrawable
 	{
 	private:

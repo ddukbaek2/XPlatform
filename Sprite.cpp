@@ -7,12 +7,12 @@ namespace XPlatform
 	{
 		Base::OnCreate();
 
-		m_Texture = Ref<Texture>(nullptr);
+		m_Texture = nullptr; // Ref<Texture>(nullptr);
 	}
 
 	void Sprite::OnDestroy()
 	{
-		m_Texture.reset();
+		m_Texture = nullptr;
 
 		Base::OnDestroy();
 	}
@@ -20,6 +20,11 @@ namespace XPlatform
 	void Sprite::SetTexture(Ref<Texture> texture)
 	{
 		m_Texture = texture;
+	}
+
+	void Sprite::SetMaterial(Ref<Material> material)
+	{
+
 	}
 
 	void Sprite::Render(Ref<IGL> gl)

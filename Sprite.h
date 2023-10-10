@@ -4,6 +4,7 @@
 #include "Object.h"
 #include "IGL.h"
 #include "Texture.h"
+#include "Material.h"
 
 
 namespace XPlatform
@@ -25,6 +26,7 @@ namespace XPlatform
 
 	public:
 		void SetTexture(Ref<Texture> texture);
+		void SetMaterial(Ref<Material> material);
 		void Render(Ref<IGL> gl);
 	};
 }

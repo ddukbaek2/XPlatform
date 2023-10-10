@@ -2,20 +2,24 @@
 
 namespace XPlatform
 {
-	BatchSprite::BatchSprite()
+	void BatchSprite::OnCreate()
 	{
-		m_Texture = Ref<Texture>(nullptr);
+		m_Texture = nullptr; // Ref<Texture>(nullptr);
 	}
 
-	BatchSprite::~BatchSprite()
+	void BatchSprite::OnDestroy()
 	{
-		m_Texture.reset();
+		m_Texture = nullptr; // Ref<Texture>(nullptr);
 	}
 
 	void BatchSprite::SetTexture(Ref<Texture> texture)
 	{
 		// 로드된 텍스쳐임을 전제로함.
 		m_Texture = texture;
+	}
+
+	void BatchSprite::SetMaterial(Ref<Material> material)
+	{
 	}
 
 	void BatchSprite::Render(Ref<IGL> gl)

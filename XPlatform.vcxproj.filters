@@ -176,6 +176,15 @@
     <ClInclude Include="Application.h">
       <Filter>XPlatform\Platform</Filter>
     </ClInclude>
+    <ClInclude Include="IDrawable.h">
+      <Filter>XPlatform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>XPlatform\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="IGeometry.h">
+      <Filter>XPlatform\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="XPlatform">
