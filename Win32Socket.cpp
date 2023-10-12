@@ -9,6 +9,11 @@ namespace XPlatform
 {
 	void WWWThread(const String& uniformResourceLocator, Action<const String&> action)
 	{
+        while (true)
+        {
+            Sleep(1);
+        }
+
         //addrinfo* result = nullptr;
         //addrinfo hints = {};
         //hints.ai_family = AF_UNSPEC;
