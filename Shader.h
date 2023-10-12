@@ -3,30 +3,32 @@
 #include "XPlatform.h"
 #include "Object.h"
 #include "Texture.h"
-#include "Shader.h"
 
 
 namespace XPlatform
 {
 	/////////////////////////////////////////////////////////////////////////////
-	// @ 메터리얼.
+	// @ 셰이더.
 	/////////////////////////////////////////////////////////////////////////////
-	class Material : public Object
+	class Shader : public Object
 	{
 	private:
 		typedef Object Base;
 
 	protected:
 		String m_Name;
-		Ref<Texture> m_Texture;
-		Ref<Shader> m_Shader;
+		String m_ShaderCode;
 
 	protected:
 		virtual void OnCreate() override;
 		virtual void OnDestroy() override;
 
 	public:
-		void SetTexture(Ref<Texture> texture);
-		void SetShader(Ref<Shader> shader);
+		void SetName(const String& name);
+		void SetShaderCode(const String& shaderCode);
+
+		void SetProperty(const String& name, const String& value);
+		void SetProperty(const String& name, int32_t value);
+		void SetProperty(const String& name, float value);
 	};
 }

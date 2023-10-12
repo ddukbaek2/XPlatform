@@ -5,16 +5,20 @@
 
 namespace XPlatform
 {
-	Texture::Texture()
+	void Texture::OnCreate()
 	{
+		Base::OnCreate();
+
 		m_Pixels.clear();
 		m_Width = 0;
 		m_Height = 0;
 	}
 
-	Texture::~Texture()
+	void Texture::OnDestroy()
 	{
 		Unload();
+
+		Base::OnDestroy();
 	}
 
 	void Texture::Load(const String& filename)

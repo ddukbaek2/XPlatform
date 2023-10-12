@@ -1,5 +1,6 @@
 ﻿#include "InitializeOnLoadScene.h"
 #include "Node.h"
+#include "Shader.h"
 
 
 //namespace XPlatform
@@ -17,6 +18,9 @@
 void InitializeOnLoadScene::OnCreate()
 {
 	Base::OnCreate();
+
+	auto shader = CreateRef<Shader>();
+	//shader->SetProperty();
 }
 
 /////////////////////////////////////////////////////////////////////////////

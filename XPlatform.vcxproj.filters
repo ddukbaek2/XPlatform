@@ -74,6 +74,9 @@
     <ClCompile Include="Application.cpp">
       <Filter>XPlatform\Platform</Filter>
     </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>XPlatform\Rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InitializeOnLoadScene.h" />
