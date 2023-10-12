@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "Object.h"
+#include "IDrawable.h"
 
 namespace XPlatform
 {
@@ -12,7 +13,12 @@ namespace XPlatform
 	private:
 		typedef Object Base;
 
-	public:
+	protected:
+		std::vector<IDrawable> m_Drawables;
 
+	public:
+		void OnRender()
+		{
+		}
 	};
 }

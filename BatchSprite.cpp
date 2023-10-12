@@ -4,12 +4,12 @@ namespace XPlatform
 {
 	void BatchSprite::OnCreate()
 	{
-		m_Texture = nullptr; // Ref<Texture>(nullptr);
+		Base::OnCreate();
 	}
 
 	void BatchSprite::OnDestroy()
 	{
-		m_Texture = nullptr; // Ref<Texture>(nullptr);
+		Base::OnDestroy();
 	}
 
 	void BatchSprite::SetMaterial(Ref<Material> material)

@@ -77,6 +77,9 @@
     <ClCompile Include="Material.cpp">
       <Filter>XPlatform\Rendering</Filter>
     </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>XPlatform\Rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InitializeOnLoadScene.h" />
@@ -187,6 +190,9 @@
     </ClInclude>
     <ClInclude Include="IGeometry.h">
       <Filter>XPlatform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>XPlatform\Rendering</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

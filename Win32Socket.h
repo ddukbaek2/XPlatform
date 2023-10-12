@@ -15,6 +15,6 @@ namespace XPlatform
 		Win32Socket();
 		virtual ~Win32Socket();
 
-		void WWWThread(const String& uniformResourceLocator, StringCallback callback);
+		void WWWThread(const String& uniformResourceLocator, Action<const String&> action);
 	};
 }

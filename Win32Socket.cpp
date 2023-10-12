@@ -7,7 +7,7 @@
 
 namespace XPlatform
 {
-	void WWWThread(const String& uniformResourceLocator, StringCallback callback)
+	void WWWThread(const String& uniformResourceLocator, Action<const String&> action)
 	{
         //addrinfo* result = nullptr;
         //addrinfo hints = {};
@@ -50,9 +50,9 @@ namespace XPlatform
 		WSACleanup();
 	}
 
-	void Win32Socket::WWWThread(const String& uniformResourceLocator, StringCallback callback)
+	void Win32Socket::WWWThread(const String& uniformResourceLocator, Action<const String&> action)
 	{
-		auto thread = std::thread(XPlatform::WWWThread, uniformResourceLocator, callback);
+		auto thread = std::thread(XPlatform::WWWThread, uniformResourceLocator, action);
         thread.join();
 	}
 }

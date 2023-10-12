@@ -6,13 +6,13 @@ namespace XPlatform
 	{
 		Base::OnCreate();
 
-		m_Texture = nullptr;
+		m_Texture = nullptr; // Ref<Texture>(nullptr);
 		m_Shader = nullptr;
 	}
 	
 	void Material::OnDestroy()
 	{
-		m_Texture = nullptr;
+		m_Texture = nullptr; // Ref<Texture>(nullptr);
 		m_Shader = nullptr;
 
 		Base::OnDestroy();

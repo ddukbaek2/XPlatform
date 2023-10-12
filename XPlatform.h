@@ -40,9 +40,19 @@ namespace XPlatform
 	// @ 타입 재정의.
 	/////////////////////////////////////////////////////////////////////////////
 	template<typename T> using Ref = std::shared_ptr<T>;
+	template<typename T> using List = std::vector<T>;
+	template<typename T> using Queue = std::queue<T>;
+	template<typename T> using Stack = std::stack<T>;
+	template<typename K, typename V> using Dictionary = std::map<K, V>;
 	using String = std::string;
-	using VoidCallback = std::function<void(void)>;
-	using FloatCallback = std::function<void(float)>;
-	using IGLCallback = std::function<void(Ref<IGL>)>;
-	using StringCallback = std::function<void(const String&)>;
+
+	using SimpleAction = std::function<void(void)>;
+	template<typename... A> using Action = std::function<void(A...)>;
+	template<typename... A> using Predicate = std::function<bool(A...)>;
+	template<typename R, typename... A> using Func = std::function<R(A...)>;
+
+	//using FAction = Action<float>();
+	//using FloatCallback = std::function<void(float)>;
+	//using IGLCallback = std::function<void(Ref<IGL>)>;
+	//using StringCallback = std::function<void(const String&)>;
 }
