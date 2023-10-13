@@ -33,7 +33,7 @@ namespace XPlatform
 
 		for (auto it = nodes.rbegin(); it != nodes.rend(); ++it)
 		{
-			auto node = *it;
+			auto& node = *it;
 
 			if (it == nodes.rbegin())
 			{
@@ -64,7 +64,7 @@ namespace XPlatform
 		if (!IsActiveSelf())
 			return false;
 
-		auto parent = m_Parent;
+		auto& parent = m_Parent;
 		while (parent != nullptr)
 		{
 			if (!parent->IsActiveSelf())
@@ -105,7 +105,7 @@ namespace XPlatform
 
 		for (auto it = m_Children.begin(); it != m_Children.end(); ++it)
 		{
-			auto currentNode = *it;
+			auto& currentNode = *it;
 			if (currentNode == childNode)
 				return true;
 
@@ -123,7 +123,7 @@ namespace XPlatform
 	{
 		for (auto it = m_Children.begin(); it != m_Children.end(); ++it)
 		{
-			auto childNode = *it;
+			auto& childNode = *it;
 			if (childNode->m_Name == nodeName)
 				return childNode;
 		}
@@ -171,7 +171,7 @@ namespace XPlatform
 	{
 		for (auto it = m_Children.begin(); it != m_Children.end(); ++it)
 		{
-			auto childNode = *it;
+			auto& childNode = *it;
 			m_Children.erase(it);
 
 			if (childNode->m_Parent == GetRef<Node>())
