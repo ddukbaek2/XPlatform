@@ -2,6 +2,7 @@
 
 #include "XPlatform.h"
 #include "Object.h"
+#include "Vector3.h"
 
 
 namespace XPlatform
@@ -13,5 +14,9 @@ namespace XPlatform
 	{
 	private:
 		typedef Object Base;
+
+	public:
+		void SetPosition(const Vector3& position);
+		void SetEulerAngles(const Vector3& eulerAngles);
 	};
 }

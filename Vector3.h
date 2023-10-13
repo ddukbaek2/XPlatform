@@ -4,16 +4,22 @@
 
 namespace XPlatform
 {
-	union Vector3
+	/////////////////////////////////////////////////////////////////////////////
+	// @ 3차원 벡터.
+	/////////////////////////////////////////////////////////////////////////////
+	struct Vector3
 	{
-		struct
+		union
 		{
-			float X;
-			float Y;
-			float Z;
-		};
+			struct
+			{
+				float X;
+				float Y;
+				float Z;
+			};
 
-		float Array[3];
+			float Array[3];
+		};
 
 		Vector3()
 		{

@@ -5,21 +5,21 @@
 
 namespace XPlatform
 {
-	void SetMatrixTranslation(Matrix16& matrix, Vector3& vec)
+	void Matrix16::SetMatrixTranslation(Matrix16& matrix, Vector3& vec)
 	{
 		matrix.Array[0][3] = vec.X;
 		matrix.Array[1][3] = vec.Y;
 		matrix.Array[2][3] = vec.Z;
 	}
 
-	void SetMatrixScale(Matrix16& matrix, Vector3& vec)
+	void Matrix16::SetMatrixScale(Matrix16& matrix, Vector3& vec)
 	{
 		matrix.Array[0][0] = vec.X;
 		matrix.Array[1][1] = vec.Y;
 		matrix.Array[2][2] = vec.Z;
 	}
 
-	void SetMatrixRotation(Matrix16& matrix, Vector3& vec)
+	void Matrix16::SetMatrixRotation(Matrix16& matrix, Vector3& vec)
 	{
 		auto cos_rx = cos(vec.X), sin_rx = sin(vec.X);
 		auto cos_ry = cos(vec.Y), sin_ry = sin(vec.Y);
@@ -38,7 +38,7 @@ namespace XPlatform
 		matrix.Array[2][2] = cos_rx * cos_ry;
 	}
 
-	Matrix16 GetMatrixIdentity()
+	Matrix16 Matrix16::GetMatrixIdentity()
 	{
 		Matrix16 matrix;
 		for (auto y = 0; y < 4; ++y)
@@ -56,13 +56,13 @@ namespace XPlatform
 		return matrix;
 	}
 
-	Matrix16 GetMatrixInverse(Matrix16& matrix)
+	Matrix16 Matrix16::GetMatrixInverse(Matrix16& matrix)
 	{
 		// 고민중...
 		return matrix;
 	}
 
-	Vector3 GetMatrixTranslation(const Matrix16& matrix)
+	Vector3 Matrix16::GetMatrixTranslation(const Matrix16& matrix)
 	{
 		Vector3 vec;
 		vec.X = matrix.Array[0][3];
@@ -72,7 +72,7 @@ namespace XPlatform
 		return vec;
 	}
 
-	Vector3 GetMatrixScale(const Matrix16& matrix)
+	Vector3 Matrix16::GetMatrixScale(const Matrix16& matrix)
 	{
 		Vector3 vec;
 		vec.X = sqrt(matrix.Array[0][0] * matrix.Array[0][0] + matrix.Array[0][1] * matrix.Array[0][1] + matrix.Array[0][2] * matrix.Array[0][2]);
@@ -82,7 +82,7 @@ namespace XPlatform
 		return vec;
 	}
 
-	Vector3 GetMatrixRotation(const Matrix16& matrix)
+	Vector3 Matrix16::GetMatrixRotation(const Matrix16& matrix)
 	{
 		Vector3 vec;
 		vec.X = asin(matrix.Array[0][2]);

@@ -1,18 +1,25 @@
 ﻿#pragma once
+
 #include "XPlatform.h"
 
 
 namespace XPlatform
 {
-	union Vector2
+	/////////////////////////////////////////////////////////////////////////////
+	// @ 2차원 벡터.
+	/////////////////////////////////////////////////////////////////////////////
+	struct Vector2
 	{
-		struct
+		union
 		{
-			float X;
-			float Y;
-		};
+			struct
+			{
+				float X;
+				float Y;
+			};
 
-		float Array[2];
+			float Array[2];
+		};
 
 		Vector2()
 		{

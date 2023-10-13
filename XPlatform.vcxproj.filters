@@ -110,9 +110,6 @@
     <ClInclude Include="Quad.h">
       <Filter>XPlatform\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="Vertex.h">
-      <Filter>XPlatform\DataType</Filter>
-    </ClInclude>
     <ClInclude Include="Vector3.h">
       <Filter>XPlatform\DataType</Filter>
     </ClInclude>
@@ -192,6 +189,15 @@
       <Filter>XPlatform\Common</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
+      <Filter>XPlatform\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>XPlatform\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternion.h">
+      <Filter>XPlatform\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
       <Filter>XPlatform\Rendering</Filter>
     </ClInclude>
   </ItemGroup>

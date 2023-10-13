@@ -16,14 +16,14 @@
 #include <cstdarg> // va_start, va_end, va_arg.
 #include <thread>
 #include <iomanip> // std::setw, std::setfill
-
+#include <cmath>
 
 #define SafeDelete(name) if (name != nullptr) { delete name; name = nullptr; }
 #define SafeDeleteArray(name) if (name != nullptr) { delete[] name; name = nullptr; }
 #define UTF8(text) u8##text
 #define CreateRef std::make_shared
 #define CastRef std::static_pointer_cast
-
+#define PI 3.14159265358979323846
 
 namespace XPlatform
 {

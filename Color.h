@@ -4,17 +4,23 @@
 
 namespace XPlatform
 {
-	union Color
+	/////////////////////////////////////////////////////////////////////////////
+	// @ 색상.
+	/////////////////////////////////////////////////////////////////////////////
+	struct Color
 	{
-		struct
+		union
 		{
-			float R;
-			float G;
-			float B;
-			float A;
-		};
+			struct
+			{
+				float R;
+				float G;
+				float B;
+				float A;
+			};
 
-		float Array[4];
+			float Array[4];
+		};
 
 		Color()
 		{
