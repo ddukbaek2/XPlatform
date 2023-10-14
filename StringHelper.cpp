@@ -1,9 +1,9 @@
-﻿#include "StringUtility.h"
+﻿#include "StringHelper.h"
 
 
 namespace XPlatform
 {
-	uint8_t StringUtility::GetCharSize(char ch)
+	uint8_t StringHelper::GetCharSize(char ch)
 	{
 		if ((ch & 0x80) == 0) return 1;
 		if ((ch & 0xE0) == 0xC0) return 2;
@@ -12,7 +12,7 @@ namespace XPlatform
 		return 0;  // Invalid initial byte
 	}
 
-	std::string StringUtility::Format(const char* utf8String, ...)
+	std::string StringHelper::Format(const char* utf8String, ...)
 	{
 		va_list args;
 		va_start(args, utf8String);
@@ -55,7 +55,7 @@ namespace XPlatform
 		return oss.str();
 	}
 
-	String StringUtility::PercentEncode(const String& utf8String)
+	String StringHelper::PercentEncode(const String& utf8String)
 	{
 		std::ostringstream oss;
 		for (uint8_t ch : utf8String)
@@ -75,7 +75,7 @@ namespace XPlatform
 		return oss.str();
 	}
 
-	size_t StringUtility::GetCount(const String& utf8String)
+	size_t StringHelper::GetCount(const String& utf8String)
 	{
 		size_t count = 0;
 		for (uint8_t ch : utf8String)

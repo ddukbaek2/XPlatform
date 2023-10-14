@@ -62,7 +62,7 @@
     <ClCompile Include="Win32Socket.cpp">
       <Filter>XPlatform\Platform\Win32</Filter>
     </ClCompile>
-    <ClCompile Include="StringUtility.cpp">
+    <ClCompile Include="StringHelper.cpp">
       <Filter>XPlatform\Base</Filter>
     </ClCompile>
     <ClCompile Include="TransformNode.cpp">
@@ -79,6 +79,9 @@
     </ClCompile>
     <ClCompile Include="Shader.cpp">
       <Filter>XPlatform\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="MathHelper.cpp">
+      <Filter>XPlatform\Base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -161,7 +164,7 @@
     <ClInclude Include="IGL.h">
       <Filter>XPlatform\Common</Filter>
     </ClInclude>
-    <ClInclude Include="StringUtility.h">
+    <ClInclude Include="StringHelper.h">
       <Filter>XPlatform\Base</Filter>
     </ClInclude>
     <ClInclude Include="TransformNode.h">
@@ -199,6 +202,9 @@
     </ClInclude>
     <ClInclude Include="Vertex.h">
       <Filter>XPlatform\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="MathHelper.h">
+      <Filter>XPlatform\Base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -252,6 +258,9 @@
     </Filter>
     <Filter Include="XPlatform\Common">
       <UniqueIdentifier>{c7ceab36-2a57-495c-80e9-edd663a2c002}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\GUI">
+      <UniqueIdentifier>{c0974e2e-ec87-4425-a331-272d5c5c4d8d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

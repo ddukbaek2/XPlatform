@@ -23,7 +23,7 @@
 #define UTF8(text) u8##text
 #define CreateRef std::make_shared
 #define CastRef std::static_pointer_cast
-#define PI 3.14159265358979323846
+
 
 namespace XPlatform
 {

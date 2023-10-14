@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "XPlatform.h"
+#include "MathHelper.h"
 #include "Vector3.h"
 
 
@@ -95,21 +96,25 @@ namespace XPlatform
 			Vector3 eulerAngles;
 
 			// Roll (X-axis rotation)
-			float sinr_cosp = 2 * (w * x + y * z);
-			float cosr_cosp = 1 - 2 * (x * x + y * y);
-			eulerAngles.Z = std::atan2(sinr_cosp, cosr_cosp);
+			auto sinRollAndcosPitch = 2.0f * (w * x + y * z);
+			auto cosRollAndcosPitch = 1.0f - 2.0f * (x * x + y * y);
+			eulerAngles.Z = std::atan2(sinRollAndcosPitch, cosRollAndcosPitch);
 
 			// Pitch (Y-axis rotation)
-			float sinp = 2 * (w * y - z * x);
-			if (std::abs(sinp) >= 1)
-				eulerAngles.X = std::copysign(PI / 2, sinp); // Use 90 degrees if out of range
+			auto sinPitch = 2.0f * (w * y - z * x);
+			if (std::abs(sinPitch) >= 1.0f)
+			{
+				eulerAngles.X = std::copysign(MathHelper::PI / 2, sinPitch); // Use 90 degrees if out of range
+			}
 			else
-				eulerAngles.X = std::asin(sinp);
+			{
+				eulerAngles.X = std::asin(sinPitch);
+			}
 
 			// Yaw (Z-axis rotation)
-			float siny_cosp = 2 * (w * z + x * y);
-			float cosy_cosp = 1 - 2 * (y * y + z * z);
-			eulerAngles.Y = std::atan2(siny_cosp, cosy_cosp);
+			auto sinYawAndcosPitch = 2.0f * (w * z + x * y);
+			auto cosYwaAndcosPitch = 1.0f - 2.0f * (y * y + z * z);
+			eulerAngles.Y = std::atan2(sinYawAndcosPitch, cosYwaAndcosPitch);
 
 			return eulerAngles;
 		}
