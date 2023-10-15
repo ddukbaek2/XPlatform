@@ -39,7 +39,7 @@
       <Filter>XPlatform\Scene</Filter>
     </ClCompile>
     <ClCompile Include="External\loadpng\lodepng.cpp">
-      <Filter>XPlatform\ExternalLibraries\lodepng</Filter>
+      <Filter>XPlatform\External\lodepng</Filter>
     </ClCompile>
     <ClCompile Include="Texture.cpp">
       <Filter>XPlatform\Rendering</Filter>
@@ -82,6 +82,9 @@
     </ClCompile>
     <ClCompile Include="MathHelper.cpp">
       <Filter>XPlatform\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Asset.cpp">
+      <Filter>XPlatform\Asset</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -135,7 +138,7 @@
       <Filter>XPlatform\Scene</Filter>
     </ClInclude>
     <ClInclude Include="External\loadpng\lodepng.h">
-      <Filter>XPlatform\ExternalLibraries\lodepng</Filter>
+      <Filter>XPlatform\External\lodepng</Filter>
     </ClInclude>
     <ClInclude Include="Texture.h">
       <Filter>XPlatform\Rendering</Filter>
@@ -206,6 +209,15 @@
     <ClInclude Include="MathHelper.h">
       <Filter>XPlatform\Base</Filter>
     </ClInclude>
+    <ClInclude Include="Asset.h">
+      <Filter>XPlatform\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="GUIObject.h">
+      <Filter>XPlatform\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="VGASupport.h">
+      <Filter>XPlatform\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="XPlatform">
@@ -244,12 +256,6 @@
     <Filter Include="XPlatform\Platform\Linux">
       <UniqueIdentifier>{92967e03-0c63-49ee-9262-2796d57c1a38}</UniqueIdentifier>
     </Filter>
-    <Filter Include="XPlatform\ExternalLibraries">
-      <UniqueIdentifier>{a135dddd-b66d-4592-9712-cdbffad47e61}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="XPlatform\ExternalLibraries\lodepng">
-      <UniqueIdentifier>{eaa56c69-d822-45fb-85ed-a1972448336e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="XPlatform\Network">
       <UniqueIdentifier>{8e5b9835-8292-4a2c-b2c1-55e0d0d59d26}</UniqueIdentifier>
     </Filter>
@@ -261,6 +267,15 @@
     </Filter>
     <Filter Include="XPlatform\GUI">
       <UniqueIdentifier>{c0974e2e-ec87-4425-a331-272d5c5c4d8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\Asset">
+      <UniqueIdentifier>{d71fed7d-c87a-482e-8153-3c8094b9e7f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\External">
+      <UniqueIdentifier>{a135dddd-b66d-4592-9712-cdbffad47e61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\External\lodepng">
+      <UniqueIdentifier>{eaa56c69-d822-45fb-85ed-a1972448336e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

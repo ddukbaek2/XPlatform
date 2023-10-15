@@ -3,6 +3,7 @@
 #include "XPlatform.h"
 #include "Node.h"
 #include "Vector3.h"
+#include "Matrix16.h"
 
 
 namespace XPlatform
@@ -16,9 +17,11 @@ namespace XPlatform
 		typedef Node Base;
 
 	protected:
-		Vector3 m_Position;
-		Vector3 m_Scale;
-		Vector3 m_EulerAngles;
+		//Vector3 m_Position;
+		//Vector3 m_Scale;
+		//Vector3 m_EulerAngles;
+		Matrix16 m_WorldMatrix;
+		Matrix16 m_LocalMatrix;
 
 	public:
 

@@ -46,11 +46,11 @@ namespace XPlatform
 	template<typename K, typename V> using Dictionary = std::map<K, V>;
 	using String = std::string;
 
-	using SimpleAction = std::function<void(void)>;
 	template<typename... A> using Action = std::function<void(A...)>;
 	template<typename... A> using Predicate = std::function<bool(A...)>;
 	template<typename R, typename... A> using Func = std::function<R(A...)>;
 
+	//using SimpleAction = std::function<void(void)>;
 	//using FAction = Action<float>();
 	//using FloatCallback = std::function<void(float)>;
 	//using IGLCallback = std::function<void(Ref<IGL>)>;

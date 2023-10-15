@@ -24,6 +24,9 @@ namespace XPlatform
 		m_PreviousTime = std::chrono::system_clock::now();
 		m_SceneManager = CreateRef<SceneManager>();
 		m_SceneManager->OnCreate();
+
+		m_TextureManager = CreateRef<TextureManager>();
+		m_TextureManager->OnCreate();
 	}
 
 	void Application::OnStart(Ref<Scene> initializeOnLoadScene)
@@ -35,6 +38,7 @@ namespace XPlatform
 	void Application::OnDestroy()
 	{
 		m_SceneManager->OnDestroy();
+		m_TextureManager->OnDestroy();
 	}
 
 	void Application::OnPause()

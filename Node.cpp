@@ -24,7 +24,7 @@ namespace XPlatform
 		std::stringstream stringStream;
 		std::vector<Ref<Node>> nodes;
 
-		auto currentNode = GetRef<Node>();
+		auto currentNode = this->GetRef<Node>();
 		while (currentNode != nullptr)
 		{
 			nodes.push_back(currentNode);
@@ -136,7 +136,7 @@ namespace XPlatform
 		if (childNode == nullptr)
 			return;
 
-		if (childNode->m_Parent == GetRef<Node>())
+		if (childNode->m_Parent == this->GetRef<Node>())
 			return;
 
 		if (childNode->m_Parent != nullptr)
@@ -146,7 +146,7 @@ namespace XPlatform
 		}
 
 		m_Children.emplace_back(childNode);
-		childNode->m_Parent = GetRef<Node>();
+		childNode->m_Parent = this->GetRef<Node>();
 		childNode->SetFullName();
 	}
 
@@ -161,7 +161,7 @@ namespace XPlatform
 
 		m_Children.erase(it);
 
-		if (childNode->m_Parent == GetRef<Node>())
+		if (childNode->m_Parent == this->GetRef<Node>())
 			childNode->m_Parent = nullptr;
 
 		childNode->SetFullName();
@@ -174,7 +174,7 @@ namespace XPlatform
 			auto& childNode = *it;
 			m_Children.erase(it);
 
-			if (childNode->m_Parent == GetRef<Node>())
+			if (childNode->m_Parent == this->GetRef<Node>())
 				childNode->m_Parent = nullptr;
 		}
 	}

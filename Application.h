@@ -3,6 +3,7 @@
 #include "XPlatform.h"
 #include "IGL.h"
 #include "SceneManager.h"
+#include "TextureManager.h"
 
 
 namespace XPlatform
@@ -18,6 +19,7 @@ namespace XPlatform
 		std::chrono::system_clock::time_point m_PreviousTime;
 		Ref<IGL> m_GL;
 		Ref<SceneManager> m_SceneManager;
+		Ref<TextureManager> m_TextureManager;
 
 	public:
 		Application();

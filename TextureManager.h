@@ -12,7 +12,14 @@ namespace XPlatform
 	class TextureManager
 	{
 	private:
+		friend class Application;
+
+	private:
 		std::map<String, Ref<Texture>> m_Textures;
+
+	protected:
+		virtual void OnCreate();
+		virtual void OnDestroy();
 
 	public:
 		TextureManager();

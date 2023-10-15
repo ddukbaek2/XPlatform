@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AndroidMain.cpp" />
+    <ClCompile Include="Asset.cpp" />
     <ClCompile Include="BatchSprite.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Component.cpp" />
@@ -162,13 +163,16 @@
     <ClCompile Include="Win32Socket.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Asset.h" />
     <ClInclude Include="BatchSprite.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="External\loadpng\lodepng.h" />
+    <ClInclude Include="GUIObject.h" />
     <ClInclude Include="IDrawable.h" />
     <ClInclude Include="IGeometry.h" />
+    <ClInclude Include="VGASupport.h" />
     <ClInclude Include="IRenderer.h" />
     <ClInclude Include="ILogger.h" />
     <ClInclude Include="Light.h" />

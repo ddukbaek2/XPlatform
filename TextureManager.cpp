@@ -11,6 +11,15 @@ namespace XPlatform
 	{
 	}
 
+	void TextureManager::OnCreate()
+	{
+	}
+
+	void TextureManager::OnDestroy()
+	{
+	}
+
+
 	void TextureManager::Add(const String& key, Ref<Texture> texture)
 	{
 		auto it = m_Textures.find(key);

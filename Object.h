@@ -10,6 +10,9 @@ namespace XPlatform
 	/////////////////////////////////////////////////////////////////////////////
 	class Object : public std::enable_shared_from_this<Object>
 	{
+	private: 
+		typedef std::enable_shared_from_this<Object> Base;
+
 	private:
 		uint64_t m_ObjectID;
 
@@ -27,8 +30,8 @@ namespace XPlatform
 
 		template<typename T> inline typename std::enable_if<std::is_base_of<Object, T>::value, Ref<T>>::type GetRef()
 		{
-			auto shared = this->shared_from_this();
-			return std::static_pointer_cast<T>(shared);
+			auto shared = Base::shared_from_this();
+			return CastRef<T>(shared);
 		};
 	};
 }

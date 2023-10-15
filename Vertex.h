@@ -3,6 +3,7 @@
 #include "XPlatform.h"
 #include "Vector2.h"
 #include "Vector3.h"
+#include "Color.h"
 
 
 namespace XPlatform
@@ -14,6 +15,7 @@ namespace XPlatform
 	{
 		Vector3 Position;
 		Vector3 Normal;
-		Vector2 TextureCoord;
+		Vector2 UV;
+		Color Color;
 	};
 }
