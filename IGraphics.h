@@ -10,7 +10,6 @@ namespace XPlatform
 	class GLGraphics : public IGraphics
 	{
 	public:
-
 	};
 
 	class IVulkanGraphics : public IGraphics

@@ -6,10 +6,4 @@ namespace XPlatform
 	{
 	public:
 	};
-
-	class IGraphic
-	{
-	public:
-
-	};
 }

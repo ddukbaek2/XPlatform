@@ -29,7 +29,7 @@ namespace XPlatform
 
 	public:
 		void SetMaterial(Ref<Material> material);
-
+		//void SetTransform();
 		//void clear();
 		//void add();
 		//void insert();
