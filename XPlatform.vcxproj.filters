@@ -215,7 +215,7 @@
     <ClInclude Include="GUIObject.h">
       <Filter>XPlatform\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="VGASupport.h">
+    <ClInclude Include="IGraphics.h">
       <Filter>XPlatform\Common</Filter>
     </ClInclude>
   </ItemGroup>

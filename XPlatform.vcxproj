@@ -172,7 +172,7 @@
     <ClInclude Include="GUIObject.h" />
     <ClInclude Include="IDrawable.h" />
     <ClInclude Include="IGeometry.h" />
-    <ClInclude Include="VGASupport.h" />
+    <ClInclude Include="IGraphics.h" />
     <ClInclude Include="IRenderer.h" />
     <ClInclude Include="ILogger.h" />
     <ClInclude Include="Light.h" />
