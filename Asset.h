@@ -11,6 +11,14 @@ namespace XPlatform
 	private:
 		typedef Object Base;
 
+	private:
+		uint64_t m_GUID;
+		String m_AssetPath;
+		String m_AssetName;
+
+		Ref<Asset> m_Parent;
+		std::vector<Ref<Asset>> m_Children;
+
 	protected:
 		virtual void OnCreate() override;
 		virtual void OnDestroy() override;
@@ -30,6 +38,9 @@ namespace XPlatform
 			return asset;
 		};
 
+		static void UnloadAsset(Ref<Asset> asset);
 		static void SaveAsset(const String& assetPath, Ref<Asset> asset);
+		static bool IsValid(Ref<Asset> asset);
+		static bool IsLoaded(Ref<Asset> asset);
 	};
 }

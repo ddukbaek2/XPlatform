@@ -15,6 +15,7 @@
 #include <sstream>
 #include <cstdarg> // va_start, va_end, va_arg.
 #include <thread>
+#include <future>
 #include <iomanip> // std::setw, std::setfill
 #include <cmath>
 

@@ -61,7 +61,7 @@ namespace XPlatform
 		m_SceneManager->OnRender(gl);
 	}
 
-	void Application::OnMainLoop()
+	void Application::UpdateApplication()
 	{ 
 		auto gl = GetGL();
 		auto currentTime = std::chrono::system_clock::now();

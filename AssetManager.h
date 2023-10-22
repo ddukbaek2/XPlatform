@@ -1,34 +1,35 @@
-ï»¿#pragma once
+#pragma once
 
 #include "XPlatform.h"
-#include "Texture.h"
+#include "Asset.h"
+
 
 
 namespace XPlatform
 {
 	/////////////////////////////////////////////////////////////////////////////
-	// @ í…ìŠ¤ì³ ë§¤ë‹ˆì €.
+	// @ ¾î¼Â ¸Å´ÏÀú.
 	/////////////////////////////////////////////////////////////////////////////
-	class TextureManager
+	class AssetManager
 	{
 	private:
 		friend class Application;
 
 	private:
-		std::map<String, Ref<Texture>> m_Textures;
+		std::map<String, Ref<Asset>> m_Textures;
 
 	protected:
 		virtual void OnCreate();
 		virtual void OnDestroy();
 
 	public:
-		TextureManager();
-		virtual ~TextureManager();
+		AssetManager();
+		virtual ~AssetManager();
 
-		void Add(const String& key, Ref<Texture> texture);
+		void Add(const String& key, Ref<Asset> texture);
 		void Remove(const String& key);
 
-		Ref<Texture> Get(const String& key);
-		bool Contains(const String& key);
+		Ref<Asset> Get(const String& key);
+		bool Exists(const String& key);
 	};
 }

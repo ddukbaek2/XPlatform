@@ -161,12 +161,6 @@
     <ClInclude Include="XPlatform.h">
       <Filter>XPlatform</Filter>
     </ClInclude>
-    <ClInclude Include="ISocket.h">
-      <Filter>XPlatform\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="IGL.h">
-      <Filter>XPlatform\Common</Filter>
-    </ClInclude>
     <ClInclude Include="StringHelper.h">
       <Filter>XPlatform\Base</Filter>
     </ClInclude>
@@ -176,23 +170,14 @@
     <ClInclude Include="ILogger.h">
       <Filter>XPlatform\Common</Filter>
     </ClInclude>
-    <ClInclude Include="IRenderer.h">
-      <Filter>XPlatform\Common</Filter>
-    </ClInclude>
     <ClInclude Include="Object.h">
       <Filter>XPlatform\Common</Filter>
     </ClInclude>
     <ClInclude Include="Application.h">
       <Filter>XPlatform\Platform</Filter>
     </ClInclude>
-    <ClInclude Include="IDrawable.h">
-      <Filter>XPlatform\Common</Filter>
-    </ClInclude>
     <ClInclude Include="Material.h">
       <Filter>XPlatform\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="IGeometry.h">
-      <Filter>XPlatform\Common</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
       <Filter>XPlatform\Rendering</Filter>
@@ -215,7 +200,22 @@
     <ClInclude Include="GUIObject.h">
       <Filter>XPlatform\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="ISocket.h">
+      <Filter>XPlatform\Network</Filter>
+    </ClInclude>
     <ClInclude Include="IGraphics.h">
+      <Filter>XPlatform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="IGL.h">
+      <Filter>XPlatform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="IGeometry.h">
+      <Filter>XPlatform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="IDrawable.h">
+      <Filter>XPlatform\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderer.h">
       <Filter>XPlatform\Common</Filter>
     </ClInclude>
   </ItemGroup>
@@ -276,6 +276,9 @@
     </Filter>
     <Filter Include="XPlatform\External\lodepng">
       <UniqueIdentifier>{eaa56c69-d822-45fb-85ed-a1972448336e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XPlatform\Graphics">
+      <UniqueIdentifier>{29c4e4fc-317b-4511-9fc2-55f854c36cdd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

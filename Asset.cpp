@@ -13,8 +13,22 @@ namespace XPlatform
 		Base::OnDestroy();
 	}
 
+	void Asset::UnloadAsset(Ref<Asset> asset)
+	{
+	}
+
 	void Asset::SaveAsset(const String& assetPath, Ref<Asset> asset)
 	{
 
+	}
+
+	bool Asset::IsValid(Ref<Asset> asset)
+	{
+		return true;
+	}
+
+	bool Asset::IsLoaded(Ref<Asset> asset)
+	{
+		return true;
 	}
 }

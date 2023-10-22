@@ -33,9 +33,10 @@ namespace XPlatform
 		virtual void OnResume();
 		virtual void OnUpdate(float deltaTime);
 		virtual void OnRender(Ref<IGL> gl);
-		virtual void OnMainLoop();
-
+		
 	public:
+		void UpdateApplication();
+
 		void SetGL(Ref<IGL> gl);
 		Ref<IGL> GetGL();
 		bool IsPlaying();

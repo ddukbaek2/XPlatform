@@ -119,7 +119,7 @@ namespace XPlatform
 			}
 			else
 			{
-				Base::OnMainLoop();
+				Base::UpdateApplication();
 				Sleep(1);
 			}
 		}
